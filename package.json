@@ -1,7 +1,7 @@
 {
   "name": "@uiw/react-markdown-preview",
   "version": "1.0.0",
-  "description": "React component preview markdown text in web browser.",
+  "description": "React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub Markdown style.",
   "homepage": "https://uiwjs.github.io/react-markdown-preview/",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
