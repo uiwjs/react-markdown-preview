@@ -10,7 +10,7 @@ import MDStr from '../README.md';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <GitHubCorners target="__blank" href="https://github.com/uiwjs/react-markdown-preview" />
+      <GitHubCorners fixed target="__blank" href="https://github.com/uiwjs/react-markdown-preview" />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <a href="https://github.com/uiwjs/react-markdown-preview" target="_blank" rel="noopener noreferrer">
