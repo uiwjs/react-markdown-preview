@@ -27,7 +27,7 @@ const App: React.FC = () => {
           <Github.Social type="stars" href="https://github.com/uiwjs/react-markdown-preview/stargazers" />
           <Github.Social type="watchers" href="https://github.com/uiwjs/react-markdown-preview/watchers" />
         </Github>
-        <Npm.Version scope="@uiw" packageName="react-shields" />
+        <Npm.Version scope="@uiw" packageName="react-shields" href="https://www.npmjs.com/package/@uiw/react-markdown-preview" />
       </div>
     </div>
   );
