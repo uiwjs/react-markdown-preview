@@ -7,7 +7,7 @@ React Markdown Preview
 [![](https://img.shields.io/github/release/uiwjs/react-markdown-preview)](https://github.com/uiwjs/react-markdown-preview/releases)
 [![](https://img.shields.io/npm/v/@uiw/react-markdown-preview.svg)](https://www.npmjs.com/package/@uiw/react-markdown-preview)
 
-React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub Markdown style. The current document is converted using this tool.
+React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub Markdown style. The current document is converted using this react component.
 
 ## Quick Start
 
