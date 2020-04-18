@@ -1,5 +1,6 @@
 React Markdown Preview
 ===
+<!--dividing-->
 
 [![](https://img.shields.io/github/issues/uiwjs/react-markdown-preview.svg)](https://github.com/uiwjs/react-markdown-preview/issues)
 [![](https://img.shields.io/github/forks/uiwjs/react-markdown-preview.svg)](https://github.com/uiwjs/react-markdown-preview/network)

@@ -50,3 +50,8 @@ body {
   padding: 16px;
   border-radius: 5px;
 }
+
+.App-footer {
+  text-align: center;
+  padding-top: 30px;
+}
