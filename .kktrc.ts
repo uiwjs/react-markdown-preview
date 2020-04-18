@@ -1,14 +1,14 @@
 import path from 'path';
-import { OptionConf } from 'kkt';
+import { OptionConf, ModuleScopePluginOpts, LoaderOneOf } from 'kkt';
 import webpack from 'webpack';
 
 type Webpack = typeof webpack;
 
-export const loaderOneOf = [
+export const loaderOneOf: LoaderOneOf = [
   require.resolve('@kkt/loader-less')
 ];
 
-export const moduleScopePluginOpts = [
+export const moduleScopePluginOpts: ModuleScopePluginOpts = [
   path.resolve(process.cwd(), 'README.md')
 ];
 
