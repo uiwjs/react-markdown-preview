@@ -31,7 +31,9 @@ body {
 .App-header p {
   margin-bottom: 10px;
   padding: 10px 10px 10px 10px;
-  max-width: 460px;
+  max-width: 560px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .App-header a {
@@ -44,8 +46,6 @@ body {
   font-size: calc(10px + 2vmin);
   max-width: 820px;
   overflow: auto;
-  white-space: pre-wrap;
-  word-wrap: break-word;
   background-color: #fff;
   padding: 16px;
   border-radius: 5px;
