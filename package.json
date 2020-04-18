@@ -59,7 +59,7 @@
     "raw-loader": "4.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "tsbb": "1.6.2"
+    "tsbb": "1.7.1"
   },
   "eslintConfig": {
     "extends": "react-app"
