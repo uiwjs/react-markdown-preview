@@ -5,7 +5,8 @@ import webpack from 'webpack';
 type Webpack = typeof webpack;
 
 export const loaderOneOf: LoaderOneOf = [
-  require.resolve('@kkt/loader-less')
+  require.resolve('@kkt/loader-less'),
+  require.resolve('@kkt/loader-raw')
 ];
 
 export const moduleScopePluginOpts: ModuleScopePluginOpts = [
@@ -14,17 +15,7 @@ export const moduleScopePluginOpts: ModuleScopePluginOpts = [
 
 export default (conf: webpack.Configuration, opts: OptionConf, webpack: Webpack) => {
   const pkg = require(path.resolve(process.cwd(), 'package.json'));
-  // Webpack parses md file text
-  conf.module!.rules.map((item) => {
-    if (item.oneOf) {
-      item.oneOf.unshift({
-        test: /\.md$/,
-        use: require.resolve('raw-loader'),
-      });
-    }
-    return item;
-  });
-
+  
   // Get the project version.
   conf.plugins!.push(
     new webpack.DefinePlugin({
