@@ -8,6 +8,19 @@ import { loadLang } from './langs';
 import './styles/markdown.less';
 import './styles/markdowncolor.less';
 
+export type {
+  ReactMarkdownProps,
+  MarkdownAbstractSyntaxTree,
+  NodeType,
+  RemarkParseOptions,
+  Position,
+  Point,
+  AlignType,
+  ReferenceType,
+  LinkTargetResolver,
+  Renderers,
+} from 'react-markdown';
+
 export interface IMarkdownPreviewProps extends Omit<ReactMarkdownProps, 'className'> {
   prefixCls?: string;
   className?: string;
