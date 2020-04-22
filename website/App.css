@@ -41,10 +41,8 @@ body {
 }
 
 .App-markdown {
-  margin: 0 auto;
   text-align: left;
   font-size: calc(10px + 2vmin);
-  max-width: 820px;
   overflow: auto;
   background-color: #fff;
   padding: 16px;
@@ -54,4 +52,32 @@ body {
 .App-footer {
   text-align: center;
   padding-top: 30px;
+}
+
+.App-editor, .App-markdown {
+  margin: 0 auto;
+  max-width: 820px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.App-editor {
+  padding-bottom: 30px;
+}
+
+.App-editor textarea {
+  border-radius: 5px;
+  max-width: 100%;
+  min-width: 100%;
+  padding: 5px;
+  display: block;
+  min-height: 120px;
+}
+
+.App-editor-preview {
+  margin-top: 10px;
+  padding: 16px;
+  border-radius: 5px;
+  min-height: 60px;
+  background-color: #fff;
 }
