@@ -7,10 +7,10 @@
   "module": "lib/esm/index.js",
   "scripts": {
     "prepare": "npm run build",
-    "released": "npm run build && npm run doc",
     "doc": "ENTRYDIR=website kkt build",
     "doc:dev": "ENTRYDIR=website kkt start",
-    "build": "npm run ts:build && npm run types:esm && npm run types:cjs && npm run css:build && npm run css:build:dist",
+    "build": "npm run build:lib && npm run doc",
+    "build:lib": "npm run ts:build && npm run types:esm && npm run types:cjs && npm run css:build && npm run css:build:dist",
     "watch": "npm run ts:watch & npm run types:watch",
     "types:build": "tsbb types --sourceRoot src --target ESNEXT",
     "types:watch": "npm run types:esm -- --watch & npm run types:cjs -- --watch",
