@@ -1,0 +1,2 @@
+(this["webpackJsonp@uiw/react-markdown-preview"]=this["webpackJsonp@uiw/react-markdown-preview"]||[]).push([[130],{173:function(m,e){Prism.languages.git={comment:/^#.*/m,deleted:/^[-\u2013].*/m,inserted:/^\+.*/m,string:/("|')(?:\\.|(?!\1)[^\\\r\n])*\1/m,command:{pattern:/^.*\$ git .*$/m,inside:{parameter:/\s--?\w+/m}},coord:/^@@.*@@$/m,commit_sha1:/^commit \w{40}$/m}}}]);
+//# sourceMappingURL=130.33985c52.chunk.js.map
