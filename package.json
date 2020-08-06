@@ -43,7 +43,7 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@types/prismjs": "1.16.0",
+    "@types/prismjs": "1.16.1",
     "@babel/runtime": "7.9.2",
     "classnames": "2.2.6",
     "prismjs": "1.21.0",
