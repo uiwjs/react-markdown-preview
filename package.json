@@ -50,8 +50,8 @@
     "react-markdown": "4.3.1"
   },
   "devDependencies": {
-    "@kkt/loader-less": "5.8.0",
-    "@kkt/loader-raw": "5.8.0",
+    "@kkt/loader-less": "5.9.0",
+    "@kkt/loader-raw": "5.9.0",
     "@types/classnames": "2.2.10",
     "@types/react": "16.9.34",
     "@types/react-dom": "16.9.6",
@@ -59,7 +59,7 @@
     "@uiw/react-shields": "1.1.0",
     "@uiw/reset.css": "1.0.4",
     "compile-less-cli": "1.4.0",
-    "kkt": "5.8.0",
+    "kkt": "5.9.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "tsbb": "1.7.4"
