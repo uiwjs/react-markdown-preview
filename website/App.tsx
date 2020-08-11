@@ -7,6 +7,8 @@ import './App.css';
 import MarkdownPreview from '../';
 import MDStr from '../README.md';
 
+let val = 1;
+
 export default () => {
   const [value, setValue] = useState('');
   return (
@@ -21,6 +23,9 @@ export default () => {
           React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub Markdown style.
         </p>
       </header>
+      <button onClick={() => {
+        setValue('# 333' + val++)
+      }}>set value</button>
       <div className="App-editor">
         <textarea
           placeholder="Please enter the Markdown code!"

@@ -48,16 +48,12 @@ export default class MarkdownPreview extends Component<IMarkdownPreviewProps, IM
   componentDidMount() {
     this.highlight();
   }
-  UNSAFE_componentWillReceiveProps(nextProps: IMarkdownPreviewProps) {
-    if (nextProps.source !== this.props.source) {
-      this.setState({ value: nextProps.source }, () => {
+  componentDidUpdate(prevProps: IMarkdownPreviewProps) {
+    if (this.props.source !== prevProps.source) {
+      this.setState({ value: this.props.source }, () => {
         this.highlight();
       });
     }
-  }
-  public shouldComponentUpdate(nextProps: IMarkdownPreviewProps, nextState: IMarkdownPreviewState) {
-    return nextProps.source !== this.props.source
-      || nextState.value !== this.state.value;
   }
   public renderHTML(mdStr?: string) {
     this.setState({ value: mdStr }, () => {
