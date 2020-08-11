@@ -45,14 +45,12 @@
   "dependencies": {
     "@babel/runtime": "7.11.2",
     "@types/prismjs": "1.16.1",
-    "classnames": "2.2.6",
     "prismjs": "1.21.0",
     "react-markdown": "4.3.1"
   },
   "devDependencies": {
     "@kkt/loader-less": "5.9.0",
     "@kkt/loader-raw": "5.9.0",
-    "@types/classnames": "2.2.10",
     "@types/react": "16.9.45",
     "@types/react-dom": "16.9.8",
     "@uiw/react-github-corners": "1.2.0",

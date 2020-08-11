@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import classnames from 'classnames';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-markup';
 import ReactMarkdown, { ReactMarkdownProps } from 'react-markdown';
@@ -79,7 +78,7 @@ export default class MarkdownPreview extends Component<IMarkdownPreviewProps, IM
   }
   render() {
     const { className, style, onScroll, onMouseOver, ...other } = this.props;
-    const cls = classnames(className, 'wmde-markdown', 'wmde-markdown-color');
+    const cls = `wmde-markdown wmde-markdown-color ${className || ''}`;
     return (
       <div ref={this.mdp} onScroll={onScroll} style={style} onMouseOver={onMouseOver} className={cls} >
         <ReactMarkdown escapeHtml={false} allowNode={allowNode} {...other} source={this.state.value} />
