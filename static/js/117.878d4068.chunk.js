@@ -1,0 +1,2 @@
+(this["webpackJsonp@uiw/react-markdown-preview"]=this["webpackJsonp@uiw/react-markdown-preview"]||[]).push([[117],{163:function(a,e){var n;(n=Prism).languages.etlua={delimiter:{pattern:/^<%[-=]?|-?%>$/,alias:"punctuation"},"language-lua":{pattern:/[\s\S]+/,inside:n.languages.lua}},n.hooks.add("before-tokenize",(function(a){n.languages["markup-templating"].buildPlaceholders(a,"etlua",/<%[\s\S]+?%>/g)})),n.hooks.add("after-tokenize",(function(a){n.languages["markup-templating"].tokenizePlaceholders(a,"etlua")}))}}]);
+//# sourceMappingURL=117.878d4068.chunk.js.map

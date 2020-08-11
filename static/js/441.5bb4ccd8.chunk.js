@@ -1,2 +1,0 @@
-(this["webpackJsonp@uiw/react-markdown-preview"]=this["webpackJsonp@uiw/react-markdown-preview"]||[]).push([[441],{488:function(e,a){!function(e){function a(a,n){e.languages[a]&&e.languages.insertBefore(a,"comment",{"doc-comment":n})}var n=e.languages.markup.tag,t={pattern:/\/\/\/.*/,greedy:!0,alias:"comment",inside:{tag:n}},i={pattern:/'''.*/,greedy:!0,alias:"comment",inside:{tag:n}};a("csharp",t),a("fsharp",t),a("vbnet",i)}(Prism)}}]);
-//# sourceMappingURL=441.5bb4ccd8.chunk.js.map
