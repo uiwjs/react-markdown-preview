@@ -51,7 +51,7 @@
   "devDependencies": {
     "@kkt/loader-less": "5.9.0",
     "@kkt/loader-raw": "5.9.0",
-    "@types/react": "16.9.45",
+    "@types/react": "16.9.46",
     "@types/react-dom": "16.9.8",
     "@uiw/react-github-corners": "1.2.0",
     "@uiw/react-shields": "1.1.0",
