@@ -23,10 +23,10 @@ export default () => {
           React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub Markdown style.
         </p>
       </header>
-      <button onClick={() => {
-        setValue('# 333' + val++)
-      }}>set value</button>
       <div className="App-editor">
+        <button onClick={() => {
+          setValue('# 333' + val++)
+        }}>set value</button>
         <textarea
           placeholder="Please enter the Markdown code!"
           value={value}

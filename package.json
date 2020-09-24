@@ -8,7 +8,7 @@
   "scripts": {
     "prepare": "npm run build",
     "doc": "ENTRYDIR=website kkt build",
-    "doc:dev": "ENTRYDIR=website kkt start",
+    "start": "ENTRYDIR=website kkt start",
     "build": "npm run build:lib && npm run doc",
     "build:lib": "npm run ts:build && npm run types:esm && npm run types:cjs && npm run css:build && npm run css:build:dist",
     "watch": "npm run ts:watch & npm run types:watch",
