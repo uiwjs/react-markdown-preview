@@ -1,88 +1,69 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
+import ReactMarkdown, { ReactMarkdownProps } from 'react-markdown';
+import gfm from 'remark-gfm';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-markup';
-import ReactMarkdown, { ReactMarkdownProps } from 'react-markdown';
-import allowNode from './allowNode';
 import { loadLang } from './langs';
 import './styles/markdown.less';
 import './styles/markdowncolor.less';
 
-export type {
-  ReactMarkdownProps,
-  MarkdownAbstractSyntaxTree,
-  NodeType,
-  RemarkParseOptions,
-  Position,
-  Point,
-  AlignType,
-  ReferenceType,
-  LinkTargetResolver,
-  Renderers,
-} from 'react-markdown';
-
-export interface IMarkdownPreviewProps extends Omit<ReactMarkdownProps, 'className'> {
-  prefixCls?: string;
+export type MarkdownPreviewProps = {
   className?: string;
+  source?: string;
   style?: React.CSSProperties;
   onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
   onMouseOver?: (e: React.MouseEvent<HTMLDivElement>) => void;
-}
+} & ReactMarkdownProps;
 
-export interface IMarkdownPreviewState {
-  value?: string;
-}
+const MarkdownPreview: React.FC<MarkdownPreviewProps> = (props = {} as ReactMarkdownProps) => {
+  const { className, source, style, onScroll, onMouseOver, ...other  } = props;
+  const mdp = React.createRef<HTMLDivElement>();
+  const loadedLang = React.useRef<string[]>(['markup']);
+  useEffect(() => {
+    highlight();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [source]);
 
-export default class MarkdownPreview extends Component<IMarkdownPreviewProps, IMarkdownPreviewState> {
-  public mdp = React.createRef<HTMLDivElement>();
-  public loadedLang: string[] = ['markup'];
-  public static defaultProps: IMarkdownPreviewProps = {
-    renderers: {},
-  }
-  public constructor(props: IMarkdownPreviewProps) {
-    super(props);
-    this.state = {
-      value: '' || props.source,
-    };
-  }
-  componentDidMount() {
-    this.highlight();
-  }
-  componentDidUpdate(prevProps: IMarkdownPreviewProps) {
-    if (this.props.source !== prevProps.source) {
-      this.setState({ value: this.props.source }, () => {
-        this.highlight();
-      });
-    }
-  }
-  public renderHTML(mdStr?: string) {
-    this.setState({ value: mdStr }, () => {
-      this.highlight();
-    });
-  }
-  public async highlight() {
-    if (!this.mdp.current) return;
-    const codes = this.mdp.current.getElementsByTagName('code') as unknown as HTMLElement[];
-    for (const value of codes) {
-      const tag = value.parentNode as HTMLElement;
-      if (tag && tag.tagName === 'PRE' && /^language-/.test(value.className.trim())) {
-        const lang = value.className.trim().replace(/^language-/, '');
+  async function highlight() {
+    if (!mdp.current) return;
+    const codes = mdp.current.getElementsByTagName('code') as unknown as HTMLElement[];
+    for (const val of codes) {
+      const tag = val.parentNode as HTMLElement;
+      if (tag && tag.tagName === 'PRE' && /^language-/.test(val.className.trim())) {
+        const lang = val.className.trim().replace(/^language-/, '');
         try {
-          if (!this.loadedLang.includes(lang as never)) {
-            this.loadedLang.push(lang);
+          if (!loadedLang.current.includes(lang as never)) {
+            loadedLang.current.push(lang);
             await loadLang(lang);
           }
-          await Prism.highlightElement(value);
+          await Prism.highlightElement(val);
         } catch (error) { }
       }
     }
   }
-  render() {
-    const { className, style, onScroll, onMouseOver, ...other } = this.props;
-    const cls = `wmde-markdown wmde-markdown-color ${className || ''}`;
-    return (
-      <div ref={this.mdp} onScroll={onScroll} style={style} onMouseOver={onMouseOver} className={cls} >
-        <ReactMarkdown escapeHtml={false} allowNode={allowNode} {...other} source={this.state.value} />
-      </div>
-    );
-  }
+
+  const cls = `wmde-markdown wmde-markdown-color ${className || ''}`;
+  const reactMarkdownProps = {
+    allowDangerousHtml: true,
+    ...other,
+    plugins: [gfm,  ...(other.plugins || [])],
+    allowNode: (node, index, parent) => {
+      const nodeany = node;
+      if (nodeany.type === 'html' && reactMarkdownProps.allowDangerousHtml) {
+        // filter style
+        node.value = (node.value as string).replace(/<((style|script|link|input|form)|\/(style|script|link|input|form))(\s?[^>]*>)/gi, (a: string) => {
+          return a.replace(/[<>]/g, (e: string) => (({ '<': '&lt;', '>': '&gt;' } as { [key: string]: string })[e]))
+        });
+      }
+      return true;
+    },
+    source: source || '',
+  } as ReactMarkdownProps;
+  return (
+    <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} className={cls} style={style}>
+      <ReactMarkdown {...reactMarkdownProps} />
+    </div>
+  );
 }
+
+export default MarkdownPreview;
