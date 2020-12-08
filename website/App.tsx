@@ -4,13 +4,14 @@ import Github from '@uiw/react-shields/lib/esm/github';
 import Npm from '@uiw/react-shields/lib/esm/npm';
 import logo from './logo.svg';
 import './App.css';
-import MarkdownPreview from '../';
+import MarkdownPreview, { MarkdownPreviewRef } from '../';
 import MDStr from '../README.md';
 
 let val = 1;
 
 export default () => {
   const [value, setValue] = useState('');
+  const ref = React.createRef<MarkdownPreviewRef>();
   return (
     <div className="App">
       <GitHubCorners zIndex={9999} fixed target="__blank" href="https://github.com/uiwjs/react-markdown-preview" />
@@ -24,15 +25,14 @@ export default () => {
         </p>
       </header>
       <div className="App-editor">
-        <button onClick={() => {
-          setValue('# 333' + val++)
-        }}>set value</button>
+        <button onClick={() => setValue('# Markdown ' + val++)}>set value</button>
+        
         <textarea
           placeholder="Please enter the Markdown code!"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        {value && <MarkdownPreview className="App-editor-preview" source={value} />}
+        <MarkdownPreview ref={ref} className="App-editor-preview" source={value} />
       </div>
       <MarkdownPreview className="App-markdown" source={MDStr.replace(/([\s\S]*)<!--dividing-->/, '')} />
       <div className="App-footer">

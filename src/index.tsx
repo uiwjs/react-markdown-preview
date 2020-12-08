@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useImperativeHandle } from 'react';
 import ReactMarkdown, { ReactMarkdownProps } from 'react-markdown';
 import gfm from 'remark-gfm';
 import Prism from 'prismjs';
@@ -15,8 +15,13 @@ export type MarkdownPreviewProps = {
   onMouseOver?: (e: React.MouseEvent<HTMLDivElement>) => void;
 } & ReactMarkdownProps;
 
-const MarkdownPreview: React.FC<MarkdownPreviewProps> = (props = {} as ReactMarkdownProps) => {
-  const { className, source, style, onScroll, onMouseOver, ...other  } = props;
+export type MarkdownPreviewRef = {
+  mdp: React.RefObject<HTMLDivElement>;
+  lang: string[],
+} & MarkdownPreviewProps;
+
+export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props, ref) => {
+  const { className, source, style, onScroll, onMouseOver, ...other  } = props || {};
   const mdp = React.createRef<HTMLDivElement>();
   const loadedLang = React.useRef<string[]>(['markup']);
   useEffect(() => {
@@ -42,14 +47,13 @@ const MarkdownPreview: React.FC<MarkdownPreviewProps> = (props = {} as ReactMark
     }
   }
 
+  useImperativeHandle(ref, () => ({ ...props, lang: loadedLang.current, mdp }), [mdp, props]);
+
   const cls = `wmde-markdown wmde-markdown-color ${className || ''}`;
   const reactMarkdownProps = {
     allowDangerousHtml: true,
-    ...other,
-    plugins: [gfm,  ...(other.plugins || [])],
     allowNode: (node, index, parent) => {
-      const nodeany = node;
-      if (nodeany.type === 'html' && reactMarkdownProps.allowDangerousHtml) {
+      if (node.type === 'html' && reactMarkdownProps.allowDangerousHtml) {
         // filter style
         node.value = (node.value as string).replace(/<((style|script|link|input|form)|\/(style|script|link|input|form))(\s?[^>]*>)/gi, (a: string) => {
           return a.replace(/[<>]/g, (e: string) => (({ '<': '&lt;', '>': '&gt;' } as { [key: string]: string })[e]))
@@ -57,6 +61,8 @@ const MarkdownPreview: React.FC<MarkdownPreviewProps> = (props = {} as ReactMark
       }
       return true;
     },
+    ...other,
+    plugins: [gfm,  ...(other.plugins || [])],
     source: source || '',
   } as ReactMarkdownProps;
   return (
@@ -64,6 +70,4 @@ const MarkdownPreview: React.FC<MarkdownPreviewProps> = (props = {} as ReactMark
       <ReactMarkdown {...reactMarkdownProps} />
     </div>
   );
-}
-
-export default MarkdownPreview;
+});
