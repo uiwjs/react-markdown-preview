@@ -47,7 +47,7 @@
     "@types/prismjs": "1.16.2",
     "prismjs": "1.22.0",
     "remark-gfm": "1.0.0",
-    "react-markdown": "5.0.2"
+    "react-markdown": "5.0.3"
   },
   "devDependencies": {
     "@kkt/loader-less": "5.10.3",
