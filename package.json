@@ -58,7 +58,7 @@
     "@uiw/react-shields": "1.1.0",
     "@uiw/reset.css": "1.0.4",
     "compile-less-cli": "1.5.1",
-    "kkt": "5.10.3",
+    "kkt": "5.11.1",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "tsbb": "1.7.8"
