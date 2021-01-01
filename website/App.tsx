@@ -9,7 +9,7 @@ import MDStr from '../README.md';
 
 let val = 1;
 
-export default () => {
+const App = () => {
   const [value, setValue] = useState('');
   const ref = React.createRef<MarkdownPreviewRef>();
   return (
@@ -47,3 +47,4 @@ export default () => {
   );
 }
 
+export default App;
