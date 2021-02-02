@@ -7,6 +7,7 @@ React Markdown Preview
 [![](https://img.shields.io/github/stars/uiwjs/react-markdown-preview.svg)](https://github.com/uiwjs/react-markdown-preview/stargazers)
 [![](https://img.shields.io/github/release/uiwjs/react-markdown-preview)](https://github.com/uiwjs/react-markdown-preview/releases)
 [![](https://img.shields.io/npm/v/@uiw/react-markdown-preview.svg)](https://www.npmjs.com/package/@uiw/react-markdown-preview)
+[![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-markdown-preview/file/README.md)
 
 React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub Markdown style. The current [document website](https://uiwjs.github.io/react-markdown-preview/) is converted using this react component.
 
@@ -17,6 +18,8 @@ $ npm install @uiw/react-markdown-preview --save
 ```
 
 ## Usage Example
+
+[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/embed/react-markdown-preview-co1mj?fontsize=14&hidenavigation=1&theme=dark)
 
 ```js
 import MarkdownPreview from '@uiw/react-markdown-preview';
