@@ -62,8 +62,8 @@
     "@uiw/reset.css": "1.0.4",
     "compile-less-cli": "1.7.0",
     "kkt": "6.6.2",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "tsbb": "2.0.7"
   },
   "eslintConfig": {
