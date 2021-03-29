@@ -17,9 +17,39 @@ jobs:
     - run: npm install
     - run: npm run build
 
-    - name: Build and Deploy
-      uses: peaceiris/actions-gh-pages@v2.5.0
+    - name: Create Tag
+      id: create_tag
+      uses: jaywcjlove/create-tag-action@v1.1.7
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        package-path: ./package.json
+
+    - name: Generate Changelog
+      id: changelog
+      uses: jaywcjlove/changelog-generator@v1.3.9
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        head-ref: ${{steps.create_tag.outputs.version}}
+        filter-author: (jaywcjlove|小弟调调™|dependabot\[bot\]|Renovate Bot)
+        filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@latest
+      if: steps.create_tag.outputs.successful
       env:
-        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./build
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.create_tag.outputs.version }}
+        release_name: ${{ steps.create_tag.outputs.version }}
+        body: |
+          ${{ steps.changelog.outputs.compareurl }}
+          ${{ steps.changelog.outputs.changelog }}
+        draft: false
+        prerelease: false
