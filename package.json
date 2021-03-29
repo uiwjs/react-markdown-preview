@@ -44,8 +44,8 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.12.5",
-    "@types/prismjs": "1.16.2",
+    "@babel/runtime": "7.13.10",
+    "@types/prismjs": "1.16.4",
     "prismjs": "1.23.0",
     "remark-gfm": "1.0.0",
     "react-markdown": "5.0.3"
