@@ -2,24 +2,24 @@
   "files": {
     "prismjs-vendor.js": "/react-markdown-preview/static/js/prismjs-vendor.2d16d2d9.chunk.js",
     "prismjs-vendor.js.map": "/react-markdown-preview/static/js/prismjs-vendor.2d16d2d9.chunk.js.map",
-    "main.css": "/react-markdown-preview/static/css/main.5c50e1a2.chunk.css",
-    "main.js": "/react-markdown-preview/static/js/main.55e906c1.chunk.js",
-    "main.js.map": "/react-markdown-preview/static/js/main.55e906c1.chunk.js.map",
-    "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.be7843d6.chunk.js",
-    "react-vendor.js.map": "/react-markdown-preview/static/js/react-vendor.be7843d6.chunk.js.map",
+    "main.css": "/react-markdown-preview/static/css/main.5fd94eef.chunk.css",
+    "main.js": "/react-markdown-preview/static/js/main.8820d259.chunk.js",
+    "main.js.map": "/react-markdown-preview/static/js/main.8820d259.chunk.js.map",
+    "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.5b9d1859.chunk.js",
+    "react-vendor.js.map": "/react-markdown-preview/static/js/react-vendor.5b9d1859.chunk.js.map",
     "runtime-main.js": "/react-markdown-preview/static/js/runtime-main.57d0c666.js",
     "runtime-main.js.map": "/react-markdown-preview/static/js/runtime-main.57d0c666.js.map",
     "index.html": "/react-markdown-preview/index.html",
-    "static/css/main.5c50e1a2.chunk.css.map": "/react-markdown-preview/static/css/main.5c50e1a2.chunk.css.map",
-    "static/js/main.55e906c1.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/main.55e906c1.chunk.js.LICENSE.txt",
+    "static/css/main.5fd94eef.chunk.css.map": "/react-markdown-preview/static/css/main.5fd94eef.chunk.css.map",
+    "static/js/main.8820d259.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/main.8820d259.chunk.js.LICENSE.txt",
     "static/js/prismjs-vendor.2d16d2d9.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/prismjs-vendor.2d16d2d9.chunk.js.LICENSE.txt",
-    "static/js/react-vendor.be7843d6.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/react-vendor.be7843d6.chunk.js.LICENSE.txt",
+    "static/js/react-vendor.5b9d1859.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/react-vendor.5b9d1859.chunk.js.LICENSE.txt",
     "static/media/logo.3931a054.svg": "/react-markdown-preview/static/media/logo.3931a054.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.57d0c666.js",
-    "static/js/react-vendor.be7843d6.chunk.js",
-    "static/css/main.5c50e1a2.chunk.css",
-    "static/js/main.55e906c1.chunk.js"
+    "static/js/react-vendor.5b9d1859.chunk.js",
+    "static/css/main.5fd94eef.chunk.css",
+    "static/js/main.8820d259.chunk.js"
   ]
 }
