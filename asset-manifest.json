@@ -2,7 +2,7 @@
   "files": {
     "prismjs-vendor.js": "/react-markdown-preview/static/js/prismjs-vendor.e2741265.chunk.js",
     "prismjs-vendor.js.map": "/react-markdown-preview/static/js/prismjs-vendor.e2741265.chunk.js.map",
-    "main.css": "/react-markdown-preview/static/css/main.0b9b67a8.chunk.css",
+    "main.css": "/react-markdown-preview/static/css/main.41f0c8a8.chunk.css",
     "main.js": "/react-markdown-preview/static/js/main.02571a92.chunk.js",
     "main.js.map": "/react-markdown-preview/static/js/main.02571a92.chunk.js.map",
     "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.44ee4289.chunk.js",
@@ -10,7 +10,7 @@
     "runtime-main.js": "/react-markdown-preview/static/js/runtime-main.65b98524.js",
     "runtime-main.js.map": "/react-markdown-preview/static/js/runtime-main.65b98524.js.map",
     "index.html": "/react-markdown-preview/index.html",
-    "static/css/main.0b9b67a8.chunk.css.map": "/react-markdown-preview/static/css/main.0b9b67a8.chunk.css.map",
+    "static/css/main.41f0c8a8.chunk.css.map": "/react-markdown-preview/static/css/main.41f0c8a8.chunk.css.map",
     "static/js/main.02571a92.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/main.02571a92.chunk.js.LICENSE.txt",
     "static/js/prismjs-vendor.e2741265.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/prismjs-vendor.e2741265.chunk.js.LICENSE.txt",
     "static/js/react-vendor.44ee4289.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/react-vendor.44ee4289.chunk.js.LICENSE.txt",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.65b98524.js",
     "static/js/react-vendor.44ee4289.chunk.js",
-    "static/css/main.0b9b67a8.chunk.css",
+    "static/css/main.41f0c8a8.chunk.css",
     "static/js/main.02571a92.chunk.js"
   ]
 }
