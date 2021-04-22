@@ -55,6 +55,9 @@
   input {
     vertical-align: middle;
     margin: 0 .2em .25em -1.6em;
+    & + p {
+      display: inline;
+    }
   }
   h1, h2 {
     border-bottom: 1px solid #eaecef;
@@ -86,6 +89,9 @@
   }
   ol, ul {
     padding-left: 2em;
+    & > p {
+      margin-bottom: 0;
+    }
   }
   ul {
     margin-bottom: 16px;
