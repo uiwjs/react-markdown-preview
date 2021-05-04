@@ -57,7 +57,7 @@ type MarkdownPreviewProps = {
 - `className` (`string?`)\
     Wrap the markdown in a `div` with this class name
 
-This [`ReactMarkdownProps`](https://github.com/remarkjs/react-markdown/tree/15b4757082cf3f32a25eba0b8ea30baf751a8b40#props) details.
+This [`ReactMarkdownProps`](https://github.com/remarkjs/react-markdown/tree/15b4757082cf3f32a25eba0b8ea30baf751a8b40#props) details. [Upgrade `react-markdown` v6](https://github.com/remarkjs/react-markdown/blob/15b4757082cf3f32a25eba0b8ea30baf751a8b40/changelog.md#600---2021-04-15)
 
 - `children` (`string`, default: `''`)\
     Markdown to parse
