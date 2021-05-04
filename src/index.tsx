@@ -13,6 +13,7 @@ export type MarkdownPreviewProps = {
   className?: string;
   source?: string;
   style?: React.CSSProperties;
+  warpperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
   onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
   onMouseOver?: (e: React.MouseEvent<HTMLDivElement>) => void;
 } & Omit<ReactMarkdown.ReactMarkdownOptions, 'children'>;
@@ -23,7 +24,7 @@ export type MarkdownPreviewRef = {
 } & MarkdownPreviewProps;
 
 export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props, ref) => {
-  const { className, source, style, onScroll, onMouseOver, ...other  } = props || {};
+  const { className, source, style, onScroll, onMouseOver, warpperElement = {}, ...other  } = props || {};
   const mdp = React.createRef<HTMLDivElement>();
   const loadedLang = React.useRef<string[]>(['markup']);
   useEffect(() => {
@@ -53,7 +54,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
 
   const cls = `wmde-markdown wmde-markdown-color ${className || ''}`;
   return (
-    <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} className={cls} style={style}>
+    <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...warpperElement} className={cls} style={style}>
       <ReactMarkdown
         {...other}
         plugins={[gfm,  ...(other.plugins || [])]}

@@ -46,6 +46,7 @@ type MarkdownPreviewProps = {
   className?: string;
   source?: string;
   style?: React.CSSProperties;
+  warpperElement?: HTMLDivElement;
   onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
   onMouseOver?: (e: React.MouseEvent<HTMLDivElement>) => void;
 } & ReactMarkdownProps;
