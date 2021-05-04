@@ -2,7 +2,6 @@ import React, { useEffect, useImperativeHandle } from 'react';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
-import rehypeSanitize from 'rehype-sanitize';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-markup';
 import { loadLang } from './langs';
@@ -58,7 +57,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
       <ReactMarkdown
         {...other}
         plugins={[gfm,  ...(other.plugins || [])]}
-        rehypePlugins={[rehypeRaw, rehypeSanitize,  ...(other.rehypePlugins || [])]}
+        rehypePlugins={[rehypeRaw, ...(other.rehypePlugins || [])]}
       >
         {source || ''}
       </ReactMarkdown>
