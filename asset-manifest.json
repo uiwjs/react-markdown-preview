@@ -3,15 +3,15 @@
     "prismjs-vendor.js": "/react-markdown-preview/static/js/prismjs-vendor.872866a6.chunk.js",
     "prismjs-vendor.js.map": "/react-markdown-preview/static/js/prismjs-vendor.872866a6.chunk.js.map",
     "main.css": "/react-markdown-preview/static/css/main.b2d452f5.chunk.css",
-    "main.js": "/react-markdown-preview/static/js/main.72569ca6.chunk.js",
-    "main.js.map": "/react-markdown-preview/static/js/main.72569ca6.chunk.js.map",
+    "main.js": "/react-markdown-preview/static/js/main.f329dff1.chunk.js",
+    "main.js.map": "/react-markdown-preview/static/js/main.f329dff1.chunk.js.map",
     "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.ac5e56d8.chunk.js",
     "react-vendor.js.map": "/react-markdown-preview/static/js/react-vendor.ac5e56d8.chunk.js.map",
     "runtime-main.js": "/react-markdown-preview/static/js/runtime-main.71cd3951.js",
     "runtime-main.js.map": "/react-markdown-preview/static/js/runtime-main.71cd3951.js.map",
     "index.html": "/react-markdown-preview/index.html",
     "static/css/main.b2d452f5.chunk.css.map": "/react-markdown-preview/static/css/main.b2d452f5.chunk.css.map",
-    "static/js/main.72569ca6.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/main.72569ca6.chunk.js.LICENSE.txt",
+    "static/js/main.f329dff1.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/main.f329dff1.chunk.js.LICENSE.txt",
     "static/js/prismjs-vendor.872866a6.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/prismjs-vendor.872866a6.chunk.js.LICENSE.txt",
     "static/js/react-vendor.ac5e56d8.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/react-vendor.ac5e56d8.chunk.js.LICENSE.txt",
     "static/media/logo.3931a054.svg": "/react-markdown-preview/static/media/logo.3931a054.svg"
@@ -20,6 +20,6 @@
     "static/js/runtime-main.71cd3951.js",
     "static/js/react-vendor.ac5e56d8.chunk.js",
     "static/css/main.b2d452f5.chunk.css",
-    "static/js/main.72569ca6.chunk.js"
+    "static/js/main.f329dff1.chunk.js"
   ]
 }
