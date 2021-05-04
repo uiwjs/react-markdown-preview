@@ -1,6 +1,8 @@
 import React, { useEffect, useImperativeHandle } from 'react';
-import ReactMarkdown, { ReactMarkdownProps } from 'react-markdown';
+import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-markup';
 import { loadLang } from './langs';
@@ -13,7 +15,7 @@ export type MarkdownPreviewProps = {
   style?: React.CSSProperties;
   onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
   onMouseOver?: (e: React.MouseEvent<HTMLDivElement>) => void;
-} & ReactMarkdownProps;
+} & Omit<ReactMarkdown.ReactMarkdownOptions, 'children'>;
 
 export type MarkdownPreviewRef = {
   mdp: React.RefObject<HTMLDivElement>;
@@ -50,24 +52,15 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
   useImperativeHandle(ref, () => ({ ...props, lang: loadedLang.current, mdp }), [mdp, props]);
 
   const cls = `wmde-markdown wmde-markdown-color ${className || ''}`;
-  const reactMarkdownProps = {
-    allowDangerousHtml: true,
-    allowNode: (node, index, parent) => {
-      if (node.type === 'html' && reactMarkdownProps.allowDangerousHtml) {
-        // filter style
-        node.value = (node.value as string).replace(/<((style|script|link|input|form)|\/(style|script|link|input|form))(\s?[^>]*>)/gi, (a: string) => {
-          return a.replace(/[<>]/g, (e: string) => (({ '<': '&lt;', '>': '&gt;' } as { [key: string]: string })[e]))
-        });
-      }
-      return true;
-    },
-    ...other,
-    plugins: [gfm,  ...(other.plugins || [])],
-    source: source || '',
-  } as ReactMarkdownProps;
   return (
     <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} className={cls} style={style}>
-      <ReactMarkdown {...reactMarkdownProps} />
+      <ReactMarkdown
+        {...other}
+        plugins={[gfm,  ...(other.plugins || [])]}
+        rehypePlugins={[rehypeRaw, rehypeSanitize,  ...(other.rehypePlugins || [])]}
+      >
+        {source || ''}
+      </ReactMarkdown>
     </div>
   );
 });

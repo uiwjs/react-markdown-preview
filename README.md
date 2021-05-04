@@ -51,59 +51,63 @@ type MarkdownPreviewProps = {
 } & ReactMarkdownProps;
 ```
 
-This [`ReactMarkdownProps`](https://github.com/remarkjs/react-markdown/blob/22bb78747d768181cb9ea8711b5e13c3768921d8/index.d.ts#L32-L84) details.
-
 - `source` (`string`, default: `''`)\
     Markdown to parse
 - `className` (`string?`)\
     Wrap the markdown in a `div` with this class name
-- `allowDangerousHtml` (`boolean`, default: `false`)\
-    This project is safe by default and escapes HTML.
-    Use `allowDangerousHtml: true` to allow dangerous html instead.
-    See [security](https://github.com/remarkjs/react-markdown/tree/22bb78747d768181cb9ea8711b5e13c3768921d8#security)
+
+This [`ReactMarkdownProps`](https://github.com/remarkjs/react-markdown/tree/15b4757082cf3f32a25eba0b8ea30baf751a8b40#props) details.
+
+- `children` (`string`, default: `''`)\
+    Markdown to parse
+- `className` (`string?`)\
+    Wrap the markdown in a `div` with this class name
 - `skipHtml` (`boolean`, default: `false`)\
-    Ignore HTML in Markdown
+    Ignore HTML in Markdown completely
 - `sourcePos` (`boolean`, default: `false`)\
-    Pass a prop to all renderers with a serialized position
+    Pass a prop to all components with a serialized position
     (`data-sourcepos="3:1-3:13"`)
 - `rawSourcePos` (`boolean`, default: `false`)\
-    Pass a prop to all renderers with their [position](https://github.com/syntax-tree/unist#position)
+    Pass a prop to all components with their [position][]
     (`sourcePosition: {start: {line: 3, column: 1}, end:…}`)
-- `includeNodeIndex` (`boolean`, default: `false`)\
-    Pass [`index`](https://github.com/syntax-tree/unist#index) and `parentChildCount` in props to all renderers
-- `allowedTypes` (`Array.<string>`, default: list of all types)\
-    Node types to allow (can’t combine w/ `disallowedTypes`).
-    All types are available at `ReactMarkdown.types`
-- `disallowedTypes` (`Array.<string>`, default: `[]`)\
-    Node types to disallow (can’t combine w/ `allowedTypes`)
-- `allowNode` (`(node, index, parent) => boolean?`, optional)\
-    Function called to check if a node is allowed (when truthy) or not.
-    `allowedTypes` / `disallowedTypes` is used first!
+- `includeElementIndex` (`boolean`, default: `false`)\
+    Pass the `index` (number of elements before it) and `siblingCount` (number
+    of elements in parent) as props to all components
+- `allowedElements` (`Array.<string>`, default: `undefined`)\
+    Tag names to allow (can’t combine w/ `disallowedElements`).
+    By default all elements are allowed
+- `disallowedElements` (`Array.<string>`, default: `undefined`)\
+    Tag names to disallow (can’t combine w/ `allowedElements`).
+    By default no elements are disallowed
+- `allowElement` (`(element, index, parent) => boolean?`, optional)\
+    Function called to check if an element is allowed (when truthy) or not.
+    `allowedElements` / `disallowedElements` is used first!
 - `unwrapDisallowed` (`boolean`, default: `false`)\
-    Extract (unwrap) the children of not allowed nodes.
-    By default, when `strong` is not allowed, it and it’s content is dropped,
-    but with `unwrapDisallowed` the node itself is dropped but the content used
-- `linkTarget` (`string` or `(url, text, title) => string`, optional)\
+    Extract (unwrap) the children of not allowed elements.
+    By default, when `strong` is not allowed, it and it’s children is dropped,
+    but with `unwrapDisallowed` the element itself is dropped but the children
+    used
+- `linkTarget` (`string` or `(href, children, title) => string`, optional)\
     Target to use on links (such as `_blank` for `<a target="_blank"…`)
-- `transformLinkUri` (`(uri) => string`, default:
+- `transformLinkUri` (`(href, children, title) => string`, default:
     [`./uri-transformer.js`][uri], optional)\
     URL to use for links.
     The default allows only `http`, `https`, `mailto`, and `tel`, and is
     available at `ReactMarkdown.uriTransformer`.
     Pass `null` to allow all URLs.
-    See [security](https://github.com/remarkjs/react-markdown/tree/22bb78747d768181cb9ea8711b5e13c3768921d8#security)
-- `transformImageUri` (`(uri) => string`, default:
+    See [security][]
+- `transformImageUri` (`(src, alt, title) => string`, default:
     [`./uri-transformer.js`][uri], optional)\
     Same as `transformLinkUri` but for images
-- `renderers` (`Object.<Component>`, default: `{}`)\
-    Object mapping node types to React components.
-    Merged with the default renderers (available at `ReactMarkdown.renderers`).
-    Which props are passed varies based on the node
-- `plugins` (`Array.<Plugin>`, default: `[]`)\
-    List of [remark plugins](https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins) to use.
+- `components` (`Object.<string, Component>`, default: `{}`)\
+    Object mapping tag names to React components
+- `remarkPlugins` (`Array.<Plugin>`, default: `[]`)\
+    List of [remark plugins][remark-plugins] to use.
+    See the next section for examples on how to pass options
+- `rehypePlugins` (`Array.<Plugin>`, default: `[]`)\
+    List of [rehype plugins][rehype-plugins] to use.
     See the next section for examples on how to pass options
 
-See [Options Props](https://github.com/remarkjs/react-markdown/tree/22bb78747d768181cb9ea8711b5e13c3768921d8#props) for more details.
 
 ## Development
 
