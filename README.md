@@ -91,14 +91,14 @@ This [`ReactMarkdownProps`](https://github.com/remarkjs/react-markdown/tree/15b4
 - `linkTarget` (`string` or `(href, children, title) => string`, optional)\
     Target to use on links (such as `_blank` for `<a target="_blank"…`)
 - `transformLinkUri` (`(href, children, title) => string`, default:
-    [`./uri-transformer.js`][uri], optional)\
+    [`https://github.com/remarkjs/react-markdown/blob/15b4757082cf3f32a25eba0b8ea30baf751a8b40/src/uri-transformer.js`][uri], optional)\
     URL to use for links.
     The default allows only `http`, `https`, `mailto`, and `tel`, and is
     available at `ReactMarkdown.uriTransformer`.
     Pass `null` to allow all URLs.
     See [security][]
 - `transformImageUri` (`(src, alt, title) => string`, default:
-    [`./uri-transformer.js`][uri], optional)\
+    [`https://github.com/remarkjs/react-markdown/blob/15b4757082cf3f32a25eba0b8ea30baf751a8b40/src/uri-transformer.js`][uri], optional)\
     Same as `transformLinkUri` but for images
 - `components` (`Object.<string, Component>`, default: `{}`)\
     Object mapping tag names to React components
