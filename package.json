@@ -49,7 +49,7 @@
     "prismjs": "1.23.0",
     "rehype-raw": "5.1.0",
     "remark-gfm": "1.0.0",
-    "react-markdown": "6.0.1"
+    "react-markdown": "6.0.2"
   },
   "devDependencies": {
     "@kkt/less-modules": "6.9.0",
