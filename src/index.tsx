@@ -30,7 +30,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
       <ReactMarkdown
         {...other}
         plugins={[gfm,  ...(other.plugins || [])]}
-        rehypePlugins={[rehypePrism, rehypeRaw, ...(other.rehypePlugins || [])]}
+        rehypePlugins={[[rehypePrism, {ignoreMissing: true }], rehypeRaw, ...(other.rehypePlugins || [])]}
         children={source || ''}
       />
     </div>
