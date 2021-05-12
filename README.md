@@ -103,10 +103,10 @@ This [`ReactMarkdownProps`](https://github.com/remarkjs/react-markdown/tree/15b4
 - `components` (`Object.<string, Component>`, default: `{}`)\
     Object mapping tag names to React components
 - `remarkPlugins` (`Array.<Plugin>`, default: `[]`)\
-    List of [remark plugins][https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins] to use.
+    List of [remark plugins](https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins) to use.
     See the next section for examples on how to pass options
 - `rehypePlugins` (`Array.<Plugin>`, default: `[]`)\
-    List of [rehype plugins][https://github.com/rehypejs/rehype/blob/main/doc/plugins.md#list-of-plugins] to use.
+    List of [rehype plugins](https://github.com/rehypejs/rehype/blob/main/doc/plugins.md#list-of-plugins) to use.
     See the next section for examples on how to pass options
 
 
