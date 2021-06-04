@@ -61,15 +61,13 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
   const { className, source, style, onScroll, onMouseOver, warpperElement = {}, ...other  } = props || {};
   const mdp = React.createRef<HTMLDivElement>();
   useImperativeHandle(ref, () => ({ ...props, mdp }), [mdp, props]);
-
   const cls = `wmde-markdown wmde-markdown-color ${className || ''}`;
   return (
     <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...warpperElement} className={cls} style={style}>
       <ReactMarkdown
         {...other}
-        plugins={[gfm, ...(other.plugins || [])]}
         rehypePlugins={[[rehypePrism, { ignoreMissing: true }], [rehypeRewrite, rehypeRewriteHandle], rehypeRaw, ...(other.rehypePlugins || [])]}
-        remarkPlugins={[ slug, headings, ...(other.remarkPlugins || []) ]}
+        remarkPlugins={[ slug, headings, ...(other.remarkPlugins || []), gfm ]}
         children={source || ''}
       />
     </div>
