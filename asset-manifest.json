@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/react-markdown-preview/static/css/main.3fce29c8.chunk.css",
-    "main.js": "/react-markdown-preview/static/js/main.c148f508.chunk.js",
-    "main.js.map": "/react-markdown-preview/static/js/main.c148f508.chunk.js.map",
-    "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.951feaed.chunk.js",
-    "react-vendor.js.map": "/react-markdown-preview/static/js/react-vendor.951feaed.chunk.js.map",
+    "main.css": "/react-markdown-preview/static/css/main.2d33888c.chunk.css",
+    "main.js": "/react-markdown-preview/static/js/main.88505280.chunk.js",
+    "main.js.map": "/react-markdown-preview/static/js/main.88505280.chunk.js.map",
+    "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.5f107b55.chunk.js",
+    "react-vendor.js.map": "/react-markdown-preview/static/js/react-vendor.5f107b55.chunk.js.map",
     "runtime-main.js": "/react-markdown-preview/static/js/runtime-main.87396a08.js",
     "runtime-main.js.map": "/react-markdown-preview/static/js/runtime-main.87396a08.js.map",
     "index.html": "/react-markdown-preview/index.html",
-    "static/css/main.3fce29c8.chunk.css.map": "/react-markdown-preview/static/css/main.3fce29c8.chunk.css.map",
-    "static/js/main.c148f508.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/main.c148f508.chunk.js.LICENSE.txt",
-    "static/js/react-vendor.951feaed.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/react-vendor.951feaed.chunk.js.LICENSE.txt",
+    "static/css/main.2d33888c.chunk.css.map": "/react-markdown-preview/static/css/main.2d33888c.chunk.css.map",
+    "static/js/main.88505280.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/main.88505280.chunk.js.LICENSE.txt",
+    "static/js/react-vendor.5f107b55.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/react-vendor.5f107b55.chunk.js.LICENSE.txt",
     "static/media/logo.3931a054.svg": "/react-markdown-preview/static/media/logo.3931a054.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.87396a08.js",
-    "static/js/react-vendor.951feaed.chunk.js",
-    "static/css/main.3fce29c8.chunk.css",
-    "static/js/main.c148f508.chunk.js"
+    "static/js/react-vendor.5f107b55.chunk.js",
+    "static/css/main.2d33888c.chunk.css",
+    "static/js/main.88505280.chunk.js"
   ]
 }
