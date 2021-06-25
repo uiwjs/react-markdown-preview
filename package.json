@@ -54,9 +54,9 @@
     "react-markdown": "6.0.2"
   },
   "devDependencies": {
-    "@kkt/less-modules": "6.9.0",
-    "@kkt/raw-modules": "6.9.0",
-    "@kkt/scope-plugin-options": "6.9.0",
+    "@kkt/less-modules": "6.10.4",
+    "@kkt/raw-modules": "6.10.4",
+    "@kkt/scope-plugin-options": "6.10.4",
     "@types/react": "17.0.5",
     "@types/react-dom": "17.0.4",
     "@uiw/react-codesandbox": "1.1.0",
@@ -64,10 +64,10 @@
     "@uiw/react-shields": "1.1.1",
     "@uiw/reset.css": "1.0.4",
     "compile-less-cli": "1.7.0",
-    "kkt": "6.9.0",
+    "kkt": "6.10.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "tsbb": "2.1.2"
+    "tsbb": "2.2.1"
   },
   "eslintConfig": {
     "extends": "react-app"
