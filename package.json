@@ -54,7 +54,7 @@
     "react-markdown": "6.0.2"
   },
   "devDependencies": {
-    "@kkt/less-modules": "6.10.4",
+    "@kkt/less-modules": "6.11.0",
     "@kkt/raw-modules": "6.10.4",
     "@kkt/scope-plugin-options": "6.10.4",
     "@types/react": "17.0.11",
