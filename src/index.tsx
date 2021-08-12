@@ -1,12 +1,15 @@
 import React, { useImperativeHandle } from 'react';
 import ReactMarkdown from 'react-markdown';
+// @ts-ignore
 import gfm from 'remark-gfm';
 // @ts-ignore
 import slug from 'remark-slug';
 // @ts-ignore
 import headings from 'remark-autolink-headings'
+// @ts-ignore
 import rehypeRaw from 'rehype-raw';
 import rehypePrism from '@mapbox/rehype-prism';
+// @ts-ignore
 import rehypeRewrite from 'rehype-rewrite';
 import './styles/markdown.less';
 import './styles/markdowncolor.less';
