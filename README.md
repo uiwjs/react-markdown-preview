@@ -58,7 +58,9 @@ type MarkdownPreviewProps = {
 - `className` (`string?`)\
     Wrap the markdown in a `div` with this class name
 
-This [`ReactMarkdownProps`](https://github.com/remarkjs/react-markdown/tree/15b4757082cf3f32a25eba0b8ea30baf751a8b40#props) details. [Upgrade `react-markdown` v6](https://github.com/remarkjs/react-markdown/blob/15b4757082cf3f32a25eba0b8ea30baf751a8b40/changelog.md#600---2021-04-15)
+This [`ReactMarkdownProps`](https://github.com/remarkjs/react-markdown/tree/02bac837bf141cdb8face360fb88be6fa33ab194#props) details. [Upgrade `react-markdown` v6](https://github.com/remarkjs/react-markdown/blob/15b4757082cf3f32a25eba0b8ea30baf751a8b40/changelog.md#600---2021-04-15)
+
+
 
 - `children` (`string`, default: `''`)\
     Markdown to parse
@@ -92,14 +94,14 @@ This [`ReactMarkdownProps`](https://github.com/remarkjs/react-markdown/tree/15b4
 - `linkTarget` (`string` or `(href, children, title) => string`, optional)\
     Target to use on links (such as `_blank` for `<a target="_blank"…`)
 - `transformLinkUri` (`(href, children, title) => string`, default:
-    [uri-transformer.js](https://github.com/remarkjs/react-markdown/blob/15b4757082cf3f32a25eba0b8ea30baf751a8b40/src/uri-transformer.js), optional)\
+    [`./uri-transformer.js`](https://github.com/remarkjs/react-markdown/blob/02bac837bf141cdb8face360fb88be6fa33ab194/lib/uri-transformer.js), optional)\
     URL to use for links.
     The default allows only `http`, `https`, `mailto`, and `tel`, and is
-    available at `ReactMarkdown.uriTransformer`.
+    exported from this module as `uriTransformer`.
     Pass `null` to allow all URLs.
     See [security][]
 - `transformImageUri` (`(src, alt, title) => string`, default:
-    [uri-transformer.js](https://github.com/remarkjs/react-markdown/blob/15b4757082cf3f32a25eba0b8ea30baf751a8b40/src/uri-transformer.js), optional)\
+    [`./uri-transformer.js`](https://github.com/remarkjs/react-markdown/blob/02bac837bf141cdb8face360fb88be6fa33ab194/lib/uri-transformer.js), optional)\
     Same as `transformLinkUri` but for images
 - `components` (`Object.<string, Component>`, default: `{}`)\
     Object mapping tag names to React components
