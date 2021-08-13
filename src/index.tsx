@@ -1,15 +1,10 @@
 import React, { useImperativeHandle } from 'react';
-import ReactMarkdown from 'react-markdown';
-// @ts-ignore
+import ReactMarkdown, { Options } from 'react-markdown';
 import gfm from 'remark-gfm';
-// @ts-ignore
 import slug from 'remark-slug';
-// @ts-ignore
 import headings from 'remark-autolink-headings'
-// @ts-ignore
 import rehypeRaw from 'rehype-raw';
 import rehypePrism from '@mapbox/rehype-prism';
-// @ts-ignore
 import rehypeRewrite from 'rehype-rewrite';
 import './styles/markdown.less';
 import './styles/markdowncolor.less';
@@ -54,7 +49,7 @@ export type MarkdownPreviewProps = {
   warpperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
   onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
   onMouseOver?: (e: React.MouseEvent<HTMLDivElement>) => void;
-} & Omit<ReactMarkdown.ReactMarkdownOptions, 'children'>;
+} & Omit<Options, 'children'>;
 
 export type MarkdownPreviewRef = {
   mdp: React.RefObject<HTMLDivElement>;
@@ -69,7 +64,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...warpperElement} className={cls} style={style}>
       <ReactMarkdown
         {...other}
-        rehypePlugins={[[rehypePrism, { ignoreMissing: true }], [rehypeRewrite, rehypeRewriteHandle], rehypeRaw, ...(other.rehypePlugins || [])]}
+        rehypePlugins={[[rehypePrism, { ignoreMissing: true }], [rehypeRewrite as any, rehypeRewriteHandle], rehypeRaw, ...(other.rehypePlugins || [])]}
         remarkPlugins={[ slug, headings, ...(other.remarkPlugins || []), gfm ]}
         children={source || ''}
       />
