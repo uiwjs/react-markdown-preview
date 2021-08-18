@@ -43,6 +43,7 @@ const rehypeRewriteHandle = (node: any, index: number, parent: any) => {
 }
 
 export type MarkdownPreviewProps = {
+  prefixCls?: string;
   className?: string;
   source?: string;
   style?: React.CSSProperties;
@@ -56,10 +57,10 @@ export type MarkdownPreviewRef = {
 } & MarkdownPreviewProps;
 
 export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props, ref) => {
-  const { className, source, style, onScroll, onMouseOver, warpperElement = {}, ...other  } = props || {};
+  const { prefixCls = 'wmde-markdown wmde-markdown-color', className, source, style, onScroll, onMouseOver, warpperElement = {}, ...other  } = props || {};
   const mdp = React.createRef<HTMLDivElement>();
   useImperativeHandle(ref, () => ({ ...props, mdp }), [mdp, props]);
-  const cls = `wmde-markdown wmde-markdown-color ${className || ''}`;
+  const cls = `${prefixCls || ''} ${className || ''}`;
   return (
     <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...warpperElement} className={cls} style={style}>
       <ReactMarkdown
