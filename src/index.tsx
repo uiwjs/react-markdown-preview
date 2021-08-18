@@ -1,8 +1,8 @@
 import React, { useImperativeHandle } from 'react';
 import ReactMarkdown, { Options } from 'react-markdown';
 import gfm from 'remark-gfm';
-import slug from 'remark-slug';
-import headings from 'remark-autolink-headings'
+import slug from 'rehype-slug';
+import headings from 'rehype-autolink-headings'
 import rehypeRaw from 'rehype-raw';
 import rehypePrism from '@mapbox/rehype-prism';
 import rehypeRewrite from 'rehype-rewrite';
@@ -64,8 +64,8 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...warpperElement} className={cls} style={style}>
       <ReactMarkdown
         {...other}
-        rehypePlugins={[[rehypePrism, { ignoreMissing: true }], [rehypeRewrite as any, rehypeRewriteHandle], rehypeRaw, ...(other.rehypePlugins || [])]}
-        remarkPlugins={[ slug, headings, ...(other.remarkPlugins || []), gfm ]}
+        rehypePlugins={[[rehypePrism, { ignoreMissing: true }], slug, headings, [rehypeRewrite as any, rehypeRewriteHandle], rehypeRaw, ...(other.rehypePlugins || [])]}
+        remarkPlugins={[ ...(other.remarkPlugins || []), gfm ]}
         children={source || ''}
       />
     </div>
