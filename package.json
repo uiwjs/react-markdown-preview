@@ -46,7 +46,7 @@
   "dependencies": {
     "@babel/runtime": "7.15.3",
     "@mapbox/rehype-prism": "0.7.0",
-    "rehype-autolink-headings": "6.0.0",
+    "rehype-autolink-headings": "6.1.0",
     "rehype-raw": "6.1.0",
     "rehype-slug": "5.0.0",
     "rehype-rewrite": "1.0.2",
