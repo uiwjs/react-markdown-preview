@@ -1,4 +1,4 @@
-name: Build and Deploy react-markdown-preview
+name: Build and Deploy
 on:
   push:
     branches:
@@ -27,7 +27,7 @@ jobs:
 
     - name: Generate Changelog
       id: changelog
-      uses: jaywcjlove/changelog-generator@v1.4.2
+      uses: jaywcjlove/changelog-generator@v1.4.3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         head-ref: ${{steps.create_tag.outputs.version}}
@@ -50,10 +50,11 @@ jobs:
         body: |
           [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-markdown-preview@${{steps.create_tag.outputs.versionNumber}}/file/README.md) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-markdown-preview)](https://bundlephobia.com/result?p=@uiw/react-markdown-preview@${{steps.create_tag.outputs.versionNumber}})
 
-          ```bash
+          ```shell
           npm i @uiw/react-markdown-preview@${{steps.create_tag.outputs.versionNumber}}
           ```
 
           ${{ steps.changelog.outputs.compareurl }}
           
           ${{ steps.changelog.outputs.changelog }}
+          
