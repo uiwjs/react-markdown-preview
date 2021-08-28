@@ -3,24 +3,17 @@
   "version": "3.2.2",
   "description": "React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub Markdown style.",
   "homepage": "https://uiwjs.github.io/react-markdown-preview",
-  "main": "lib/cjs/index.js",
-  "module": "lib/esm/index.js",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
   "scripts": {
-    "prepare": "npm run build:lib",
+    "prepare": "npm run build",
     "doc": "kkt build --app-src ./website",
     "start": "kkt start --app-src ./website",
-    "build": "npm run build:lib && npm run doc",
-    "build:lib": "npm run ts:build && npm run types:esm && npm run types:cjs && npm run css:build && npm run css:build:dist",
-    "watch": "npm run ts:watch & npm run types:watch & npm run css:watch",
-    "types:build": "tsbb types --sourceRoot src --target ESNEXT",
-    "types:watch": "npm run types:esm -- --watch & npm run types:cjs -- --watch",
-    "types:esm": "npm run types:build -- --outDir ../lib/esm",
-    "types:cjs": "npm run types:build -- --outDir ../lib/cjs",
-    "css:build": "compile-less -d src -o lib/esm",
-    "css:watch": "compile-less -d src -o lib/esm --watch",
-    "css:build:dist": "compile-less -d src --combine dist/markdown.css --rm-global",
-    "ts:watch": "tsbb watch --env-name esm:dev --env-name cjs --target react",
-    "ts:build": "tsbb build --target react"
+    "css:build": "compile-less -d src -o esm",
+    "css:watch": "compile-less -d src -o esm --watch",
+    "css:build:dist": "compile-less -d src --combine markdown.css --rm-global",
+    "watch": "tsbb watch",
+    "build": "tsbb build && npm run css:build && npm run css:build:dist"
   },
   "repository": {
     "type": "git",
@@ -30,7 +23,8 @@
   "license": "MIT",
   "files": [
     "lib",
-    "dist",
+    "esm",
+    "markdown.css",
     "src"
   ],
   "keywords": [
@@ -57,17 +51,17 @@
     "@kkt/less-modules": "6.11.0",
     "@kkt/raw-modules": "6.11.0",
     "@kkt/scope-plugin-options": "6.11.0",
-    "@types/react": "17.0.18",
+    "@types/react": "17.0.19",
     "@types/react-dom": "17.0.9",
     "@uiw/react-codesandbox": "1.1.0",
     "@uiw/react-github-corners": "1.4.0",
     "@uiw/react-shields": "1.1.1",
     "@uiw/reset.css": "1.0.5",
-    "compile-less-cli": "1.8.0",
+    "compile-less-cli": "1.8.1",
     "kkt": "6.11.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "tsbb": "2.3.1"
+    "tsbb": "3.0.0"
   },
   "eslintConfig": {
     "extends": "react-app"

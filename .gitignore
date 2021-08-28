@@ -1,15 +1,19 @@
-node_modules
+
 lib
+esm
 build
 dist
+markdown.css
 npm-debug.log*
 package-lock.json
+node_modules
 .eslintcache
 .DS_Store
 .cache
 .rdoc-dist
 .vscode
 
+*.log
 *.bak
 *.tem
 *.temp
