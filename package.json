@@ -43,7 +43,7 @@
     "rehype-autolink-headings": "6.1.0",
     "rehype-raw": "6.1.0",
     "rehype-slug": "5.0.0",
-    "rehype-rewrite": "1.0.2",
+    "rehype-rewrite": "2.0.0",
     "remark-gfm": "2.0.0",
     "react-markdown": "7.0.1"
   },
