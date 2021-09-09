@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GitHubCorners from '@uiw/react-github-corners';
-import Github from '@uiw/react-shields/lib/esm/github';
-import Npm from '@uiw/react-shields/lib/esm/npm';
+import Github from '@uiw/react-shields/esm/github';
+import Npm from '@uiw/react-shields/esm/npm';
 import logo from './logo.svg';
 import './App.css';
 import MarkdownPreview, { MarkdownPreviewRef } from '../';
