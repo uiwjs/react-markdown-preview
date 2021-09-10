@@ -23,6 +23,7 @@
     "noEmit": true
   },
   "include": [
-    "website"
+    "website",
+    "test"
   ]
 }

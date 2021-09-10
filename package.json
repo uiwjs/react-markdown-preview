@@ -13,7 +13,9 @@
     "css:watch": "compile-less -d src -o esm --watch",
     "css:build:dist": "compile-less -d src --combine markdown.css --rm-global",
     "watch": "tsbb watch",
-    "build": "tsbb build && npm run css:build && npm run css:build:dist"
+    "build": "tsbb build && npm run css:build && npm run css:build:dist",
+    "test": "tsbb test --env=jsdom",
+    "coverage": "tsbb test --env=jsdom --coverage"
   },
   "repository": {
     "type": "git",
@@ -33,6 +35,11 @@
     "prismjs",
     "react-markdown"
   ],
+  "jest": {
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/?!(.*)"
+    ]
+  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
@@ -53,14 +60,17 @@
     "@kkt/scope-plugin-options": "6.11.0",
     "@types/react": "17.0.20",
     "@types/react-dom": "17.0.9",
+    "@types/react-test-renderer": "17.0.1",
     "@uiw/react-codesandbox": "1.1.0",
     "@uiw/react-github-corners": "1.5.3",
     "@uiw/react-shields": "1.1.2",
     "@uiw/reset.css": "1.0.5",
     "compile-less-cli": "1.8.8",
     "kkt": "6.11.0",
+    "jest": "27.1.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-test-renderer": "17.0.2",
     "tsbb": "3.1.5"
   },
   "eslintConfig": {
