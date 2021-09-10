@@ -2,11 +2,9 @@ React Markdown Preview
 ===
 <!--dividing-->
 
+[![Build and Deploy](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.yml/badge.svg)](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.yml)
 [![Downloads](https://img.shields.io/npm/dm/@uiw/react-markdown-preview.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-markdown-preview)
-[![Issues](https://img.shields.io/github/issues/uiwjs/react-markdown-preview.svg)](https://github.com/uiwjs/react-markdown-preview/issues)
-[![Forks](https://img.shields.io/github/forks/uiwjs/react-markdown-preview.svg)](https://github.com/uiwjs/react-markdown-preview/network)
-[![Stars](https://img.shields.io/github/stars/uiwjs/react-markdown-preview.svg)](https://github.com/uiwjs/react-markdown-preview/stargazers)
-[![Release](https://img.shields.io/github/release/uiwjs/react-markdown-preview)](https://github.com/uiwjs/react-markdown-preview/releases)
+[![Coverage Status](https://coveralls.io/repos/github/uiwjs/react-markdown-preview/badge.svg?branch=master)](https://coveralls.io/github/uiwjs/react-markdown-preview?branch=master)
 [![npm version](https://img.shields.io/npm/v/@uiw/react-markdown-preview.svg)](https://www.npmjs.com/package/@uiw/react-markdown-preview)
 [![npm unpkg](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-markdown-preview/file/README.md)
 
