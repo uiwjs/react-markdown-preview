@@ -4,14 +4,15 @@ import gfm from 'remark-gfm';
 import slug from 'rehype-slug';
 import headings from 'rehype-autolink-headings'
 import rehypeRaw from 'rehype-raw';
+// @ts-ignore
 import rehypePrism from '@mapbox/rehype-prism';
 import rehypeRewrite from 'rehype-rewrite';
 import './styles/markdown.less';
 import './styles/markdowncolor.less';
 
 const rehypeRewriteHandle = (node: any, index: number, parent: any) => {
-  if (node.type === 'element' && parent.type === 'root' && /h(1|2|3|4|5|6)/.test(node.tagName) && index !== 0) {
-    const child = node.children && node.children[0] ? node.children[0] : null;
+  if (node.type === 'element' && parent.type === 'root' && /h(1|2|3|4|5|6)/.test(node.tagName)) {
+    const child = node.children && node.children[0];
     if (child && child.properties && child.properties.ariaHidden === 'true') {
       child.properties = { class: 'anchor', ...child.properties };
       child.children = [
@@ -57,7 +58,7 @@ export type MarkdownPreviewRef = {
 } & MarkdownPreviewProps;
 
 export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props, ref) => {
-  const { prefixCls = 'wmde-markdown wmde-markdown-color', className, source, style, onScroll, onMouseOver, warpperElement = {}, ...other  } = props || {};
+  const { prefixCls = 'wmde-markdown wmde-markdown-color', className, source, style, onScroll, onMouseOver, warpperElement = {}, ...other  } = props;
   const mdp = React.createRef<HTMLDivElement>();
   useImperativeHandle(ref, () => ({ ...props, mdp }), [mdp, props]);
   const cls = `${prefixCls || ''} ${className || ''}`;
