@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/react-markdown-preview/static/css/main.63e5d00d.chunk.css",
-    "main.js": "/react-markdown-preview/static/js/main.6c2ed022.chunk.js",
-    "main.js.map": "/react-markdown-preview/static/js/main.6c2ed022.chunk.js.map",
-    "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.b983e5a8.chunk.js",
-    "react-vendor.js.map": "/react-markdown-preview/static/js/react-vendor.b983e5a8.chunk.js.map",
-    "runtime-main.js": "/react-markdown-preview/static/js/runtime-main.5ad4d829.js",
-    "runtime-main.js.map": "/react-markdown-preview/static/js/runtime-main.5ad4d829.js.map",
+    "main.js": "/react-markdown-preview/static/js/main.a68f6bc6.chunk.js",
+    "main.js.map": "/react-markdown-preview/static/js/main.a68f6bc6.chunk.js.map",
+    "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.9e78054d.chunk.js",
+    "react-vendor.js.map": "/react-markdown-preview/static/js/react-vendor.9e78054d.chunk.js.map",
+    "runtime-main.js": "/react-markdown-preview/static/js/runtime-main.eeaa6553.js",
+    "runtime-main.js.map": "/react-markdown-preview/static/js/runtime-main.eeaa6553.js.map",
     "index.html": "/react-markdown-preview/index.html",
     "static/css/main.63e5d00d.chunk.css.map": "/react-markdown-preview/static/css/main.63e5d00d.chunk.css.map",
-    "static/js/main.6c2ed022.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/main.6c2ed022.chunk.js.LICENSE.txt",
-    "static/js/react-vendor.b983e5a8.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/react-vendor.b983e5a8.chunk.js.LICENSE.txt",
+    "static/js/main.a68f6bc6.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/main.a68f6bc6.chunk.js.LICENSE.txt",
+    "static/js/react-vendor.9e78054d.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/react-vendor.9e78054d.chunk.js.LICENSE.txt",
     "static/media/logo.3931a054.svg": "/react-markdown-preview/static/media/logo.3931a054.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.5ad4d829.js",
-    "static/js/react-vendor.b983e5a8.chunk.js",
+    "static/js/runtime-main.eeaa6553.js",
+    "static/js/react-vendor.9e78054d.chunk.js",
     "static/css/main.63e5d00d.chunk.css",
-    "static/js/main.6c2ed022.chunk.js"
+    "static/js/main.a68f6bc6.chunk.js"
   ]
 }
