@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build & Deploy
 on:
   push:
     branches:
@@ -17,14 +17,13 @@ jobs:
         node-version: 14
 
     - run: npm install
-    - run: npm run build
     - run: npm run coverage
     - run: npm run doc
 
     - run: npm install @jsdevtools/npm-publish -g
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
 
-    - name: Create Tag
+    - name: Is a tag created auto?
       id: create_tag
       uses: jaywcjlove/create-tag-action@v1.2.1
       with:
@@ -34,17 +33,12 @@ jobs:
     - name: Generate Changelog
       id: changelog
       uses: jaywcjlove/changelog-generator@v1.4.3
+      if: steps.create_tag.outputs.successful
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        head-ref: ${{steps.create_tag.outputs.version}}
+        head-ref: ${{ steps.create_tag.outputs.version }}
         filter-author: (jaywcjlove|小弟调调™|dependabot\[bot\]|Renovate Bot)
         filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
-
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
 
     - name: Create Release
       uses: ncipollo/release-action@v1
@@ -54,15 +48,21 @@ jobs:
         name: ${{ steps.create_tag.outputs.version }}
         tag: ${{ steps.create_tag.outputs.version }}
         body: |
-          [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-markdown-preview@${{steps.create_tag.outputs.versionNumber}}/file/README.md) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-markdown-preview)](https://bundlephobia.com/result?p=@uiw/react-markdown-preview@${{steps.create_tag.outputs.versionNumber}})
+          [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-markdown-preview@${{steps.create_tag.outputs.versionNumber}}/file/README.md)
 
-          ```shell
+          ```bash
           npm i @uiw/react-markdown-preview@${{steps.create_tag.outputs.versionNumber}}
           ```
 
           ${{ steps.changelog.outputs.compareurl }}
-          
+
           ${{ steps.changelog.outputs.changelog }}
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
 
     - name: Coveralls
       uses: coverallsapp/github-action@master
