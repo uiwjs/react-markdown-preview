@@ -2,7 +2,7 @@ React Markdown Preview
 ===
 <!--dividing-->
 
-[![Build and Deploy](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.yml/badge.svg)](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.yml)
+[![Build and Deploy](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.marster.yml/badge.svg)](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.marster.yml)
 [![Downloads](https://img.shields.io/npm/dm/@uiw/react-markdown-preview.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-markdown-preview)
 [![Coverage Status](https://coveralls.io/repos/github/uiwjs/react-markdown-preview/badge.svg?branch=master)](https://coveralls.io/github/uiwjs/react-markdown-preview?branch=master)
 [![npm version](https://img.shields.io/npm/v/@uiw/react-markdown-preview.svg)](https://www.npmjs.com/package/@uiw/react-markdown-preview)
