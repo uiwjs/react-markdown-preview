@@ -65,7 +65,7 @@
     "@uiw/react-github-corners": "1.5.3",
     "@uiw/react-shields": "1.1.2",
     "@uiw/reset.css": "1.0.5",
-    "compile-less-cli": "1.8.8",
+    "compile-less-cli": "1.8.9",
     "kkt": "6.11.0",
     "jest": "27.2.0",
     "react": "17.0.2",
