@@ -68,7 +68,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...warpperElement} className={cls} style={style}>
       <ReactMarkdown
         {...other}
-        rehypePlugins={[[rehypePrism, { ignoreMissing: true }], slug, headings, [rehypeRewrite, rehypeRewriteHandle], rehypeRaw, ...(other.rehypePlugins || [])]}
+        rehypePlugins={[[rehypePrism, { ignoreMissing: true }], rehypeRaw, slug, headings, [rehypeRewrite, { rewrite: rehypeRewriteHandle }], ...(other.rehypePlugins || [])]}
         remarkPlugins={[ ...(other.remarkPlugins || []), gfm ]}
         children={source || ''}
       />
