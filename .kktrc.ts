@@ -1,5 +1,5 @@
 import path from 'path';
-import webpack, {Configuration} from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import { LoaderConfOptions } from 'kkt';
 import lessModules from '@kkt/less-modules';
 import rawModules from '@kkt/raw-modules';
@@ -11,14 +11,14 @@ export default (conf: Configuration, env: string, options: LoaderConfOptions) =>
   conf = lessModules(conf, env, options);
   conf = scopePluginOptions(conf, env, {
     ...options,
-    allowedFiles: [
-      path.resolve(process.cwd(), 'README.md'),
-    ]
+    allowedFiles: [path.resolve(process.cwd(), 'README.md')],
   });
   // Get the project version.
-  conf.plugins!.push(new webpack.DefinePlugin({
-    VERSION: JSON.stringify(pkg.version),
-  }));
+  conf.plugins!.push(
+    new webpack.DefinePlugin({
+      VERSION: JSON.stringify(pkg.version),
+    }),
+  );
 
   conf.optimization = {
     ...conf.optimization,
@@ -34,10 +34,9 @@ export default (conf: Configuration, env: string, options: LoaderConfOptions) =>
           name: 'prismjs-vendor',
           chunks: 'async',
         },
-      }
-    }
-  }
+      },
+    },
+  };
 
   return conf;
-}
-
+};

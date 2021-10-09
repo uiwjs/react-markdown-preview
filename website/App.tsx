@@ -21,12 +21,13 @@ const App = () => {
           React Markdown Preview
         </a>
         <p>
-          React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub Markdown style.
+          React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub
+          Markdown style.
         </p>
       </header>
       <div className="App-editor">
         <button onClick={() => setValue('# Markdown ' + val++)}>set value</button>
-        
+
         <textarea
           placeholder="Please enter the Markdown code!"
           value={value}
@@ -41,10 +42,14 @@ const App = () => {
           <Github.Social type="stars" href="https://github.com/uiwjs/react-markdown-preview/stargazers" />
           <Github.Social type="watchers" href="https://github.com/uiwjs/react-markdown-preview/watchers" />
         </Github>
-        <Npm.Version scope="@uiw" packageName="react-markdown-preview" href="https://www.npmjs.com/package/@uiw/react-markdown-preview" />
+        <Npm.Version
+          scope="@uiw"
+          packageName="react-markdown-preview"
+          href="https://www.npmjs.com/package/@uiw/react-markdown-preview"
+        />
       </div>
     </div>
   );
-}
+};
 
 export default App;
