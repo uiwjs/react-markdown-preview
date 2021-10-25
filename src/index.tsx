@@ -46,7 +46,7 @@ const rehypeRewriteHandle = (node: ElementContent, index: number | null, parent:
   }
 };
 
-export type MarkdownPreviewProps = {
+export interface MarkdownPreviewProps extends Omit<Options, 'children'> {
   prefixCls?: string;
   className?: string;
   source?: string;
@@ -54,11 +54,11 @@ export type MarkdownPreviewProps = {
   warpperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
   onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
   onMouseOver?: (e: React.MouseEvent<HTMLDivElement>) => void;
-} & Omit<Options, 'children'>;
+}
 
-export type MarkdownPreviewRef = {
+export interface MarkdownPreviewRef extends MarkdownPreviewProps {
   mdp: React.RefObject<HTMLDivElement>;
-} & MarkdownPreviewProps;
+}
 
 export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props, ref) => {
   const {
