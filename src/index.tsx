@@ -24,7 +24,7 @@ const rehypeRewriteHandle = (node: ElementContent, index: number | null, parent:
   }
   if (node.type === 'element' && node.tagName === 'pre') {
     const code = getCodeStr(node.children);
-    node.children.unshift(copyElement(code));
+    node.children.push(copyElement(code));
   }
 };
 
