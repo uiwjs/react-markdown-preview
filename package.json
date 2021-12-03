@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-markdown-preview",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "description": "React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub Markdown style.",
   "homepage": "https://uiwjs.github.io/react-markdown-preview",
   "main": "lib/index.js",
@@ -47,7 +47,7 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.15.4",
+    "@babel/runtime": "7.16.3",
     "@mapbox/rehype-prism": "0.8.0",
     "@uiw/copy-to-clipboard": "1.0.12",
     "rehype-autolink-headings": "6.1.0",
@@ -62,8 +62,8 @@
     "@kkt/less-modules": "6.11.0",
     "@kkt/raw-modules": "6.11.0",
     "@kkt/scope-plugin-options": "6.11.0",
-    "@types/react": "17.0.31",
-    "@types/react-dom": "17.0.10",
+    "@types/react": "17.0.37",
+    "@types/react-dom": "17.0.11",
     "@types/react-test-renderer": "17.0.1",
     "@uiw/react-codesandbox": "1.1.0",
     "@uiw/react-github-corners": "1.5.3",
@@ -71,13 +71,13 @@
     "@uiw/reset.css": "1.0.5",
     "compile-less-cli": "1.8.9",
     "kkt": "6.11.0",
-    "prettier": "2.4.1",
-    "pretty-quick": "3.1.1",
-    "jest": "27.3.1",
+    "prettier": "2.5.0",
+    "pretty-quick": "3.1.2",
+    "jest": "27.4.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-test-renderer": "17.0.2",
-    "tsbb": "3.4.4",
+    "tsbb": "3.5.2",
     "husky": "7.0.4"
   },
   "eslintConfig": {
