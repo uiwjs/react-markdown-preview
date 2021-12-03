@@ -9,6 +9,55 @@
   > :last-child {
     margin-bottom: 0 !important;
   }
+
+  pre[class*='language-'] {
+    &:hover .copied {
+      visibility: visible;
+    }
+    .copied {
+      visibility: hidden;
+      display: flex;
+      position: absolute;
+      cursor: pointer;
+      color: #a5afbb;
+      top: 6px;
+      right: 6px;
+      border-radius: 5px;
+      background: #e3e3e3;
+      padding: 6px;
+      font-size: 12px;
+      transition: all 0.3s;
+      &::before {
+        content: ' ';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+      .octicon-copy {
+        display: block;
+      }
+      .octicon-check {
+        display: none;
+      }
+      &.active {
+        .octicon-copy {
+          display: none;
+        }
+        .octicon-check {
+          display: block;
+        }
+      }
+      &:hover,
+      &:active,
+      &.active {
+        background: #2e9b33;
+        color: #fff;
+      }
+    }
+  }
+
   code[class*='language-'],
   pre[class*='language-'] {
     color: black;
