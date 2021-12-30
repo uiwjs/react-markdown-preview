@@ -55,7 +55,7 @@
     "rehype-autolink-headings": "6.1.0",
     "rehype-raw": "6.1.0",
     "rehype-rewrite": "3.0.4",
-    "rehype-slug": "5.0.0",
+    "rehype-slug": "5.0.1",
     "remark-gfm": "3.0.1"
   },
   "devDependencies": {
