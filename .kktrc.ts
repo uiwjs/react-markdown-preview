@@ -30,9 +30,9 @@ export default (conf: Configuration, env: string, options: LoaderConfOptions) =>
           chunks: 'all',
         },
         prismjs: {
-          test: /[\\/]node_modules[\\/](prismjs)[\\/]/,
-          name: 'prismjs-vendor',
-          chunks: 'async',
+          test: /[\\/]node_modules[\\/](refractor)[\\/]/,
+          name: 'refractor-vendor',
+          chunks: 'all',
         },
       },
     },
