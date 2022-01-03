@@ -52,7 +52,7 @@
     "@uiw/copy-to-clipboard": "1.0.12",
     "react-markdown": "7.1.1",
     "rehype-attr": "2.0.7",
-    "rehype-autolink-headings": "6.1.0",
+    "rehype-autolink-headings": "6.1.1",
     "rehype-raw": "6.1.1",
     "rehype-rewrite": "3.0.4",
     "rehype-slug": "5.0.1",
