@@ -1,22 +1,20 @@
 {
   "files": {
-    "main.css": "/react-markdown-preview/static/css/main.0a7b7edc.chunk.css",
-    "main.js": "/react-markdown-preview/static/js/main.df2a7fd8.chunk.js",
-    "main.js.map": "/react-markdown-preview/static/js/main.df2a7fd8.chunk.js.map",
-    "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.ac9acb95.chunk.js",
-    "react-vendor.js.map": "/react-markdown-preview/static/js/react-vendor.ac9acb95.chunk.js.map",
-    "runtime-main.js": "/react-markdown-preview/static/js/runtime-main.4bc5d182.js",
-    "runtime-main.js.map": "/react-markdown-preview/static/js/runtime-main.4bc5d182.js.map",
+    "main.css": "/react-markdown-preview/static/css/main.c589d23b.css",
+    "main.js": "/react-markdown-preview/static/js/main.747156c1.js",
+    "refractor-vendor.js": "/react-markdown-preview/static/js/refractor-vendor.dd02863b.js",
+    "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.acb9267b.js",
+    "static/media/logo.svg": "/react-markdown-preview/static/media/logo.3931a054f5ef8356122965d973d55570.svg",
     "index.html": "/react-markdown-preview/index.html",
-    "static/css/main.0a7b7edc.chunk.css.map": "/react-markdown-preview/static/css/main.0a7b7edc.chunk.css.map",
-    "static/js/main.df2a7fd8.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/main.df2a7fd8.chunk.js.LICENSE.txt",
-    "static/js/react-vendor.ac9acb95.chunk.js.LICENSE.txt": "/react-markdown-preview/static/js/react-vendor.ac9acb95.chunk.js.LICENSE.txt",
-    "static/media/logo.3931a054.svg": "/react-markdown-preview/static/media/logo.3931a054.svg"
+    "main.c589d23b.css.map": "/react-markdown-preview/static/css/main.c589d23b.css.map",
+    "main.747156c1.js.map": "/react-markdown-preview/static/js/main.747156c1.js.map",
+    "refractor-vendor.dd02863b.js.map": "/react-markdown-preview/static/js/refractor-vendor.dd02863b.js.map",
+    "react-vendor.acb9267b.js.map": "/react-markdown-preview/static/js/react-vendor.acb9267b.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.4bc5d182.js",
-    "static/js/react-vendor.ac9acb95.chunk.js",
-    "static/css/main.0a7b7edc.chunk.css",
-    "static/js/main.df2a7fd8.chunk.js"
+    "static/js/refractor-vendor.dd02863b.js",
+    "static/js/react-vendor.acb9267b.js",
+    "static/css/main.c589d23b.css",
+    "static/js/main.747156c1.js"
   ]
 }
