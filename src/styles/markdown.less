@@ -170,6 +170,26 @@
     margin-top: 0;
     list-style: initial;
   }
+  li {
+    display: list-item;
+  }
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  ul ul ul {
+    list-style-type: square;
+  }
+  ul ul {
+    list-style-type: circle;
+  }
+  ul {
+    list-style-type: disc;
+  }
+
   > blockquote,
   > blockquote blockquote {
     margin: 0;
