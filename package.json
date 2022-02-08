@@ -47,7 +47,7 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.16.7",
+    "@babel/runtime": "7.17.2",
     "@mapbox/rehype-prism": "0.8.0",
     "@uiw/copy-to-clipboard": "1.0.12",
     "react-markdown": "7.1.2",
