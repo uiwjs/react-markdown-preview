@@ -1,11 +1,8 @@
-name: Build & Deploy
+name: CI
 on:
   push:
     branches:
       - master
-
-env:
-  SKIP_PREFLIGHT_CHECK: true
 
 jobs:
   build-deploy:
@@ -22,8 +19,12 @@ jobs:
     - run: npm run bundle
     - run: npm run bundle:min
 
+    - run: cp -rp coverage build
+
     - name: Create Coverage Badges
       uses: jaywcjlove/coverage-badges-cli@main
+      with:
+        output: build/badge.svg
 
     - name: Generate Contributors Images
       uses: jaywcjlove/github-action-contributors@main
