@@ -19,6 +19,24 @@ jobs:
     - run: npm install
     - run: npm run coverage
     - run: npm run doc
+    - run: npm run bundle
+    - run: npm run bundle:min
+
+    - name: Create Coverage Badges
+      uses: jaywcjlove/coverage-badges-cli@main
+
+    - name: Generate Contributors Images
+      uses: jaywcjlove/github-action-contributors@main
+      with:
+        filter-author: (renovate\[bot\]|renovate-bot|dependabot\[bot\])
+        output: build/CONTRIBUTORS.svg
+        avatarSize: 42
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
 
     - run: npm install @jsdevtools/npm-publish -g
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
@@ -57,12 +75,6 @@ jobs:
           ```bash
           npm i @uiw/react-markdown-preview@${{steps.create_tag.outputs.versionNumber}}
           ```
-
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
 
     - name: Coveralls
       uses: coverallsapp/github-action@master
