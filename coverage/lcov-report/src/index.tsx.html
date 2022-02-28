@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">63.63% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/22</span>
+                <span class='fraction'>16/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">71.05% </span>
+                <span class="strong">69.04% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>27/38</span>
+                <span class='fraction'>29/42</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.9% </span>
+                <span class="strong">65.21% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/21</span>
+                <span class='fraction'>15/23</span>
             </div>
         
             
@@ -151,7 +151,13 @@
 <a name='L86'></a><a href='#L86'>86</a>
 <a name='L87'></a><a href='#L87'>87</a>
 <a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -216,6 +222,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
@@ -229,6 +237,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,6 +252,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useImperativeHandle } from 'react';
 import ReactMarkdown, { Options } from 'react-markdown';
 import { Root, Element, ElementContent } from 'hast';
+import { PluggableList } from 'unified';
 import gfm from 'remark-gfm';
 import slug from 'rehype-slug';
 import headings from 'rehype-autolink-headings';
@@ -285,6 +296,7 @@ export interface MarkdownPreviewProps extends Omit&lt;Options, 'children'&gt; {
   className?: string;
   source?: string;
   style?: React.CSSProperties;
+  pluginsFilter?: (type: 'rehype' | 'remark', plugin: PluggableList) =&gt; PluggableList;
   warpperElement?: React.DetailedHTMLProps&lt;React.HTMLAttributes&lt;HTMLDivElement&gt;, HTMLDivElement&gt;;
   onScroll?: (e: React.UIEvent&lt;HTMLDivElement&gt;) =&gt; void;
   onMouseOver?: (e: React.MouseEvent&lt;HTMLDivElement&gt;) =&gt; void;
@@ -302,26 +314,29 @@ export default React.forwardRef&lt;MarkdownPreviewRef, MarkdownPreviewProps&gt;(
     style,
     onScroll,
     onMouseOver,
+    pluginsFilter,
     warpperElement = {},
     ...other
   } = props;
   const mdp = React.createRef&lt;HTMLDivElement&gt;();
   useImperativeHandle(ref, () =&gt; ({ ...props, mdp }), [mdp, props]);
   const cls = `${prefixCls || ''} ${className || ''}`;
+  const rehypePlugins: PluggableList = [
+    [rehypePrism, { ignoreMissing: true }],
+    rehypeRaw,
+    slug,
+    headings,
+    [rehypeRewrite, { rewrite: rehypeRewriteHandle }],
+    [rehypeAttrs, { properties: 'attr' }],
+    ...(other.rehypePlugins || []),
+  ];
+  const remarkPlugins = [...(other.remarkPlugins || []), gfm];
   return (
     &lt;div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...warpperElement} className={cls} style={style}&gt;
       &lt;ReactMarkdown
         {...other}
-        rehypePlugins={[
-          [rehypePrism, { ignoreMissing: true }],
-          rehypeRaw,
-          slug,
-          headings,
-          [rehypeRewrite, { rewrite: rehypeRewriteHandle }],
-          [rehypeAttrs, { properties: 'attr' }],
-          ...(other.rehypePlugins || []),
-        ]}
-        remarkPlugins={[...(other.remarkPlugins || []), gfm]}
+        rehypePlugins={pluginsFilter ? <span class="branch-0 cbranch-no" title="branch not covered" >pluginsFilter('rehype', rehypePlugins) </span>: rehypePlugins}
+        remarkPlugins={pluginsFilter ? <span class="branch-0 cbranch-no" title="branch not covered" >pluginsFilter('remark', remarkPlugins) </span>: remarkPlugins}
         children={source || ''}
       /&gt;
     &lt;/div&gt;
@@ -334,7 +349,7 @@ export default React.forwardRef&lt;MarkdownPreviewRef, MarkdownPreviewProps&gt;(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Feb 28 2022 06:06:10 GMT+0000 (Coordinated Universal Time)
+                at Mon Feb 28 2022 06:29:48 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../prettify.js"></script>
         <script>
