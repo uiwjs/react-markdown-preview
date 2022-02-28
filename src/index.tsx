@@ -1,6 +1,7 @@
 import React, { useImperativeHandle } from 'react';
 import ReactMarkdown, { Options } from 'react-markdown';
 import { Root, Element, ElementContent } from 'hast';
+import { PluggableList } from 'unified';
 import gfm from 'remark-gfm';
 import slug from 'rehype-slug';
 import headings from 'rehype-autolink-headings';
@@ -44,6 +45,7 @@ export interface MarkdownPreviewProps extends Omit<Options, 'children'> {
   className?: string;
   source?: string;
   style?: React.CSSProperties;
+  pluginsFilter?: (type: 'rehype' | 'remark', plugin: PluggableList) => PluggableList;
   warpperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
   onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
   onMouseOver?: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -61,26 +63,29 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     style,
     onScroll,
     onMouseOver,
+    pluginsFilter,
     warpperElement = {},
     ...other
   } = props;
   const mdp = React.createRef<HTMLDivElement>();
   useImperativeHandle(ref, () => ({ ...props, mdp }), [mdp, props]);
   const cls = `${prefixCls || ''} ${className || ''}`;
+  const rehypePlugins: PluggableList = [
+    [rehypePrism, { ignoreMissing: true }],
+    rehypeRaw,
+    slug,
+    headings,
+    [rehypeRewrite, { rewrite: rehypeRewriteHandle }],
+    [rehypeAttrs, { properties: 'attr' }],
+    ...(other.rehypePlugins || []),
+  ];
+  const remarkPlugins = [...(other.remarkPlugins || []), gfm];
   return (
     <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...warpperElement} className={cls} style={style}>
       <ReactMarkdown
         {...other}
-        rehypePlugins={[
-          [rehypePrism, { ignoreMissing: true }],
-          rehypeRaw,
-          slug,
-          headings,
-          [rehypeRewrite, { rewrite: rehypeRewriteHandle }],
-          [rehypeAttrs, { properties: 'attr' }],
-          ...(other.rehypePlugins || []),
-        ]}
-        remarkPlugins={[...(other.remarkPlugins || []), gfm]}
+        rehypePlugins={pluginsFilter ? pluginsFilter('rehype', rehypePlugins) : rehypePlugins}
+        remarkPlugins={pluginsFilter ? pluginsFilter('remark', remarkPlugins) : remarkPlugins}
         children={source || ''}
       />
     </div>
