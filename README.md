@@ -3,6 +3,7 @@ React Markdown Preview
 <!--dividing-->
 
 [![Build and Deploy](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.marster.yml/badge.svg)](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.marster.yml)
+[![jsDelivr CDN](https://data.jsdelivr.com/v1/package/npm/@uiw/react-markdown-preview/badge?style=rounded)](https://www.jsdelivr.com/package/npm/@uiw/react-markdown-preview)
 [![Downloads](https://img.shields.io/npm/dm/@uiw/react-markdown-preview.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-markdown-preview)
 [![Coverage Status](https://coveralls.io/repos/github/uiwjs/react-markdown-preview/badge.svg?branch=master)](https://coveralls.io/github/uiwjs/react-markdown-preview?branch=master)
 [![npm version](https://img.shields.io/npm/v/@uiw/react-markdown-preview.svg)](https://www.npmjs.com/package/@uiw/react-markdown-preview)
@@ -161,6 +162,16 @@ If you need more features-rich Markdown Editor, you can use [@uiwjs/react-markdo
 - [@uiw/react-textarea-code-editor](https://github.com/uiwjs/react-textarea-code-editor): A simple code editor with syntax highlighting.
 - [@uiw/react-codemirror](https://github.com/uiwjs/react-codemirror): CodeMirror component for React. @codemirror
 - [@uiw/react-monacoeditor](https://github.com/jaywcjlove/react-monacoeditor): Monaco Editor component for React.
+
+## Contributors
+
+As always, thanks to our amazing contributors!
+
+<a href="https://github.com/uiwjs/react-markdown-preview/graphs/contributors">
+  <img src="https://uiwjs.github.io/react-markdown-preview/CONTRIBUTORS.svg" />
+</a>
+
+Made with [github-action-contributors](https://github.com/jaywcjlove/github-action-contributors).
 
 ## License
 
