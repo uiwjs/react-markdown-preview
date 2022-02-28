@@ -47,6 +47,7 @@ type MarkdownPreviewProps = {
   source?: string;
   style?: React.CSSProperties;
   warpperElement?: HTMLDivElement;
+  pluginsFilter?: (type: 'rehype' | 'remark', plugin: PluggableList) => PluggableList;
   onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
   onMouseOver?: (e: React.MouseEvent<HTMLDivElement>) => void;
 } & ReactMarkdownProps;
