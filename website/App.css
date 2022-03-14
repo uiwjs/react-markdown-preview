@@ -10,7 +10,7 @@
 @media (prefers-color-scheme: light) {
   body {
     color-scheme: light;
-    --color-thme-bg: #e7eaec;
+    --color-thme-bg: #fff;
     --color-thme-text: #282c34;
     background-color: var(--color-thme-bg);
   }
@@ -27,7 +27,7 @@ body[data-color-mode*='dark'] {
 [data-color-mode*='light'],
 body[data-color-mode*='light'] {
   color-scheme: light;
-  --color-thme-bg: #e7eaec;
+  --color-thme-bg: #fff;
   --color-thme-text: #282c34;
   background-color: var(--color-thme-bg);
 }

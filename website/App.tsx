@@ -43,6 +43,7 @@ const App = () => {
         <textarea
           placeholder="Please enter the Markdown code!"
           value={value}
+          spellCheck="false"
           onChange={(e) => setValue(e.target.value)}
         />
         <MarkdownPreview ref={ref} className="App-editor-preview" source={value} />
