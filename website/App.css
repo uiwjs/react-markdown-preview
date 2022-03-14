@@ -1,3 +1,37 @@
+@media (prefers-color-scheme: dark) {
+  body {
+    color-scheme: dark;
+    --color-thme-bg: #282c34;
+    --color-thme-text: #fff;
+    background-color: var(--color-thme-bg);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color-scheme: light;
+    --color-thme-bg: #e7eaec;
+    --color-thme-text: #282c34;
+    background-color: var(--color-thme-bg);
+  }
+}
+
+[data-color-mode*='dark'],
+body[data-color-mode*='dark'] {
+  color-scheme: dark;
+  --color-thme-bg: #282c34;
+  --color-thme-text: #fff;
+  background-color: var(--color-thme-bg);
+}
+
+[data-color-mode*='light'],
+body[data-color-mode*='light'] {
+  color-scheme: light;
+  --color-thme-bg: #e7eaec;
+  --color-thme-text: #282c34;
+  background-color: var(--color-thme-bg);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -5,11 +39,13 @@ body {
     'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: all 0.3s;
 }
 
 .App {
-  background-color: #282c34;
   padding-bottom: 68px;
+  color: var(--color-thme-text);
+  transition: all 0.3s;
 }
 
 .App-logo {
@@ -24,7 +60,6 @@ body {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-header p {
@@ -37,6 +72,18 @@ body {
 
 .App-header a {
   color: #09d3ac;
+}
+
+.App-theme {
+  cursor: pointer;
+  line-height: 21px;
+  margin-top: 10px;
+  margin-left: 10px;
+  display: inline-block;
+  user-select: none;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .App-markdown {
@@ -59,7 +106,7 @@ body {
 }
 
 .App-editor {
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 .App-editor textarea {
