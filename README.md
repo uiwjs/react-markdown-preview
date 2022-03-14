@@ -13,7 +13,7 @@ React component preview markdown text in web browser. The minimal amount of CSS 
 
 ## Features
 
-- 🌒 Support dark-mode/night mode. `@v4`
+- 🌒 Support dark-mode/night-mode. `@v4`
 - 🙆🏼‍♂️ GitHub style: The markdown content is rendered as close to the way it's rendered on GitHub as possible.
 - 🏋🏾‍♂️ Support [GFM](https://github.github.com/gfm/) (autolink literals, footnotes, strikethrough, tables, tasklists).
 - 🍭 Support automatic code block highlight.
@@ -138,6 +138,19 @@ Markdown Supports **Style**<!--rehype:style=color: red;-->
 Here is a simple footnote[^1]. With some additional text after it.
 
 [^1]: My reference.
+```
+
+## Support dark-mode/night-mode
+
+By default, the `dark-mode` is automatically switched according to the system. If you need to switch manually, just set the `data-color-mode="dark"` parameter for body.
+
+```html
+<body data-color-mode="dark"></body>
+```
+
+```js
+document.body.setAttribute('data-color-mode', 'dark')
+document.body.setAttribute('data-color-mode', 'light')
 ```
 
 ## Development
