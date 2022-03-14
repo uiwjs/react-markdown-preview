@@ -11,6 +11,15 @@ React Markdown Preview
 
 React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub Markdown style. The current [document website](https://uiwjs.github.io/react-markdown-preview/) is converted using this react component.
 
+## Features
+
+- 🌒 Support dark-mode/night mode. `@v4`
+- 🙆🏼‍♂️ GitHub style: The markdown content is rendered as close to the way it's rendered on GitHub as possible.
+- 🏋🏾‍♂️ Support [GFM](https://github.github.com/gfm/) (autolink literals, footnotes, strikethrough, tables, tasklists).
+- 🍭 Support automatic code block highlight.
+- 🐝 Support for defining styles via comment.
+- ⛳️ Support for [GFM footnotes](https://github.blog/changelog/2021-09-30-footnotes-now-supported-in-markdown-fields/)
+
 ## Quick Start
 
 ```bash
