@@ -126,5 +126,5 @@ body {
   padding: 16px;
   border-radius: 5px;
   min-height: 60px;
-  background-color: #fff;
+  border: 1px solid var(--color-border-default);
 }
