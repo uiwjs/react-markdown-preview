@@ -1,13 +1,14 @@
 import { Element } from 'hast';
 import copyTextToClipboard from '@uiw/copy-to-clipboard';
 
-export function copyElement(str: string = 'test'): Element {
+export function copyElement(str: string = ''): Element {
   return {
     type: 'element',
     tagName: 'div',
     properties: {
       // @ts-ignore
-      onClick: ({ target }) => {
+      onClick: (event) => {
+        const target = event.currentTarget || event.target;
         target.classList.add('active');
         copyTextToClipboard(target.dataset.code as string, function () {
           setTimeout(() => {

@@ -7,13 +7,11 @@ import slug from 'rehype-slug';
 import headings from 'rehype-autolink-headings';
 import rehypeRaw from 'rehype-raw';
 import rehypeAttrs from 'rehype-attr';
-// @ts-ignore
-import rehypePrism from '@mapbox/rehype-prism';
-import rehypeRewrite from 'rehype-rewrite';
+import rehypePrism from 'rehype-prism-plus';
+import rehypeRewrite, { getCodeString } from 'rehype-rewrite';
 import { octiconLink } from './nodes/octiconLink';
 import { copyElement } from './nodes/copy';
 import './styles/markdown.less';
-import './styles/markdowncolor.less';
 
 const rehypeRewriteHandle = (node: ElementContent, index: number | null, parent: Root | Element | null) => {
   if (node.type === 'element' && parent && parent.type === 'root' && /h(1|2|3|4|5|6)/.test(node.tagName)) {
@@ -24,20 +22,9 @@ const rehypeRewriteHandle = (node: ElementContent, index: number | null, parent:
     }
   }
   if (node.type === 'element' && node.tagName === 'pre') {
-    const code = getCodeStr(node.children);
+    const code = getCodeString(node.children);
     node.children.push(copyElement(code));
   }
-};
-
-const getCodeStr = (data: ElementContent[] = [], code: string = '') => {
-  data.forEach((node) => {
-    if (node.type === 'text') {
-      code += node.value;
-    } else if (node.type === 'element' && node.children && Array.isArray(node.children)) {
-      code += getCodeStr(node.children);
-    }
-  });
-  return code;
 };
 
 export interface MarkdownPreviewProps extends Omit<Options, 'children'> {
