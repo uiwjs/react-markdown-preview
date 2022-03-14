@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react-markdown-preview/static/css/main.0c9538a6.css",
-    "main.js": "/react-markdown-preview/static/js/main.1c3e5759.js",
+    "main.css": "/react-markdown-preview/static/css/main.1d48966e.css",
+    "main.js": "/react-markdown-preview/static/js/main.1bfdfbfd.js",
     "refractor-vendor.js": "/react-markdown-preview/static/js/refractor-vendor.24d731cb.js",
     "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.acb9267b.js",
     "static/media/logo.svg": "/react-markdown-preview/static/media/logo.3931a054f5ef8356122965d973d55570.svg",
     "index.html": "/react-markdown-preview/index.html",
-    "main.0c9538a6.css.map": "/react-markdown-preview/static/css/main.0c9538a6.css.map",
-    "main.1c3e5759.js.map": "/react-markdown-preview/static/js/main.1c3e5759.js.map",
+    "main.1d48966e.css.map": "/react-markdown-preview/static/css/main.1d48966e.css.map",
+    "main.1bfdfbfd.js.map": "/react-markdown-preview/static/js/main.1bfdfbfd.js.map",
     "refractor-vendor.24d731cb.js.map": "/react-markdown-preview/static/js/refractor-vendor.24d731cb.js.map",
     "react-vendor.acb9267b.js.map": "/react-markdown-preview/static/js/react-vendor.acb9267b.js.map"
   },
   "entrypoints": [
     "static/js/refractor-vendor.24d731cb.js",
     "static/js/react-vendor.acb9267b.js",
-    "static/css/main.0c9538a6.css",
-    "static/js/main.1c3e5759.js"
+    "static/css/main.1d48966e.css",
+    "static/js/main.1bfdfbfd.js"
   ]
 }
