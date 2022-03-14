@@ -74,6 +74,9 @@ body {
   color: #09d3ac;
 }
 
+.App-theme input {
+  margin-left: 10px;
+}
 .App-theme {
   cursor: pointer;
   line-height: 21px;
