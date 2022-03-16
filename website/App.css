@@ -1,37 +1,3 @@
-@media (prefers-color-scheme: dark) {
-  body {
-    color-scheme: dark;
-    --color-thme-bg: #282c34;
-    --color-thme-text: #fff;
-    background-color: var(--color-thme-bg);
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  body {
-    color-scheme: light;
-    --color-thme-bg: #fff;
-    --color-thme-text: #282c34;
-    background-color: var(--color-thme-bg);
-  }
-}
-
-[data-color-mode*='dark'],
-body[data-color-mode*='dark'] {
-  color-scheme: dark;
-  --color-thme-bg: #282c34;
-  --color-thme-text: #fff;
-  background-color: var(--color-thme-bg);
-}
-
-[data-color-mode*='light'],
-body[data-color-mode*='light'] {
-  color-scheme: light;
-  --color-thme-bg: #fff;
-  --color-thme-text: #282c34;
-  background-color: var(--color-thme-bg);
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -40,6 +6,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: all 0.3s;
+}
+
+.wmde-markdown {
+  background-color: transparent !important;
 }
 
 .App {
@@ -74,10 +44,7 @@ body {
   color: #09d3ac;
 }
 
-.App-theme input {
-  margin-left: 10px;
-}
-.App-theme {
+dark-mode {
   cursor: pointer;
   line-height: 21px;
   margin-top: 10px;
@@ -92,7 +59,6 @@ body {
 .App-markdown {
   text-align: left;
   font-size: calc(10px + 2vmin);
-  background-color: #fff;
   padding: 16px;
   border-radius: 5px;
 }
