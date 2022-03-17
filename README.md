@@ -189,7 +189,7 @@ npm run build
 The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 
-### Related
+### Alternatives
 
 If you need more features-rich Markdown Editor, you can use [@uiwjs/react-markdown-editor](https://github.com/uiwjs/react-markdown-editor)
 
@@ -207,7 +207,7 @@ As always, thanks to our amazing contributors!
   <img src="https://uiwjs.github.io/react-markdown-preview/CONTRIBUTORS.svg" />
 </a>
 
-Made with [github-action-contributors](https://github.com/jaywcjlove/github-action-contributors).
+Made with [action-contributors](https://github.com/jaywcjlove/github-action-contributors).
 
 ## License
 
