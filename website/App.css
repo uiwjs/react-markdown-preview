@@ -14,7 +14,7 @@ body {
 
 .App {
   padding-bottom: 68px;
-  color: var(--color-thme-text);
+  color: var(--color-theme-text);
   transition: all 0.3s;
 }
 
