@@ -884,18 +884,7 @@ body[data-color-mode*='light'] {
     border: 0;
   }
 
-  .highlight {
-    margin-bottom: 16px;
-    pre {
-      margin-bottom: 0;
-      word-break: normal;
-    }
-  }
-
-  .highlight pre,
   pre {
-    padding: 16px;
-    overflow: auto;
     font-size: 85%;
     line-height: 1.45;
     background-color: var(--color-canvas-subtle);
@@ -913,6 +902,11 @@ body[data-color-mode*='light'] {
     word-wrap: normal;
     background-color: transparent;
     border: 0;
+  }
+  pre > code {
+    padding: 16px;
+    overflow: auto;
+    display: block;
   }
 }
 
