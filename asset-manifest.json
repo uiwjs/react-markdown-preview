@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react-markdown-preview/static/css/main.f0e72697.css",
-    "main.js": "/react-markdown-preview/static/js/main.b52cfe3d.js",
-    "refractor-vendor.js": "/react-markdown-preview/static/js/refractor-vendor.24d731cb.js",
+    "main.css": "/react-markdown-preview/static/css/main.dc9f94c6.css",
+    "main.js": "/react-markdown-preview/static/js/main.4abaddab.js",
+    "refractor-vendor.js": "/react-markdown-preview/static/js/refractor-vendor.a10b39ea.js",
     "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.acb9267b.js",
     "static/media/logo.svg": "/react-markdown-preview/static/media/logo.3931a054f5ef8356122965d973d55570.svg",
     "index.html": "/react-markdown-preview/index.html",
-    "main.f0e72697.css.map": "/react-markdown-preview/static/css/main.f0e72697.css.map",
-    "main.b52cfe3d.js.map": "/react-markdown-preview/static/js/main.b52cfe3d.js.map",
-    "refractor-vendor.24d731cb.js.map": "/react-markdown-preview/static/js/refractor-vendor.24d731cb.js.map",
+    "main.dc9f94c6.css.map": "/react-markdown-preview/static/css/main.dc9f94c6.css.map",
+    "main.4abaddab.js.map": "/react-markdown-preview/static/js/main.4abaddab.js.map",
+    "refractor-vendor.a10b39ea.js.map": "/react-markdown-preview/static/js/refractor-vendor.a10b39ea.js.map",
     "react-vendor.acb9267b.js.map": "/react-markdown-preview/static/js/react-vendor.acb9267b.js.map"
   },
   "entrypoints": [
-    "static/js/refractor-vendor.24d731cb.js",
+    "static/js/refractor-vendor.a10b39ea.js",
     "static/js/react-vendor.acb9267b.js",
-    "static/css/main.f0e72697.css",
-    "static/js/main.b52cfe3d.js"
+    "static/css/main.dc9f94c6.css",
+    "static/js/main.4abaddab.js"
   ]
 }
