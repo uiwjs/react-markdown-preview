@@ -30,7 +30,7 @@ $ npm install @uiw/react-markdown-preview --save
 
 [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/embed/react-markdown-preview-co1mj?fontsize=14&hidenavigation=1&theme=dark)
 
-```js
+```js test:meta
 import MarkdownPreview from '@uiw/react-markdown-preview';
 
 const source = `

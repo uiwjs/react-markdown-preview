@@ -13,6 +13,8 @@ import { octiconLink } from './nodes/octiconLink';
 import { copyElement } from './nodes/copy';
 import './styles/markdown.less';
 
+import { reservedMeta } from './plugins/reservedMeta';
+
 const rehypeRewriteHandle = (node: ElementContent, index: number | null, parent: Root | Element | null) => {
   if (node.type === 'element' && parent && parent.type === 'root' && /h(1|2|3|4|5|6)/.test(node.tagName)) {
     const child = node.children && (node.children[0] as Element);
@@ -58,6 +60,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
   useImperativeHandle(ref, () => ({ ...props, mdp }), [mdp, props]);
   const cls = `${prefixCls || ''} ${className || ''}`;
   const rehypePlugins: PluggableList = [
+    reservedMeta,
     [rehypePrism, { ignoreMissing: true }],
     rehypeRaw,
     slug,
