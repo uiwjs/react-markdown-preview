@@ -54,6 +54,7 @@ import { ReactMarkdownProps } from 'react-markdown';
 type MarkdownPreviewProps = {
   className?: string;
   source?: string;
+  disableCopy?: boolean;
   style?: React.CSSProperties;
   warpperElement?: HTMLDivElement;
   pluginsFilter?: (type: 'rehype' | 'remark', plugin: PluggableList) => PluggableList;

@@ -15,24 +15,11 @@ import './styles/markdown.less';
 
 import { reservedMeta } from './plugins/reservedMeta';
 
-const rehypeRewriteHandle = (node: ElementContent, index: number | null, parent: Root | Element | null) => {
-  if (node.type === 'element' && parent && parent.type === 'root' && /h(1|2|3|4|5|6)/.test(node.tagName)) {
-    const child = node.children && (node.children[0] as Element);
-    if (child && child.properties && child.properties.ariaHidden === 'true') {
-      child.properties = { class: 'anchor', ...child.properties };
-      child.children = [octiconLink];
-    }
-  }
-  if (node.type === 'element' && node.tagName === 'pre') {
-    const code = getCodeString(node.children);
-    node.children.push(copyElement(code));
-  }
-};
-
 export interface MarkdownPreviewProps extends Omit<Options, 'children'> {
   prefixCls?: string;
   className?: string;
   source?: string;
+  disableCopy?: boolean;
   style?: React.CSSProperties;
   pluginsFilter?: (type: 'rehype' | 'remark', plugin: PluggableList) => PluggableList;
   warpperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
@@ -50,6 +37,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     className,
     source,
     style,
+    disableCopy = false,
     onScroll,
     onMouseOver,
     pluginsFilter,
@@ -59,6 +47,21 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
   const mdp = React.createRef<HTMLDivElement>();
   useImperativeHandle(ref, () => ({ ...props, mdp }), [mdp, props]);
   const cls = `${prefixCls || ''} ${className || ''}`;
+
+  const rehypeRewriteHandle = (node: ElementContent, index: number | null, parent: Root | Element | null) => {
+    if (node.type === 'element' && parent && parent.type === 'root' && /h(1|2|3|4|5|6)/.test(node.tagName)) {
+      const child = node.children && (node.children[0] as Element);
+      if (child && child.properties && child.properties.ariaHidden === 'true') {
+        child.properties = { class: 'anchor', ...child.properties };
+        child.children = [octiconLink];
+      }
+    }
+    if (node.type === 'element' && node.tagName === 'pre' && !disableCopy) {
+      const code = getCodeString(node.children);
+      node.children.push(copyElement(code));
+    }
+  };
+
   const rehypePlugins: PluggableList = [
     reservedMeta,
     [rehypePrism, { ignoreMissing: true }],
