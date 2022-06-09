@@ -22,7 +22,9 @@ export interface MarkdownPreviewProps extends Omit<Options, 'children'> {
   disableCopy?: boolean;
   style?: React.CSSProperties;
   pluginsFilter?: (type: 'rehype' | 'remark', plugin: PluggableList) => PluggableList;
-  warpperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+  warpperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
+    'data-color-mode'?: 'light' | 'dark';
+  };
   onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
   onMouseOver?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
