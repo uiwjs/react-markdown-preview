@@ -79,7 +79,7 @@
     "@uiw/reset.css": "~1.0.5",
     "@wcj/dark-mode": "~1.0.9",
     "compile-less-cli": "~1.8.11",
-    "husky": "~7.0.4",
+    "husky": "~8.0.0",
     "kkt": "~7.1.5",
     "prettier": "~2.5.1",
     "pretty-quick": "~3.1.3",
