@@ -1,6 +1,6 @@
 import React, { useImperativeHandle } from 'react';
 import ReactMarkdown, { Options } from 'react-markdown';
-import { Root, Element, ElementContent } from 'hast';
+import { Element } from 'hast';
 import { PluggableList } from 'unified';
 import gfm from 'remark-gfm';
 import slug from 'rehype-slug';
@@ -8,7 +8,7 @@ import headings from 'rehype-autolink-headings';
 import rehypeRaw from 'rehype-raw';
 import rehypeAttrs from 'rehype-attr';
 import rehypePrism from 'rehype-prism-plus';
-import rehypeRewrite, { getCodeString } from 'rehype-rewrite';
+import rehypeRewrite, { getCodeString, RehypeRewriteOptions } from 'rehype-rewrite';
 import { octiconLink } from './nodes/octiconLink';
 import { copyElement } from './nodes/copy';
 import './styles/markdown.less';
@@ -50,7 +50,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
   useImperativeHandle(ref, () => ({ ...props, mdp }), [mdp, props]);
   const cls = `${prefixCls || ''} ${className || ''}`;
 
-  const rehypeRewriteHandle = (node: ElementContent, index: number | null, parent: Root | Element | null) => {
+  const rehypeRewriteHandle: RehypeRewriteOptions['rewrite'] = (node, index, parent) => {
     if (node.type === 'element' && parent && parent.type === 'root' && /h(1|2|3|4|5|6)/.test(node.tagName)) {
       const child = node.children && (node.children[0] as Element);
       if (child && child.properties && child.properties.ariaHidden === 'true') {
