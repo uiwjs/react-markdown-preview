@@ -7,6 +7,7 @@ import slug from 'rehype-slug';
 import headings from 'rehype-autolink-headings';
 import rehypeRaw from 'rehype-raw';
 import rehypeAttrs from 'rehype-attr';
+import rehypeIgnore from 'rehype-ignore';
 import rehypePrism from 'rehype-prism-plus';
 import rehypeRewrite, { getCodeString, RehypeRewriteOptions } from 'rehype-rewrite';
 import { octiconLink } from './nodes/octiconLink';
@@ -70,6 +71,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     rehypeRaw,
     slug,
     headings,
+    rehypeIgnore,
     [rehypeRewrite, { rewrite: rehypeRewriteHandle }],
     [rehypeAttrs, { properties: 'attr' }],
     ...(other.rehypePlugins || []),
