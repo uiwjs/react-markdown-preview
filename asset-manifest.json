@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-markdown-preview/static/css/main.c2a564bc.css",
-    "main.js": "/react-markdown-preview/static/js/main.2c2cf711.js",
+    "main.js": "/react-markdown-preview/static/js/main.f7a688b6.js",
     "refractor-vendor.js": "/react-markdown-preview/static/js/refractor-vendor.bc22ceca.js",
     "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.7842485c.js",
     "static/media/logo.svg": "/react-markdown-preview/static/media/logo.3931a054f5ef8356122965d973d55570.svg",
     "index.html": "/react-markdown-preview/index.html",
     "main.c2a564bc.css.map": "/react-markdown-preview/static/css/main.c2a564bc.css.map",
-    "main.2c2cf711.js.map": "/react-markdown-preview/static/js/main.2c2cf711.js.map",
+    "main.f7a688b6.js.map": "/react-markdown-preview/static/js/main.f7a688b6.js.map",
     "refractor-vendor.bc22ceca.js.map": "/react-markdown-preview/static/js/refractor-vendor.bc22ceca.js.map",
     "react-vendor.7842485c.js.map": "/react-markdown-preview/static/js/react-vendor.7842485c.js.map"
   },
@@ -15,6 +15,6 @@
     "static/js/refractor-vendor.bc22ceca.js",
     "static/js/react-vendor.7842485c.js",
     "static/css/main.c2a564bc.css",
-    "static/js/main.2c2cf711.js"
+    "static/js/main.f7a688b6.js"
   ]
 }
