@@ -88,6 +88,19 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
           package: ./package.json
 
+  github-package:
+    runs-on: ubuntu-18.04
+    needs: build-deploy
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com
+          scope: '@uiwjs'
+
+      - run: npm install
+
       - name: Modify @uiw/react-markdown-preview => @uiwjs/react-markdown-preview
         uses: jaywcjlove/github-action-package@main
         with:
