@@ -87,11 +87,6 @@ jobs:
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: ./package.json
-          
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Modify @uiw/react-markdown-preview => @uiwjs/react-markdown-preview
         uses: jaywcjlove/github-action-package@main
