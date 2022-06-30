@@ -50,16 +50,21 @@ function Demo() {
 
 ```typescript
 import { ReactMarkdownProps } from 'react-markdown';
+import { RehypeRewriteOptions } from 'rehype-rewrite';
 
 type MarkdownPreviewProps = {
+  prefixCls?: string;
   className?: string;
   source?: string;
   disableCopy?: boolean;
   style?: React.CSSProperties;
-  warpperElement?: HTMLDivElement;
   pluginsFilter?: (type: 'rehype' | 'remark', plugin: PluggableList) => PluggableList;
+  warpperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
+    'data-color-mode'?: 'light' | 'dark';
+  };
   onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
   onMouseOver?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  rehypeRewrite?: RehypeRewriteOptions['rewrite'];
 } & ReactMarkdownProps;
 ```
 

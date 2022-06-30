@@ -28,6 +28,7 @@ export interface MarkdownPreviewProps extends Omit<Options, 'children'> {
   };
   onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
   onMouseOver?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  rehypeRewrite?: RehypeRewriteOptions['rewrite'];
 }
 
 export interface MarkdownPreviewRef extends MarkdownPreviewProps {
@@ -44,6 +45,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     onScroll,
     onMouseOver,
     pluginsFilter,
+    rehypeRewrite: rewrite,
     warpperElement = {},
     ...other
   } = props;
@@ -63,6 +65,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
       const code = getCodeString(node.children);
       node.children.push(copyElement(code));
     }
+    rewrite && rewrite(node, index, parent);
   };
 
   const rehypePlugins: PluggableList = [
