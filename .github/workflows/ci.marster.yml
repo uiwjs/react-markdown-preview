@@ -88,6 +88,9 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
           package: ./package.json
 
+    outputs:
+      successful: ${{steps.create_tag.outputs.successful }}
+
   github-package:
     runs-on: ubuntu-18.04
     needs: build-deploy
