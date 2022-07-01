@@ -5,7 +5,7 @@ React Markdown Preview
 [![Build and Deploy](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.marster.yml/badge.svg)](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.marster.yml)
 [![jsDelivr CDN](https://data.jsdelivr.com/v1/package/npm/@uiw/react-markdown-preview/badge?style=rounded)](https://www.jsdelivr.com/package/npm/@uiw/react-markdown-preview)
 [![Downloads](https://img.shields.io/npm/dm/@uiw/react-markdown-preview.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-markdown-preview)
-[![Coverage Status](https://uiwjs.github.io/react-markdown-preview/badges.svg)](https://uiwjs.github.io/react-markdown-preview/coverage/lcov-report/)
+[![Coverage Status](https://uiwjs.github.io/react-markdown-preview/badge.svg)](https://uiwjs.github.io/react-markdown-preview/coverage/lcov-report/)
 [![npm version](https://img.shields.io/npm/v/@uiw/react-markdown-preview.svg)](https://www.npmjs.com/package/@uiw/react-markdown-preview)
 [![npm unpkg](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-markdown-preview/file/README.md)
 
@@ -43,6 +43,33 @@ function Demo() {
   return (
     <MarkdownPreview source={source} />
   )
+}
+```
+
+## Disable Header links
+
+```js test:meta
+import MarkdownPreview from '@uiw/react-markdown-preview';
+
+const source = `
+## MarkdownPreview
+
+## Header 2
+
+### Header 3
+`;
+
+function Demo() {
+  return (
+    <MarkdownPreview
+      source={source}
+      rehypeRewrite={(node, index, parent) => {
+        if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
+          parent.children = [parent.children[1]];
+        }
+      }}
+    />
+  );
 }
 ```
 
