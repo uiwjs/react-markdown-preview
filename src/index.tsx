@@ -79,11 +79,20 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     [rehypeAttrs, { properties: 'attr' }],
     ...(other.rehypePlugins || []),
   ];
+  const customProps: MarkdownPreviewProps = {
+    allowElement: (element, index, parent) => {
+      if (other.allowElement) {
+        return other.allowElement(element, index, parent);
+      }
+      return /^[A-Za-z0-9]+$/.test(element.tagName);
+    },
+  };
   const remarkPlugins = [...(other.remarkPlugins || []), gfm];
   return (
     <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...warpperElement} className={cls} style={style}>
       <ReactMarkdown
         {...other}
+        {...customProps}
         rehypePlugins={pluginsFilter ? pluginsFilter('rehype', rehypePlugins) : rehypePlugins}
         remarkPlugins={pluginsFilter ? pluginsFilter('remark', remarkPlugins) : remarkPlugins}
         children={source || ''}
