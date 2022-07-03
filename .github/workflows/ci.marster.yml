@@ -112,6 +112,5 @@ jobs:
             { "name": "@uiwjs/react-markdown-preview" }
   
       - run: npm publish
-        if: steps.create_tag.outputs.successful
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
