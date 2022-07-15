@@ -60,11 +60,12 @@
     "rehype-attr": "~2.0.7",
     "rehype-autolink-headings": "~6.1.1",
     "rehype-ignore": "^1.0.1",
-    "rehype-prism-plus": "1.4.0",
+    "rehype-prism-plus": "1.4.1",
     "rehype-raw": "~6.1.1",
     "rehype-rewrite": "~3.0.6",
     "rehype-slug": "~5.0.1",
-    "remark-gfm": "~3.0.1"
+    "remark-gfm": "~3.0.1",
+    "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {
     "@kkt/less-modules": "~7.2.0",
