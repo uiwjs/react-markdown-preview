@@ -2,6 +2,7 @@ import { useState } from 'react';
 import GitHubCorners from '@uiw/react-github-corners';
 import Github from '@uiw/react-shields/esm/github';
 import Npm from '@uiw/react-shields/esm/npm';
+import BackToUp from '@uiw/react-back-to-top';
 import '@wcj/dark-mode';
 import logo from './logo.svg';
 import './App.css';
@@ -14,6 +15,7 @@ const App = () => {
   const [value, setValue] = useState('');
   return (
     <div className="App">
+      <BackToUp>Top</BackToUp>
       <dark-mode permanent light="Light" dark="Dark"></dark-mode>
       <GitHubCorners zIndex={9999} fixed target="__blank" href="https://github.com/uiwjs/react-markdown-preview" />
       <header className="App-header">
