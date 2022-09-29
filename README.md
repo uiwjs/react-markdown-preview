@@ -66,7 +66,7 @@ function Demo() {
       source={source}
       rehypeRewrite={(node, index, parent) => {
         if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
-          parent.children = [parent.children[1]];
+          parent.children = parent.children.slice(1)
         }
       }}
     />
