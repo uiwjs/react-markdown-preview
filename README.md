@@ -107,7 +107,7 @@ This [`ReactMarkdownProps`](https://github.com/remarkjs/react-markdown/tree/02ba
     Markdown to parse
 - `className` (`string?`)\
     Wrap the markdown in a `div` with this class name
-- `skipHtml` (`boolean`, default: `false`)\
+- `skipHtml` (`boolean`, default: ~~`false`~~ -> [`true`](https://github.com/uiwjs/react-markdown-preview/issues/205) )\
     Ignore HTML in Markdown completely
 - `sourcePos` (`boolean`, default: `false`)\
     Pass a prop to all components with a serialized position

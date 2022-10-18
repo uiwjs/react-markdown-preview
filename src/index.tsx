@@ -3,6 +3,7 @@ import ReactMarkdown, { Options } from 'react-markdown';
 import { Element } from 'hast';
 import { PluggableList } from 'unified';
 import gfm from 'remark-gfm';
+import raw from 'rehype-raw';
 import slug from 'rehype-slug';
 import headings from 'rehype-autolink-headings';
 import rehypeAttrs from 'rehype-attr';
@@ -41,6 +42,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     source,
     style,
     disableCopy = false,
+    skipHtml = true,
     onScroll,
     onMouseOver,
     pluginsFilter,
@@ -85,12 +87,16 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
       return /^[A-Za-z0-9]+$/.test(element.tagName);
     },
   };
+  if (skipHtml) {
+    rehypePlugins.push(raw);
+  }
   const remarkPlugins = [...(other.remarkPlugins || []), gfm];
   return (
     <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...warpperElement} className={cls} style={style}>
       <ReactMarkdown
-        {...other}
         {...customProps}
+        {...other}
+        skipHtml={skipHtml}
         rehypePlugins={pluginsFilter ? pluginsFilter('rehype', rehypePlugins) : rehypePlugins}
         remarkPlugins={pluginsFilter ? pluginsFilter('remark', remarkPlugins) : remarkPlugins}
         children={source || ''}
