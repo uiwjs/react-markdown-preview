@@ -5,7 +5,6 @@ import { PluggableList } from 'unified';
 import gfm from 'remark-gfm';
 import slug from 'rehype-slug';
 import headings from 'rehype-autolink-headings';
-import rehypeRaw from 'rehype-raw';
 import rehypeAttrs from 'rehype-attr';
 import rehypeIgnore from 'rehype-ignore';
 import rehypePrism from 'rehype-prism-plus';
@@ -71,7 +70,6 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
   const rehypePlugins: PluggableList = [
     reservedMeta,
     [rehypePrism, { ignoreMissing: true }],
-    rehypeRaw,
     slug,
     headings,
     rehypeIgnore,
