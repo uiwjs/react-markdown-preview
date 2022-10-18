@@ -37,7 +37,7 @@ const App = () => {
           spellCheck="false"
           onChange={(e) => setValue(e.target.value)}
         />
-        <MarkdownPreview skipHtml={false} className="App-editor-preview" source={value} />
+        <MarkdownPreview className="App-editor-preview" source={value} />
       </div>
       <MarkdownPreview className="App-markdown" source={MDStr.replace(/([\s\S]*)<!--dividing-->/, '')} />
       <div className="App-footer">
