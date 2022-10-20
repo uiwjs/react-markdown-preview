@@ -12,6 +12,7 @@ import rehypePrism from 'rehype-prism-plus';
 import rehypeRewrite, { getCodeString, RehypeRewriteOptions } from 'rehype-rewrite';
 import { octiconLink } from './nodes/octiconLink';
 import { copyElement } from './nodes/copy';
+import { useCopied } from './plugins/useCopied';
 import './styles/markdown.less';
 
 import { reservedMeta } from './plugins/reservedMeta';
@@ -50,9 +51,10 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     warpperElement = {},
     ...other
   } = props;
-  const mdp = React.createRef<HTMLDivElement>();
+  const mdp = React.useRef<HTMLDivElement>(null);
   useImperativeHandle(ref, () => ({ ...props, mdp }), [mdp, props]);
   const cls = `${prefixCls || ''} ${className || ''}`;
+  useCopied(mdp);
 
   const rehypeRewriteHandle: RehypeRewriteOptions['rewrite'] = (node, index, parent) => {
     if (node.type === 'element' && parent && parent.type === 'root' && /h(1|2|3|4|5|6)/.test(node.tagName)) {
