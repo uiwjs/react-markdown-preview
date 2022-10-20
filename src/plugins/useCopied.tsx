@@ -14,9 +14,8 @@ export function useCopied(container: React.RefObject<HTMLDivElement>) {
   useEffect(() => {
     const btns = container.current?.querySelectorAll('pre code + div.copied');
     btns && Array.from(btns).forEach((elm) => elm.addEventListener('click', handle, false));
-    btns && Array.from(btns).forEach((elm) => elm.addEventListener('click', (evn) => {}, false));
     return () => {
-      btns && Array.from(btns).forEach((elm) => elm.removeEventListener('click', handle));
+      btns && Array.from(btns).forEach((elm) => elm.removeEventListener('click', handle, false));
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [container]);
