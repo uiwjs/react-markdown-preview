@@ -200,7 +200,7 @@ const Demo = () => {
 }
 ```
 
-Set the default `light` theme.
+Set the `light` theme.
 
 ```diff
 <MarkdownPreview
