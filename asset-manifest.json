@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/react-markdown-preview/static/css/main.42640bfe.css",
+    "main.css": "/react-markdown-preview/static/css/main.1f896322.css",
     "main.js": "/react-markdown-preview/static/js/main.2a88f3a3.js",
     "refractor-vendor.js": "/react-markdown-preview/static/js/refractor-vendor.6eaa9c3e.js",
     "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.6a538c04.js",
     "static/media/logo.svg": "/react-markdown-preview/static/media/logo.3931a054f5ef8356122965d973d55570.svg",
     "index.html": "/react-markdown-preview/index.html",
-    "main.42640bfe.css.map": "/react-markdown-preview/static/css/main.42640bfe.css.map",
+    "main.1f896322.css.map": "/react-markdown-preview/static/css/main.1f896322.css.map",
     "main.2a88f3a3.js.map": "/react-markdown-preview/static/js/main.2a88f3a3.js.map",
     "refractor-vendor.6eaa9c3e.js.map": "/react-markdown-preview/static/js/refractor-vendor.6eaa9c3e.js.map",
     "react-vendor.6a538c04.js.map": "/react-markdown-preview/static/js/react-vendor.6a538c04.js.map"
@@ -14,7 +14,7 @@
   "entrypoints": [
     "static/js/refractor-vendor.6eaa9c3e.js",
     "static/js/react-vendor.6a538c04.js",
-    "static/css/main.42640bfe.css",
+    "static/css/main.1f896322.css",
     "static/js/main.2a88f3a3.js"
   ]
 }
