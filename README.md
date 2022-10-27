@@ -200,6 +200,17 @@ const Demo = () => {
 }
 ```
 
+Set the default `light` theme.
+
+```diff
+<MarkdownPreview
+  source="Hello World!"
+  warpperElement={{
++    "data-color-mode": "light"
+  }}
+/>
+```
+
 ## Development
 
 Runs the project in development mode.  
