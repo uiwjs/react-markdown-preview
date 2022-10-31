@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Markdown Preview</title>
+    <meta name="keywords" content="react,component,markdown,preview" />
+    <meta name="description" content="React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub Markdown style." />
+    <script src="https://unpkg.com/@babel/standalone@7.17.5/babel.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react@17.x/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17.x/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@uiw/codepen-require-polyfill/index.js" crossorigin></script>
+    <link rel="stylesheet" href="https://unpkg.com/@uiw/react-markdown-preview/dist/markdown.css">
+  </head>
+  <body>
+    <a href="https://uiwjs.github.io/react-markdown-preview">@uiw/react-markdown-preview</a>
+    <div id="container" style="padding: 24px"></div>
+    <script src="https://unpkg.com/@uiw/react-markdown-preview/dist/markdown.min.js"></script>
+    <script type="text/babel">
+      import MarkdownPreview from '@uiw/react-markdown-preview';
+
+      const source = `## MarkdownPreview \n\n> todo: React component preview markdown text. `;
+      function Demo() {
+        return (
+          <MarkdownPreview source={source} />
+        );
+      }
+
+      ReactDOM.render(<Demo />, document.getElementById('container'));
+    </script>
+  </body>
+</html>

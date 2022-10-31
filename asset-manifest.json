@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/react-markdown-preview/static/css/main.e66f5598.css",
+    "main.js": "/react-markdown-preview/static/js/main.e9dba21f.js",
+    "refractor-vendor.js": "/react-markdown-preview/static/js/refractor-vendor.47daba0e.js",
+    "react-vendor.js": "/react-markdown-preview/static/js/react-vendor.acb9267b.js",
+    "static/media/logo.svg": "/react-markdown-preview/static/media/logo.3931a054f5ef8356122965d973d55570.svg",
+    "index.html": "/react-markdown-preview/index.html",
+    "main.e66f5598.css.map": "/react-markdown-preview/static/css/main.e66f5598.css.map",
+    "main.e9dba21f.js.map": "/react-markdown-preview/static/js/main.e9dba21f.js.map",
+    "refractor-vendor.47daba0e.js.map": "/react-markdown-preview/static/js/refractor-vendor.47daba0e.js.map",
+    "react-vendor.acb9267b.js.map": "/react-markdown-preview/static/js/react-vendor.acb9267b.js.map"
+  },
+  "entrypoints": [
+    "static/js/refractor-vendor.47daba0e.js",
+    "static/js/react-vendor.acb9267b.js",
+    "static/css/main.e66f5598.css",
+    "static/js/main.e9dba21f.js"
+  ]
+}
