@@ -2,82 +2,88 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - v3.*
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: 14
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-    - run: npm install
-    - run: npm run coverage
-    - run: npm run doc
-    - run: npm run bundle
-    - run: npm run bundle:min
+      - run: npm install
+      - run: npm run coverage
+      - run: npm run doc
+      - run: npm run bundle
+      - run: npm run bundle:min
 
-    - run: cp -rp coverage build
+      - run: cp -rp coverage build
 
-    - name: Create Coverage Badges
-      uses: jaywcjlove/coverage-badges-cli@main
-      with:
-        output: build/badge.svg
+      - name: Create Coverage Badges
+        uses: jaywcjlove/coverage-badges-cli@main
+        with:
+          output: build/badge.svg
 
-    - name: Generate Contributors Images
-      uses: jaywcjlove/github-action-contributors@main
-      with:
-        filter-author: (renovate\[bot\]|renovate-bot|dependabot\[bot\])
-        output: build/CONTRIBUTORS.svg
-        avatarSize: 42
+      - name: Generate Contributors Images
+        uses: jaywcjlove/github-action-contributors@main
+        with:
+          filter-author: (renovate\[bot\]|renovate-bot|dependabot\[bot\])
+          output: build/CONTRIBUTORS.svg
+          avatarSize: 42
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: v3-doc
 
-    - run: npm install @jsdevtools/npm-publish -g
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
+      # - run: npm install @jsdevtools/npm-publish -g
+      # - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
+      - name: package.json info
+        uses: jaywcjlove/github-action-package@main
+        with:
+          unset: scripts,jest,eslintConfig,engines,browserslist
 
-    - name: Is a tag created auto?
-      id: create_tag
-      uses: jaywcjlove/create-tag-action@v1.2.1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        package-path: ./package.json
+      - name: 📦 @uiw/react-markdown-preview publish to NPM
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: ./package.json
 
-    - name: Generate Changelog
-      id: changelog
-      uses: jaywcjlove/changelog-generator@v1.4.6
-      if: steps.create_tag.outputs.successful
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        head-ref: ${{ steps.create_tag.outputs.version }}
-        filter-author: (小弟调调™|Renovate Bot)
-        filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
+      - name: Is a tag created auto?
+        id: create_tag
+        uses: jaywcjlove/create-tag-action@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          package-path: ./package.json
 
-    - name: Create Release
-      uses: ncipollo/release-action@v1
-      if: steps.create_tag.outputs.successful
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        name: ${{ steps.create_tag.outputs.version }}
-        tag: ${{ steps.create_tag.outputs.version }}
-        body: |
-          [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-markdown-preview@${{steps.create_tag.outputs.versionNumber}}/file/README.md)
+      - name: Generate Changelog
+        id: changelog
+        uses: jaywcjlove/changelog-generator@main
+        if: steps.create_tag.outputs.successful
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          head-ref: ${{ steps.create_tag.outputs.version }}
+          filter-author: (小弟调调™|Renovate Bot)
+          filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
 
-          ${{ steps.changelog.outputs.compareurl }}
+      # - name: Create Release
+      #   uses: ncipollo/release-action@v1
+      #   if: steps.create_tag.outputs.successful
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     name: ${{ steps.create_tag.outputs.version }}
+      #     tag: ${{ steps.create_tag.outputs.version }}
+      #     body: |
+      #       [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-markdown-preview@${{steps.create_tag.outputs.versionNumber}}/file/README.md)
 
-          ${{ steps.changelog.outputs.changelog }}
+      #       ${{ steps.changelog.outputs.compareurl }}
 
-          ```bash
-          npm i @uiw/react-markdown-preview@${{steps.create_tag.outputs.versionNumber}}
-          ```
+      #       ${{ steps.changelog.outputs.changelog }}
 
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+      #       ```bash
+      #       npm i @uiw/react-markdown-preview@${{steps.create_tag.outputs.versionNumber}}
+      #       ```
