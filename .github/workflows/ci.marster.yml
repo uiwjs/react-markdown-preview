@@ -82,6 +82,11 @@ jobs:
             npm i @uiw/react-markdown-preview@${{steps.create_tag.outputs.versionNumber}}
             ```
 
+      - name: package.json info
+        uses: jaywcjlove/github-action-package@main
+        with:
+          unset: scripts,jest,eslintConfig,engines,browserslist,devDependencies
+
       - name: 📦 @uiw/react-markdown-preview publish to NPM
         uses: JS-DevTools/npm-publish@v1
         with:
