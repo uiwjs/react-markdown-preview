@@ -87,7 +87,7 @@ type MarkdownPreviewProps = {
   disableCopy?: boolean;
   style?: React.CSSProperties;
   pluginsFilter?: (type: 'rehype' | 'remark', plugin: PluggableList) => PluggableList;
-  warpperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
+  wrapperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
     'data-color-mode'?: 'light' | 'dark';
   };
   onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
@@ -205,7 +205,7 @@ Set the `light` theme.
 ```diff
 <MarkdownPreview
   source="Hello World!"
-  warpperElement={{
+  wrapperElement={{
 +    "data-color-mode": "light"
   }}
 />
