@@ -24,7 +24,7 @@ export interface MarkdownPreviewProps extends Omit<Options, 'children'> {
   disableCopy?: boolean;
   style?: React.CSSProperties;
   pluginsFilter?: (type: 'rehype' | 'remark', plugin: PluggableList) => PluggableList;
-  warpperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
+  wrapperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
     'data-color-mode'?: 'light' | 'dark';
   };
   onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
@@ -48,7 +48,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     onMouseOver,
     pluginsFilter,
     rehypeRewrite: rewrite,
-    warpperElement = {},
+    wrapperElement = {},
     ...other
   } = props;
   const mdp = React.useRef<HTMLDivElement>(null);
@@ -94,7 +94,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
   }
   const remarkPlugins = [...(other.remarkPlugins || []), gfm];
   return (
-    <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...warpperElement} className={cls} style={style}>
+    <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...wrapperElement} className={cls} style={style}>
       <ReactMarkdown
         {...customProps}
         {...other}
