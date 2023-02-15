@@ -101,7 +101,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     rehypePlugins.push(raw);
   }
   const remarkPlugins = [...(other.remarkPlugins || []), gfm];
-  const wrapperProps = warpperElement || wrapperElement || {};
+  const wrapperProps = { ...warpperElement, ...wrapperElement };
   return (
     <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...wrapperProps} className={cls} style={style}>
       <ReactMarkdown
