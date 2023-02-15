@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-markdown-preview",
-  "version": "4.1.7",
+  "version": "4.1.8",
   "description": "React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub Markdown style.",
   "homepage": "https://uiwjs.github.io/react-markdown-preview",
   "main": "lib/index.js",
