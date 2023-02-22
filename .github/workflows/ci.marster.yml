@@ -12,6 +12,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          registry-url: 'https://registry.npmjs.org'
 
       - run: npm install
       - run: npm run coverage
@@ -87,11 +88,11 @@ jobs:
         with:
           unset: scripts,jest,eslintConfig,engines,browserslist,devDependencies
 
-      - name: 📦 @uiw/react-markdown-preview publish to NPM
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: ./package.json
+      - run: npm publish
+        name: 📦 @uiw/react-markdown-preview publish to NPM
+        continue-on-error: true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     outputs:
       successful: ${{steps.create_tag.outputs.successful }}
@@ -99,7 +100,6 @@ jobs:
   github-package:
     runs-on: ubuntu-latest
     needs: build-deploy
-    if: needs.build-deploy.outputs.successful
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -118,5 +118,6 @@ jobs:
           rename: '@uiwjs/react-markdown-preview'
   
       - run: npm publish
+        continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
