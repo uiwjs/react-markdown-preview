@@ -15,17 +15,21 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - run: npm install
+      - run: npm run build:lib
       - run: npm run coverage
-      - run: npm run doc
-      - run: npm run bundle
-      - run: npm run bundle:min
+      - run: npm run build:doc
 
-      - run: cp -rp coverage build
+      - run: npm run bundle
+        working-directory: core
+      - run: npm run bundle:min
+        working-directory: core
+
+      - run: cp -rp coverage website/build
 
       - name: Create Coverage Badges
         uses: jaywcjlove/coverage-badges-cli@main
         with:
-          output: build/badge.svg
+          output: website/build/badge.svg
 
       - name: Generate Contributors Images
         uses: jaywcjlove/github-action-contributors@main
@@ -52,7 +56,7 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: ${{steps.tag_version.outputs.tag}} ${{ github.event.head_commit.message }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./website/build
 
       - name: Generate Changelog
         id: changelog
@@ -86,11 +90,13 @@ jobs:
       - name: package.json info
         uses: jaywcjlove/github-action-package@main
         with:
-          unset: scripts,jest,eslintConfig,engines,browserslist,devDependencies
+          path: core/package.json
+          unset: scripts,devDependencies
 
       - run: npm publish
         name: 📦 @uiw/react-markdown-preview publish to NPM
         continue-on-error: true
+        working-directory: core
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -109,15 +115,20 @@ jobs:
           scope: '@uiwjs'
 
       - run: npm install
+
       - run: npm run bundle
+        working-directory: core
       - run: npm run bundle:min
+        working-directory: core
 
       - name: Modify @uiw/react-markdown-preview => @uiwjs/react-markdown-preview
         uses: jaywcjlove/github-action-package@main
         with:
+          path: core/package.json
           rename: '@uiwjs/react-markdown-preview'
   
       - run: npm publish
         continue-on-error: true
+        working-directory: core
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

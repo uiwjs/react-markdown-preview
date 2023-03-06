@@ -3,5 +3,6 @@
   "compilerOptions": {
     "baseUrl": "./",
     "noEmit": false
-  }
+  },
+  "include": ["src", "./.kktrc.ts"]
 }

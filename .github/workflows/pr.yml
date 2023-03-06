@@ -1,4 +1,4 @@
-name: Build & Deploy
+name: PR
 on:
   pull_request:
 
@@ -10,10 +10,14 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          registry-url: 'https://registry.npmjs.org'
 
       - run: npm install
-      - run: npm run build
+      - run: npm run build:lib
       - run: npm run coverage
-      - run: npm run doc
+      - run: npm run build:doc
+
       - run: npm run bundle
+        working-directory: core
       - run: npm run bundle:min
+        working-directory: core

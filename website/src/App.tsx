@@ -3,11 +3,11 @@ import GitHubCorners from '@uiw/react-github-corners';
 import Github from '@uiw/react-shields/esm/github';
 import Npm from '@uiw/react-shields/esm/npm';
 import BackToUp from '@uiw/react-back-to-top';
+import MarkdownPreview from '@uiw/react-markdown-preview';
 import '@wcj/dark-mode';
 import logo from './logo.svg';
+import { Preview } from './preview';
 import './App.css';
-import MarkdownPreview from '../';
-import MDStr from '../README.md';
 
 let val = 1;
 
@@ -39,7 +39,7 @@ const App = () => {
         />
         <MarkdownPreview className="App-editor-preview" source={value} />
       </div>
-      <MarkdownPreview className="App-markdown" source={MDStr.replace(/([\s\S]*)<!--dividing-->/, '')} />
+      <Preview />
       <div className="App-footer">
         <Github user="uiwjs" repo="react-markdown-preview">
           <Github.Social type="forks" href="https://github.com/uiwjs/react-markdown-preview" />

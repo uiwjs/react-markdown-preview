@@ -17,5 +17,5 @@
     "noFallthroughCasesInSwitch": true,
     "noEmit": true
   },
-  "include": ["website", "test", "src"]
+  "include": ["test"]
 }

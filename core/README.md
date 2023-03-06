@@ -31,7 +31,8 @@ $ npm install @uiw/react-markdown-preview --save
 
 [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/embed/react-markdown-preview-co1mj?fontsize=14&hidenavigation=1&theme=dark)
 
-```js test:meta
+```jsx mdx:preview
+import React from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 
 const source = `
@@ -40,7 +41,7 @@ const source = `
 > todo: React component preview markdown text.
 `;
 
-function Demo() {
+export default function Demo() {
   return (
     <MarkdownPreview source={source} />
   )
@@ -49,7 +50,8 @@ function Demo() {
 
 ## Disable Header links
 
-```js test:meta
+```jsx mdx:preview
+import React from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 
 const source = `
@@ -60,7 +62,7 @@ const source = `
 ### Header 3
 `;
 
-function Demo() {
+export default function Demo() {
   return (
     <MarkdownPreview
       source={source}

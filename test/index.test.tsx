@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import TestRenderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
-import MarkdownPreview, { MarkdownPreviewRef } from '../src';
+import MarkdownPreview, { MarkdownPreviewRef } from '../core/src';
 
 it('Should output a TestRenderer', async () => {
   const component = TestRenderer.create(<MarkdownPreview source="## Hello World!" />);

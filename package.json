@@ -1,45 +1,17 @@
 {
-  "name": "@uiw/react-markdown-preview",
-  "version": "4.1.9",
-  "description": "React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub Markdown style.",
-  "homepage": "https://uiwjs.github.io/react-markdown-preview",
-  "main": "lib/index.js",
-  "module": "esm/index.js",
+  "private": true,
   "scripts": {
+    "build": "npm run build:lib",
+    "build:lib": "lerna exec --scope @uiw/* -- npm run build",
+    "build:doc": "lerna exec --scope website -- npm run build",
+    "doc": "lerna exec --scope website -- npm run start",
+    "start": "lerna exec --scope @uiw/* -- npm run watch",
     "prepare": "npm run build && husky install",
-    "doc": "kkt build --app-src ./website",
-    "start": "kkt start --app-src ./website",
-    "css:build": "compile-less -d src -o esm",
-    "css:watch": "compile-less -d src -o esm --watch",
-    "css:build:dist": "compile-less -d src --combine markdown.css --rm-global",
-    "bundle": "ncc build src/index.tsx --target web --filename markdown",
-    "bundle:min": "ncc build src/index.tsx --target web --filename markdown --minify",
-    "watch": "tsbb watch & npm run css:watch",
-    "build": "tsbb build && npm run css:build && npm run css:build:dist",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "pretty-quick": "pretty-quick --staged",
     "test": "tsbb test --env=jsdom",
     "coverage": "tsbb test --env=jsdom --coverage"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/uiwjs/react-markdown-preview.git"
-  },
-  "author": "kenny wang <wowohoo@qq.com>",
-  "license": "MIT",
-  "files": [
-    "dist",
-    "lib",
-    "esm",
-    "markdown.css",
-    "src/**/*.{ts,tsx,less}"
-  ],
-  "keywords": [
-    "react",
-    "markdown",
-    "prismjs",
-    "react-markdown"
-  ],
   "jest": {
     "coverageReporters": [
       "lcov",
@@ -49,47 +21,18 @@
       "<rootDir>/node_modules/?!(.*)"
     ]
   },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.17.2",
-    "@uiw/copy-to-clipboard": "~1.0.12",
-    "react-markdown": "~8.0.0",
-    "rehype-attr": "~2.1.0",
-    "rehype-autolink-headings": "~6.1.1",
-    "rehype-ignore": "^1.0.1",
-    "rehype-prism-plus": "~1.5.0",
-    "rehype-raw": "^6.1.1",
-    "rehype-rewrite": "~3.0.6",
-    "rehype-slug": "~5.1.0",
-    "remark-gfm": "~3.0.1",
-    "unist-util-visit": "^4.1.0"
-  },
   "devDependencies": {
-    "@kkt/less-modules": "~7.2.0",
-    "@kkt/ncc": "^1.0.13",
-    "@kkt/raw-modules": "~7.2.0",
-    "@kkt/scope-plugin-options": "~7.2.0",
+    "@testing-library/react": "^14.0.0",
     "@types/react": "~18.0.9",
     "@types/react-dom": "~18.0.3",
     "@types/react-test-renderer": "~18.0.0",
-    "@uiw/react-back-to-top": "^1.2.0",
-    "@uiw/react-codesandbox": "~1.1.4",
-    "@uiw/react-github-corners": "~1.5.3",
-    "@uiw/react-shields": "~1.1.2",
-    "@uiw/reset.css": "~1.0.5",
-    "@wcj/dark-mode": "~1.0.9",
+    "@kkt/ncc": "^1.0.15",
     "compile-less-cli": "~1.8.11",
     "husky": "~8.0.0",
-    "kkt": "~7.2.0",
     "prettier": "^2.7.1",
     "pretty-quick": "~3.1.3",
-    "react": "~18.2.0",
-    "react-dom": "~18.2.0",
-    "react-test-renderer": "~18.2.0",
-    "tsbb": "~3.7.0"
+    "lerna": "^6.1.0",
+    "tsbb": "^3.7.9"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -97,16 +40,8 @@
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "workspaces": [
+    "core",
+    "website"
+  ]
 }

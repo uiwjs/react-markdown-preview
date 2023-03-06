@@ -9,7 +9,9 @@ declare module '*.less' {
   const src: string;
   export default src;
 }
+
 declare module '*.md' {
-  const src: string;
+  import { CodeBlockData } from 'markdown-react-code-preview-loader';
+  const src: CodeBlockData;
   export default src;
 }

@@ -58,7 +58,6 @@ dark-mode {
 
 .App-markdown {
   text-align: left;
-  font-size: calc(10px + 2vmin);
   padding: 16px;
   border-radius: 5px;
 }
