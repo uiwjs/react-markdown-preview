@@ -43,7 +43,7 @@ jobs:
         uses: jaywcjlove/create-tag-action@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          package-path: ./package.json
+          package-path: ./core/package.json
 
       - name: get tag version
         id: tag_version
