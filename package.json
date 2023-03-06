@@ -9,6 +9,7 @@
     "prepare": "npm run build && husky install",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "pretty-quick": "pretty-quick --staged",
+    "version": "lerna version --no-changelog --no-git-tag-version --no-push",
     "test": "tsbb test --env=jsdom",
     "coverage": "tsbb test --env=jsdom --coverage"
   },
