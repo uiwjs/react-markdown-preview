@@ -1053,6 +1053,19 @@ body[data-color-mode*='light'] {
   }
 }
 
+.highlight-line {
+  background-color: var(--color-neutral-muted);
+}
+.code-line.line-number::before {
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin-right: 16px;
+  color: var(--color-fg-subtle);
+  content: attr(line);
+  white-space: nowrap;
+}
+
 .token.comment,
 .token.prolog,
 .token.doctype,

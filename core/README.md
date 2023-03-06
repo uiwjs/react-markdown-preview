@@ -1,6 +1,7 @@
+<!--rehype:ignore:start-->
 React Markdown Preview
 ===
-<!--dividing-->
+<!--rehype:ignore:end-->
 
 [![Build and Deploy](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.marster.yml/badge.svg)](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.marster.yml)
 [![jsDelivr CDN](https://data.jsdelivr.com/v1/package/npm/@uiw/react-markdown-preview/badge?style=rounded)](https://www.jsdelivr.com/package/npm/@uiw/react-markdown-preview)
@@ -74,6 +75,111 @@ export default function Demo() {
     />
   );
 }
+```
+
+## highlight line
+
+syntax: <code>```jsx {1,4-5}</code>
+
+```jsx mdx:preview?background=#fff
+import React from 'react';
+import MarkdownPreview from '@uiw/react-markdown-preview';
+
+const source = `
+\`\`\`js {2}
+function () {
+  console.log('hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello')
+}
+\`\`\`
+\`\`\`js {2}
+function () {
+  console.log('hello ')
+}
+\`\`\`
+`;
+
+export default function Demo() {
+  return (
+    <MarkdownPreview
+      source={source}
+      rehypeRewrite={(node, index, parent) => {
+        if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
+          parent.children = parent.children.slice(1)
+        }
+      }}
+    />
+  );
+}
+```
+
+## Show Line Numbers
+
+syntax: <code>```jsx showLineNumbers {1,4-5}</code>
+
+```jsx mdx:preview?background=#fff
+import React from 'react';
+import MarkdownPreview from '@uiw/react-markdown-preview';
+
+const source = `
+\`\`\`js showLineNumbers
+function () {
+  console.log('hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello')
+}
+\`\`\`
+\`\`\`js showLineNumbers {2}
+function () {
+  console.log('hello ')
+}
+\`\`\`
+`;
+
+export default function Demo() {
+  return (
+    <MarkdownPreview
+      source={source}
+      rehypeRewrite={(node, index, parent) => {
+        if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
+          parent.children = parent.children.slice(1)
+        }
+      }}
+    />
+  );
+}
+```
+
+## Ignore
+
+Ignore content display via HTML comments, Shown in GitHub readme, excluded in HTML.
+
+```jsx mdx:preview?background=#fff
+import React from 'react';
+import MarkdownPreview from '@uiw/react-markdown-preview';
+
+const source = `
+<!--rehype:ignore:start-->
+Content ignored
+<!--rehype:ignore:end-->
+Some content is ignored, please check the source code
+`;
+
+export default function Demo() {
+  return (
+    <MarkdownPreview
+      source={source}
+      rehypeRewrite={(node, index, parent) => {
+        if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
+          parent.children = parent.children.slice(1)
+        }
+      }}
+    />
+  );
+}
+```
+
+xx
+
+```md
+<!--rehype:ignore:start-->Ignored content<!--rehype:ignore:end-->
 ```
 
 ### Options Props
