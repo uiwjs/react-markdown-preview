@@ -328,9 +328,9 @@ Runs the project in development mode.
 # listen to the component compile and output the .js file
 # listen for compilation output type .d.ts file
 # listen to the component compile and output the .css file
-npm run watch
+npm run start
 # Step 2, development mode, listen to compile preview website instance
-npm start
+npm run doc
 ```
 
 Builds the app for production to the build folder.
