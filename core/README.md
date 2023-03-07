@@ -176,8 +176,6 @@ export default function Demo() {
 }
 ```
 
-xx
-
 ```md
 <!--rehype:ignore:start-->Ignored content<!--rehype:ignore:end-->
 ```
