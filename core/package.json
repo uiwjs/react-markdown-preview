@@ -11,8 +11,8 @@
     "css:build:dist": "compile-less -d src --combine markdown.css --rm-global",
     "bundle": "ncc build src/index.tsx --target web --filename markdown",
     "bundle:min": "ncc build src/index.tsx --target web --filename markdown --minify",
-    "watch": "tsbb watch & npm run css:watch",
-    "build": "tsbb build && npm run css:build && npm run css:build:dist"
+    "watch": "tsbb watch src/*.tsx --use-babel & npm run css:watch",
+    "build": "tsbb build src/*.tsx --use-babel && npm run css:build && npm run css:build:dist"
   },
   "repository": {
     "type": "git",

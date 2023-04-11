@@ -4,5 +4,5 @@
     "baseUrl": "./",
     "noEmit": false
   },
-  "include": ["src", "./.kktrc.ts"]
+  "include": ["src"]
 }
