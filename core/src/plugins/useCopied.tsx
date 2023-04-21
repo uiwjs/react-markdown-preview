@@ -12,7 +12,7 @@ export function useCopied(container: React.RefObject<HTMLDivElement>) {
     });
   }, []);
   useEffect(() => {
-    const btns = container.current?.querySelectorAll('pre code + div.copied');
+    const btns = container.current?.querySelectorAll('div.copied[data-code]');
     btns && Array.from(btns).forEach((elm) => elm.addEventListener('click', handle, false));
     return () => {
       btns && Array.from(btns).forEach((elm) => elm.removeEventListener('click', handle, false));
