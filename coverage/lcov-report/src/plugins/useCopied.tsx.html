@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.15% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/13</span>
+                <span class='fraction'>6/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/6</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">37.5% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/8</span>
+                <span class='fraction'>3/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.54% </span>
+                <span class="strong">31.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/11</span>
+                <span class='fraction'>6/19</span>
             </div>
         
             
@@ -85,11 +85,37 @@
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -108,23 +134,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import copyTextToClipboard from '@uiw/copy-to-clipboard';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
+&nbsp;
+function <span class="fstat-no" title="function not covered" >getParentElement(</span>target: EventTarget | null): null | HTMLElement {
+<span class="cstat-no" title="statement not covered" >  if (!target) <span class="cstat-no" title="statement not covered" >return null;</span></span>
+  const dom = <span class="cstat-no" title="statement not covered" >target as HTMLElement;</span>
+<span class="cstat-no" title="statement not covered" >  if (dom.dataset.code &amp;&amp; dom.classList.contains('copied')) {</span>
+<span class="cstat-no" title="statement not covered" >    return dom;</span>
+  }
+<span class="cstat-no" title="statement not covered" >  if (dom.parentElement) {</span>
+<span class="cstat-no" title="statement not covered" >    return getParentElement(dom.parentElement);</span>
+  }
+<span class="cstat-no" title="statement not covered" >  return null;</span>
+}
 &nbsp;
 export function useCopied(container: React.RefObject&lt;HTMLDivElement&gt;) {
-  const handle = useCallback(<span class="fstat-no" title="function not covered" >(e</span>vent: Event) =&gt; {
-    const target = <span class="cstat-no" title="statement not covered" >(event.currentTarget || event.target) as HTMLDivElement;</span>
+  const handle = <span class="fstat-no" title="function not covered" >(e</span>vent: Event) =&gt; {
+    const target = <span class="cstat-no" title="statement not covered" >getParentElement(event.target);</span>
+<span class="cstat-no" title="statement not covered" >    if (!target) <span class="cstat-no" title="statement not covered" >return;</span></span>
 <span class="cstat-no" title="statement not covered" >    target.classList.add('active');</span>
 <span class="cstat-no" title="statement not covered" >    copyTextToClipboard(target.dataset.code as string, <span class="fstat-no" title="function not covered" >fu</span>nction () {</span>
 <span class="cstat-no" title="statement not covered" >      setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        target.classList.remove('active');</span>
       }, 2000);
     });
-  }, []);
+  };
   useEffect(() =&gt; {
-    const btns = container.current?.querySelectorAll('div.copied[data-code]');
-    btns &amp;&amp; Array.from(btns).forEach(<span class="fstat-no" title="function not covered" >(e</span>lm) =&gt; <span class="cstat-no" title="statement not covered" >elm.addEventListener('click', handle, false))</span>;
+    container.current?.removeEventListener('click', handle, false);
+    container.current?.addEventListener('click', handle, false);
     return () =&gt; {
-      btns &amp;&amp; Array.from(btns).forEach(<span class="fstat-no" title="function not covered" >(e</span>lm) =&gt; <span class="cstat-no" title="statement not covered" >elm.removeEventListener('click', handle, false))</span>;
+      container.current?.removeEventListener('click', handle, false);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [container]);
@@ -136,7 +175,7 @@ export function useCopied(container: React.RefObject&lt;HTMLDivElement&gt;) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-21T03:16:04.015Z
+                at 2023-04-21T10:51:56.813Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
