@@ -45,22 +45,20 @@ export const Preview = () => {
             if (metaId && typeof Child === 'function') {
               const code = MDStr.data[metaId].value || '';
               const param = getURLParameters(metaData);
+              const disablePreview = getBooleanValue(param, 'disablePreview', false);
               return (
-                <CodeLayout
-                  disableCheckered={getBooleanValue(param, 'disableCheckered', true)}
-                  disableToolbar={getBooleanValue(param, 'disableToolbar', false)}
-                  disableCode={getBooleanValue(param, 'disableCode', false)}
-                  disablePreview={getBooleanValue(param, 'disablePreview', false)}
-                  bordered={getBooleanValue(param, 'bordered', true)}
-                  copied={getBooleanValue(param, 'copied', true)}
-                  background={param.background}
-                  toolbar={param.title || '示例'}
-                  codeProps={{ style: { padding: 0 } }}
-                  style={{ padding: 0 }}
-                  code={<pre {...(props as React.HTMLAttributes<HTMLPreElement>)} />}
-                  text={code}
-                >
-                  <Child />
+                <CodeLayout bordered={getBooleanValue(param, 'bordered', true)} style={{ marginBottom: '16px' }}>
+                  {!disablePreview && (
+                    <CodeLayout.Preview style={{ background: param.background }}>
+                      <Child />
+                    </CodeLayout.Preview>
+                  )}
+                  <CodeLayout.Toolbar copied={getBooleanValue(param, 'copied', true)} text={code}>
+                    {param.title || 'Example'}
+                  </CodeLayout.Toolbar>
+                  <CodeLayout.Code style={{ padding: 0 }}>
+                    <pre {...(props as React.HTMLAttributes<HTMLPreElement>)} />
+                  </CodeLayout.Code>
                 </CodeLayout>
               );
             }
