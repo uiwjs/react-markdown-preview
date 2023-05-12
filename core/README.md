@@ -280,6 +280,24 @@ Here is a simple footnote[^1]. With some additional text after it.
 [^1]: My reference.
 ```
 
+### Ignore content display
+
+```markdown
+# Hello World
+
+<!--rehype:ignore:start-->Hello World<!--rehype:ignore:end-->
+
+Good!
+```
+
+Output:
+
+```html
+<h1>Hello World</h1>
+
+<p>Good!</p>
+```
+
 ## Support dark-mode/night-mode
 
 By default, the [`dark-mode`](https://github.com/jaywcjlove/dark-mode/) is automatically switched according to the system. If you need to switch manually, just set the `data-color-mode="dark"` parameter for body. 
