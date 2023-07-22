@@ -32,7 +32,7 @@ $ npm install @uiw/react-markdown-preview --save
 
 [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/embed/react-markdown-preview-co1mj?fontsize=14&hidenavigation=1&theme=dark)
 
-```jsx mdx:preview
+```jsx mdx:preview&checkered=0
 import React from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 
@@ -51,7 +51,7 @@ export default function Demo() {
 
 ## Disable Header links
 
-```jsx mdx:preview
+```jsx mdx:preview&checkered=0
 import React from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 
@@ -81,7 +81,7 @@ export default function Demo() {
 
 syntax: <code>```jsx {1,4-5}</code>
 
-```jsx mdx:preview?background=#fff
+```jsx mdx:preview
 import React from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 
