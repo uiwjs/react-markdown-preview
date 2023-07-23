@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import MarkdownPreviewExample from '@uiw/react-markdown-preview-example';
 import data from '@uiw/react-markdown-preview/README.md';
-import Example from './App';
+import { Footer, Example } from './App';
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
@@ -20,6 +20,9 @@ root.render(
     version={`v${VERSION}`}
   >
     <MarkdownPreviewExample.Github href="https://github.com/uiwjs/react-markdown-preview" />
-    <Example />
+    <MarkdownPreviewExample.Example>
+      <Example />
+    </MarkdownPreviewExample.Example>
+    <Footer />
   </MarkdownPreviewExample>,
 );
