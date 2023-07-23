@@ -100,35 +100,35 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-    outputs:
-      successful: ${{steps.create_tag.outputs.successful }}
+  #   outputs:
+  #     successful: ${{steps.create_tag.outputs.successful }}
 
-  github-package:
-    runs-on: ubuntu-latest
-    needs: build-deploy
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://npm.pkg.github.com
-          scope: '@uiwjs'
+  # github-package:
+  #   runs-on: ubuntu-latest
+  #   needs: build-deploy
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
+  #         registry-url: https://npm.pkg.github.com
+  #         scope: '@uiwjs'
 
-      - run: npm install
+  #     - run: npm install
 
-      - run: npm run bundle
-        working-directory: core
-      - run: npm run bundle:min
-        working-directory: core
+  #     - run: npm run bundle
+  #       working-directory: core
+  #     - run: npm run bundle:min
+  #       working-directory: core
 
-      - name: Modify @uiw/react-markdown-preview => @uiwjs/react-markdown-preview
-        uses: jaywcjlove/github-action-package@main
-        with:
-          path: core/package.json
-          rename: '@uiwjs/react-markdown-preview'
+  #     - name: Modify @uiw/react-markdown-preview => @uiwjs/react-markdown-preview
+  #       uses: jaywcjlove/github-action-package@main
+  #       with:
+  #         path: core/package.json
+  #         rename: '@uiwjs/react-markdown-preview'
   
-      - run: npm publish
-        continue-on-error: true
-        working-directory: core
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  #     - run: npm publish
+  #       continue-on-error: true
+  #       working-directory: core
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
