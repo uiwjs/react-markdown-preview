@@ -44,7 +44,7 @@
     "rehype-attr": "~2.1.0",
     "rehype-autolink-headings": "~6.1.1",
     "rehype-ignore": "^1.0.1",
-    "rehype-prism-plus": "~1.6.1",
+    "rehype-prism-plus": "1.6.1",
     "rehype-raw": "^6.1.1",
     "rehype-rewrite": "~3.0.6",
     "rehype-slug": "~5.1.0",
