@@ -48,7 +48,7 @@
     "rehype-raw": "^6.1.1",
     "rehype-rewrite": "~3.0.6",
     "rehype-slug": "~5.1.0",
-    "remark-gfm": "~3.0.1",
+    "remark-gfm": "~4.0.0",
     "unist-util-visit": "^4.1.0"
   }
 }
