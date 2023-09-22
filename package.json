@@ -11,7 +11,8 @@
     "pretty-quick": "pretty-quick --staged",
     "version": "lerna version --no-changelog --no-git-tag-version --no-push",
     "test": "tsbb test --env=jsdom",
-    "coverage": "tsbb test --env=jsdom --coverage"
+    "coverage": "tsbb test --env=jsdom --coverage",
+    "clean": "lerna clean --yes"
   },
   "jest": {
     "collectCoverageFrom": [

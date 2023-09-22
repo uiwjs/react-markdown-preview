@@ -1,5 +1,5 @@
-import Github from '@uiw/react-shields/esm/github';
-import Npm from '@uiw/react-shields/esm/npm';
+import Github from '@uiw/react-shields/github';
+import Npm from '@uiw/react-shields/npm';
 import { useState } from 'react';
 import styled from 'styled-components';
 import MarkdownPreview from '@uiw/react-markdown-preview';
