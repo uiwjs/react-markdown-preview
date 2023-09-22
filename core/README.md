@@ -182,8 +182,10 @@ export default function Demo() {
 
 ## Support Custom Mermaid Preview
 
+[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/embed/react-markdown-preview-https-github-com-uiwjs-react-markdown-preview-issues-238-lw6vr5?fontsize=14&hidenavigation=1&theme=dark)
+
 ```jsx mdx:preview?background=#fff
-import React, { useState, useRef, useId, useEffect, Fragment, useCallback } from "react";
+import React, { useState, useRef, useEffect, Fragment, useCallback } from "react";
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import { getCodeString } from 'rehype-rewrite';
 import mermaid from "mermaid";
