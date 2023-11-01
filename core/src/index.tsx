@@ -7,6 +7,8 @@ import rehypeAttrs from 'rehype-attr';
 import { reservedMeta } from './plugins/reservedMeta';
 import { rehypeRewriteHandle, defaultRehypePlugins } from './rehypePlugins';
 
+export * from './preview';
+
 export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props, ref) => {
   const rehypePlugins: PluggableList = [
     reservedMeta,

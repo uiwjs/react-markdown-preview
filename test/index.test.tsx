@@ -52,7 +52,7 @@ it('MarkdownPreview Ref', async () => {
     const ref = useRef<MarkdownPreviewRef>(null);
     useEffect(() => {
       if (ref.current) {
-        expect(Object.keys(ref.current)).toEqual([ 'source', 'mdp' ]);
+        expect(Object.keys(ref.current)).toEqual([ 'source', 'rehypePlugins', 'mdp' ]);
       }
     });
     return (

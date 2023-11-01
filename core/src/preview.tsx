@@ -7,6 +7,8 @@ import { type RehypeRewriteOptions } from 'rehype-rewrite';
 import { useCopied } from './plugins/useCopied';
 import './styles/markdown.less';
 
+export * from './preview';
+
 export interface MarkdownPreviewProps extends Omit<Options, 'children'> {
   prefixCls?: string;
   className?: string;
