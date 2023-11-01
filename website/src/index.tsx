@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import MarkdownPreviewExample from '@uiw/react-markdown-preview-example';
 import data from '@uiw/react-markdown-preview/README.md';
+import pkg from '@uiw/react-markdown-preview/package.json';
 import { Footer, Example } from './App';
 
 const container = document.getElementById('root');
@@ -17,7 +18,7 @@ root.render(
     }
     description="React component preview markdown text in web browser. The minimal amount of CSS to replicate the GitHub
           Markdown style."
-    version={`v${VERSION}`}
+    version={`v${pkg.version}`}
   >
     <MarkdownPreviewExample.Github href="https://github.com/uiwjs/react-markdown-preview" />
     <MarkdownPreviewExample.Example>

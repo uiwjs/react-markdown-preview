@@ -147,6 +147,67 @@ export default function Demo() {
 }
 ```
 
+## Code Highlight
+
+```jsx mdx:preview
+import React from 'react';
+import MarkdownPreview from '@uiw/react-markdown-preview';
+
+const source = `
+\`\`\`js
+function () {
+  console.log('hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello')
+}
+\`\`\`
+\`\`\`js
+function () {
+  console.log('hello ')
+}
+\`\`\`
+`;
+
+export default function Demo() {
+  return (
+    <MarkdownPreview source={source} />
+  );
+}
+```
+
+## Remove Code Highlight
+
+The following example can help you _exclude code highlighting code_<!--rehype:style=color: #333;background-color: rgb(196 255 122 / 86%);--> from being included in the bundle. `@uiw/react-markdown-preview/nohighlight`<!--rehype:style=color: #e24444;--> component does not contain the `rehype-prism-plus` code highlighting package, `showLineNumbers` and `highlight line` functions will no longer work. ([#586](https://github.com/uiwjs/react-md-editor/issues/586))
+
+```jsx mdx:preview
+import React from 'react';
+import MarkdownPreview from '@uiw/react-markdown-preview/nohighlight';
+
+const source = `
+\`\`\`js showLineNumbers
+function () {
+  console.log('hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello')
+}
+\`\`\`
+\`\`\`js showLineNumbers {2}
+function () {
+  console.log('hello ')
+}
+\`\`\`
+`;
+
+export default function Demo() {
+  return (
+    <MarkdownPreview
+      source={source}
+      rehypeRewrite={(node, index, parent) => {
+        if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
+          parent.children = parent.children.slice(1)
+        }
+      }}
+    />
+  );
+}
+```
+
 ## Ignore
 
 Ignore content display via HTML comments, Shown in GitHub readme, excluded in HTML.
