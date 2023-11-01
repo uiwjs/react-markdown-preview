@@ -38,6 +38,7 @@
     "dist",
     "lib",
     "esm",
+    "nohighlight.d.ts",
     "markdown.css",
     "src/**/*.{ts,tsx,less}"
   ],
