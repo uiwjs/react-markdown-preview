@@ -21,7 +21,7 @@ export const rehypeRewriteHandle =
       const code = getCodeString(node.children);
       node.children.push(copyElement(code));
     }
-    rewrite && rewrite(node, index, parent);
+    rewrite && rewrite(node, index === null ? undefined : index, parent === null ? undefined : parent);
   };
 
 export const defaultRehypePlugins: PluggableList = [slug, headings, rehypeIgnore];
