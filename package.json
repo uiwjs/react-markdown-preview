@@ -33,7 +33,7 @@
     "@types/react-dom": "~18.2.0",
     "@types/react-test-renderer": "~18.0.0",
     "@kkt/ncc": "^1.0.15",
-    "compile-less-cli": "~1.8.11",
+    "compile-less-cli": "~1.9.0",
     "husky": "~8.0.0",
     "prettier": "^2.7.1",
     "pretty-quick": "~3.1.3",
