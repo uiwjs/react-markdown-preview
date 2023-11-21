@@ -4,10 +4,12 @@ import { PluggableList } from 'unified';
 import rehypeRewrite from 'rehype-rewrite';
 import { reservedMeta } from './plugins/reservedMeta';
 import rehypeAttrs from 'rehype-attr';
+import rehypeRaw from 'rehype-raw';
 import { rehypeRewriteHandle, defaultRehypePlugins } from './rehypePlugins';
 
 export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props, ref) => {
   const rehypePlugins: PluggableList = [
+    rehypeRaw,
     reservedMeta,
     ...defaultRehypePlugins,
     [rehypeRewrite, { rewrite: rehypeRewriteHandle(props.disableCopy ?? false, props.rehypeRewrite) }],
