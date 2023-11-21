@@ -81,6 +81,8 @@ export default function Demo() {
 
 syntax: <code>```jsx {1,4-5}</code>
 
+⚠️ The `highlight line` and `Show Line Numbers` feature are invalid and require ~~`rehype-prism-plus@1.6.3`~~ upgrade.
+
 ```jsx mdx:preview
 import React from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
@@ -115,6 +117,8 @@ export default function Demo() {
 ## Show Line Numbers
 
 syntax: <code>```jsx showLineNumbers {1,4-5}</code>
+
+⚠️ The `highlight line` and `Show Line Numbers` feature are invalid and require ~~`rehype-prism-plus@1.6.3`~~ upgrade.
 
 ```jsx mdx:preview?background=#fff
 import React from 'react';
@@ -182,12 +186,12 @@ import React from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview/nohighlight';
 
 const source = `
-\`\`\`js showLineNumbers
+\`\`\`js
 function () {
   console.log('hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello')
 }
 \`\`\`
-\`\`\`js showLineNumbers {2}
+\`\`\`js
 function () {
   console.log('hello ')
 }
