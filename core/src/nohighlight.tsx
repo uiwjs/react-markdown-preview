@@ -9,8 +9,8 @@ import { rehypeRewriteHandle, defaultRehypePlugins } from './rehypePlugins';
 
 export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props, ref) => {
   const rehypePlugins: PluggableList = [
-    rehypeRaw,
     reservedMeta,
+    rehypeRaw,
     ...defaultRehypePlugins,
     [rehypeRewrite, { rewrite: rehypeRewriteHandle(props.disableCopy ?? false, props.rehypeRewrite) }],
     [rehypeAttrs, { properties: 'attr' }],

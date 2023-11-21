@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "build": "kkt build",
-    "start": "kkt start",
+    "start": "GENERATE_SOURCEMAP=false kkt start",
     "map": "source-map-explorer build/static/js/*.js --html build/website-result.html"
   },
   "dependencies": {
-    "@uiw/react-markdown-preview-example": "^1.5.5",
+    "@uiw/react-markdown-preview-example": "^1.5.9",
     "@uiw/react-shields": "^2.0.1",
     "mermaid": "^10.4.0",
     "react": "~18.2.0",

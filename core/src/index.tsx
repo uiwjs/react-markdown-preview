@@ -12,8 +12,8 @@ export * from './preview';
 
 export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props, ref) => {
   const rehypePlugins: PluggableList = [
-    rehypeRaw,
     reservedMeta,
+    rehypeRaw,
     [rehypePrism, { ignoreMissing: true }],
     ...defaultRehypePlugins,
     [rehypeRewrite, { rewrite: rehypeRewriteHandle(props.disableCopy ?? false, props.rehypeRewrite) }],
