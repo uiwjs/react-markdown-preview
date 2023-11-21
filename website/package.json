@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "4.2.1",
+  "version": "5.0.0",
   "private": true,
   "scripts": {
     "build": "kkt build",
