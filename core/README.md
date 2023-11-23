@@ -316,6 +316,33 @@ export default function Demo() {
 }
 ```
 
+## Security
+
+Please note markdown needs to be sanitized if you do not completely trust your authors. Otherwise, your app is vulnerable to XSS. This can be achieved by adding [rehype-sanitize](https://github.com/rehypejs/rehype-sanitize) as a plugin.
+
+```jsx mdx:preview&checkered=0
+import React from 'react';
+import rehypeSanitize from "rehype-sanitize";
+import MarkdownPreview from '@uiw/react-markdown-preview';
+
+const source = `
+## MarkdownPreview
+
+**Hello world!!!** <IFRAME SRC=\"javascript:javascript:alert(window.origin);\"></IFRAME>
+
+<!-- test --> 123
+
+<!-- test --> 456 <!-- test -->
+`;
+
+const rehypePlugins = [rehypeSanitize];
+export default function Demo() {
+  return (
+    <MarkdownPreview source={source} rehypePlugins={rehypePlugins} />
+  )
+}
+```
+
 ### Options Props
 
 ```typescript
