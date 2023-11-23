@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "kkt build",
-    "start": "GENERATE_SOURCEMAP=false kkt start",
+    "start": "kkt start",
     "map": "source-map-explorer build/static/js/*.js --html build/website-result.html"
   },
   "dependencies": {

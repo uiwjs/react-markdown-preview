@@ -18,6 +18,11 @@ export default (conf: WebpackConfiguration, env: 'production' | 'development', o
       VERSION: JSON.stringify(pkg.version),
     }),
   );
+  conf.ignoreWarnings = [
+    {
+      module: /node_modules[\\/]parse5[\\/]/,
+    },
+  ];
   conf = mdCodeModulesLoader(conf);
   // https://github.com/kktjs/kkt/issues/336#issue-1097660932
   conf.module!.exprContextCritical = false;
