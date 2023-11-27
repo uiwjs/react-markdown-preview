@@ -3,8 +3,8 @@ React Markdown Preview
 ===
 <!--rehype:ignore:end-->
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
 [![Build and Deploy](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.marster.yml/badge.svg)](https://github.com/uiwjs/react-markdown-preview/actions/workflows/ci.marster.yml)
-[![jsDelivr CDN](https://data.jsdelivr.com/v1/package/npm/@uiw/react-markdown-preview/badge?style=rounded)](https://www.jsdelivr.com/package/npm/@uiw/react-markdown-preview)
 [![Downloads](https://img.shields.io/npm/dm/@uiw/react-markdown-preview.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-markdown-preview)
 [![Coverage Status](https://uiwjs.github.io/react-markdown-preview/badge.svg)](https://uiwjs.github.io/react-markdown-preview/coverage/lcov-report/)
 [![npm version](https://img.shields.io/npm/v/@uiw/react-markdown-preview.svg)](https://www.npmjs.com/package/@uiw/react-markdown-preview)
