@@ -241,7 +241,65 @@ export default function Demo() {
 <!--rehype:ignore:start-->Ignored content<!--rehype:ignore:end-->
 ```
 
+## Support Custom KaTeX Preview
+
+KaTeX is a fast, easy-to-use JavaScript library for TeX math rendering on the web, We perform math rendering through [`KaTeX`](https://github.com/KaTeX/KaTeX).
+
+```bash
+npm install katex
+```
+
+```jsx mdx:preview?background=#fff
+import React from 'react';
+import MarkdownPreview from '@uiw/react-markdown-preview';
+import { getCodeString } from 'rehype-rewrite';
+import katex from 'katex';
+import 'katex/dist/katex.css';
+
+const source = `This is to display the 
+\`\$\$\c = \\pm\\sqrt{a^2 + b^2}\$\$\`
+ in one line
+
+\`\`\`KaTeX
+c = \\pm\\sqrt{a^2 + b^2}
+\`\`\`
+`;
+
+export default function Demo() {
+  const [value, setValue] = React.useState(source);
+  return (
+    <MarkdownPreview
+      source={source}
+      components={{
+        code: ({ children = [], className, ...props }) => {
+          if (typeof children === 'string' && /^\$\$(.*)\$\$/.test(children)) {
+            const html = katex.renderToString(children.replace(/^\$\$(.*)\$\$/, '$1'), {
+              throwOnError: false,
+            });
+            return <code dangerouslySetInnerHTML={{ __html: html }} style={{ background: 'transparent' }} />;
+          }
+          const code = props.node && props.node.children ? getCodeString(props.node.children) : children;
+          if (
+            typeof code === 'string' &&
+            typeof className === 'string' &&
+            /^language-katex/.test(className.toLocaleLowerCase())
+          ) {
+            const html = katex.renderToString(code, {
+              throwOnError: false,
+            });
+            return <code style={{ fontSize: '150%' }} dangerouslySetInnerHTML={{ __html: html }} />;
+          }
+          return <code className={String(className)}>{children}</code>;
+        },
+      }}
+    />
+  );
+}
+```
+
 ## Support Custom Mermaid Preview
+
+Using [mermaid](https://github.com/mermaid-js/mermaid) to generation of diagram and flowchart from text in a similar manner as markdown
 
 [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/embed/react-markdown-preview-https-github-com-uiwjs-react-markdown-preview-issues-238-lw6vr5?fontsize=14&hidenavigation=1&theme=dark)
 
@@ -289,16 +347,37 @@ const Code = ({ inline, children = [], className, ...props }) => {
   }
   return <code>{children}</code>;
 };
+const source = `The following are some examples of the diagrams, charts and graphs that can be made using Mermaid and the Markdown-inspired text specific to it. 
 
-const source = `
 \`\`\`mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+graph TD
+A[Hard] -->|Text| B(Round)
+B --> C{Decision}
+C -->|One| D[Result 1]
+C -->|Two| E[Result 2]
+\`\`\`
+
+\`\`\`mermaid
+sequenceDiagram
+Alice->>John: Hello John, how are you?
+loop Healthcheck
+    John->>John: Fight against hypochondria
+end
+Note right of John: Rational thoughts!
+John-->>Alice: Great!
+John->>Bob: How about you?
+Bob-->>John: Jolly good!
 \`\`\`
 `;
+// const source = `
+// \`\`\`mermaid
+// graph TD;
+//     A-->B;
+//     A-->C;
+//     B-->D;
+//     C-->D;
+// \`\`\`
+// `;
 
 export default function Demo() {
   return (

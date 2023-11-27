@@ -10,7 +10,8 @@
   "dependencies": {
     "@uiw/react-markdown-preview-example": "^1.5.9",
     "@uiw/react-shields": "^2.0.1",
-    "mermaid": "^10.4.0",
+    "katex": "^0.16.9",
+    "mermaid": "^10.6.1",
     "react": "~18.2.0",
     "react-dom": "~18.2.0",
     "react-router-dom": "^6.8.1",
