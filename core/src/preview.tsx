@@ -1,39 +1,11 @@
 import React, { useImperativeHandle } from 'react';
-import ReactMarkdown, { Options } from 'react-markdown';
+import ReactMarkdown from 'react-markdown';
 import { PluggableList } from 'unified';
 import gfm from 'remark-gfm';
 import raw from 'rehype-raw';
-import { type RehypeRewriteOptions } from 'rehype-rewrite';
 import { useCopied } from './plugins/useCopied';
+import { type MarkdownPreviewProps, type MarkdownPreviewRef } from './Props';
 import './styles/markdown.less';
-
-export * from './preview';
-
-export interface MarkdownPreviewProps extends Omit<Options, 'children'> {
-  prefixCls?: string;
-  className?: string;
-  source?: string;
-  disableCopy?: boolean;
-  style?: React.CSSProperties;
-  pluginsFilter?: (type: 'rehype' | 'remark', plugin: PluggableList) => PluggableList;
-  wrapperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
-    'data-color-mode'?: 'light' | 'dark';
-  };
-  /**
-   * Please use wrapperElement, Will be removed in v5 release.
-   * @deprecated
-   */
-  warpperElement?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
-    'data-color-mode'?: 'light' | 'dark';
-  };
-  onScroll?: (e: React.UIEvent<HTMLDivElement>) => void;
-  onMouseOver?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  rehypeRewrite?: RehypeRewriteOptions['rewrite'];
-}
-
-export interface MarkdownPreviewRef extends MarkdownPreviewProps {
-  mdp: React.RefObject<HTMLDivElement>;
-}
 
 export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props, ref) => {
   const {
