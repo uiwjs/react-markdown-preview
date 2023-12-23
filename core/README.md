@@ -418,7 +418,7 @@ export default function Demo() {
 }
 ```
 
-### Options Props
+## Options Props
 
 ```typescript
 import { ReactMarkdownProps } from 'react-markdown';
@@ -445,7 +445,7 @@ type MarkdownPreviewProps = {
 - `className` (`string?`)\
     Wrap the markdown in a `div` with this class name
 
-This [`ReactMarkdownProps`](https://github.com/remarkjs/react-markdown/tree/02bac837bf141cdb8face360fb88be6fa33ab194#props) details. [Upgrade `react-markdown` v6](https://github.com/remarkjs/react-markdown/blob/15b4757082cf3f32a25eba0b8ea30baf751a8b40/changelog.md#600---2021-04-15)
+This [`ReactMarkdownProps`](https://github.com/remarkjs/react-markdown/tree/02bac837bf141cdb8face360fb88be6fa33ab194#props) details. [Upgrade `react-markdown` v9](https://github.com/remarkjs/react-markdown/tree/a27d335fc5419db4a2811e7f589d6467218346de?tab=readme-ov-file#options)
 
 - `children` (`string`, default: `''`)\
     Markdown to parse
@@ -453,49 +453,122 @@ This [`ReactMarkdownProps`](https://github.com/remarkjs/react-markdown/tree/02ba
     Wrap the markdown in a `div` with this class name
 - `skipHtml` (`boolean`, default: ~~`false`~~ -> [`true`](https://github.com/uiwjs/react-markdown-preview/issues/205) )\
     Ignore HTML in Markdown completely
-- `sourcePos` (`boolean`, default: `false`)\
-    Pass a prop to all components with a serialized position
-    (`data-sourcepos="3:1-3:13"`)
-- `rawSourcePos` (`boolean`, default: `false`)\
-    Pass a prop to all components with their [position][]
-    (`sourcePosition: {start: {line: 3, column: 1}, end:…}`)
-- `includeElementIndex` (`boolean`, default: `false`)\
-    Pass the `index` (number of elements before it) and `siblingCount` (number
-    of elements in parent) as props to all components
-- `allowedElements` (`Array.<string>`, default: `undefined`)\
-    Tag names to allow (can’t combine w/ `disallowedElements`).
-    By default all elements are allowed
-- `disallowedElements` (`Array.<string>`, default: `undefined`)\
-    Tag names to disallow (can’t combine w/ `allowedElements`).
-    By default no elements are disallowed
 - `allowElement` (`(element, index, parent) => boolean?`, optional)\
     Function called to check if an element is allowed (when truthy) or not.
     `allowedElements` / `disallowedElements` is used first!
-- `unwrapDisallowed` (`boolean`, default: `false`)\
-    Extract (unwrap) the children of not allowed elements.
-    By default, when `strong` is not allowed, it and it’s children is dropped,
-    but with `unwrapDisallowed` the element itself is dropped but the children
-    used
-- `linkTarget` (`string` or `(href, children, title) => string`, optional)\
-    Target to use on links (such as `_blank` for `<a target="_blank"…`)
-- `transformLinkUri` (`(href, children, title) => string`, default:
-    [`./uri-transformer.js`](https://github.com/remarkjs/react-markdown/blob/02bac837bf141cdb8face360fb88be6fa33ab194/lib/uri-transformer.js), optional)\
-    URL to use for links.
-    The default allows only `http`, `https`, `mailto`, and `tel`, and is
-    exported from this module as `uriTransformer`.
-    Pass `null` to allow all URLs.
-    See [security][]
-- `transformImageUri` (`(src, alt, title) => string`, default:
-    [`./uri-transformer.js`](https://github.com/remarkjs/react-markdown/blob/02bac837bf141cdb8face360fb88be6fa33ab194/lib/uri-transformer.js), optional)\
-    Same as `transformLinkUri` but for images
-- `components` (`Object.<string, Component>`, default: `{}`)\
-    Object mapping tag names to React components
 - `remarkPlugins`<!--rehype:style=color: red;background-color: #ffeb3b;--> (`Array.<Plugin>`, default: `[]`)\
     List of [remark plugins](https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins) to use.
     See the next section for examples on how to pass options
 - `rehypePlugins`<!--rehype:style=color: red;background-color: #ffeb3b;--> (`Array.<Plugin>`, default: `[]`)\
     List of [rehype plugins](https://github.com/rehypejs/rehype/blob/main/doc/plugins.md#list-of-plugins) to use.
     See the next section for examples on how to pass options
+
+> [!NOTE]
+>
+> [Upgrade `react-markdown` ~~v8~~ to v9](https://github.com/remarkjs/react-markdown/blob/a27d335fc5419db4a2811e7f589d6467218346de/changelog.md?plain=1#L5-L144)
+
+### Add `urlTransform`
+
+The `transformImageUri` and `transformLinkUri` were removed.
+Having two functions is a bit much, particularly because there are more URLs
+you might want to change (or which might be unsafe so *we* make them safe).
+And their name and APIs were a bit weird.
+You can use the new `urlTransform` prop instead to change all your URLs.
+
+### Remove `linkTarget`
+
+The `linkTarget` option was removed; you should likely not set targets.
+If you want to, use
+[`rehype-external-links`](https://github.com/rehypejs/rehype-external-links).
+
+### Remove `includeElementIndex`
+
+The `includeElementIndex` option was removed, so `index` is never passed to
+components.
+Write a plugin to pass `index`:
+
+<details>
+<summary>Show example of plugin</summary>
+
+```jsx
+import {visit} from 'unist-util-visit'
+
+function rehypePluginAddingIndex() {
+  /**
+   * @param {import('hast').Root} tree
+   * @returns {undefined}
+   */
+  return function (tree) {
+    visit(tree, function (node, index) {
+      if (node.type === 'element' && typeof index === 'number') {
+        node.properties.index = index
+      }
+    })
+  }
+}
+```
+
+</details>
+
+### Remove `rawSourcePos`
+
+The `rawSourcePos` option was removed, so `sourcePos` is never passed to
+components.
+All components are passed `node`, so you can get `node.position` from them.
+
+### Remove `sourcePos`
+
+The `sourcePos` option was removed, so `data-sourcepos` is never passed to
+elements.
+Write a plugin to pass `index`:
+
+<details>
+<summary>Show example of plugin</summary>
+
+```jsx
+import {stringifyPosition} from 'unist-util-stringify-position'
+import {visit} from 'unist-util-visit'
+
+function rehypePluginAddingIndex() {
+  /**
+   * @param {import('hast').Root} tree
+   * @returns {undefined}
+   */
+  return function (tree) {
+    visit(tree, function (node) {
+      if (node.type === 'element') {
+        node.properties.dataSourcepos = stringifyPosition(node.position)
+      }
+    })
+  }
+}
+```
+
+</details>
+
+### Remove extra props passed to certain components
+
+When overwriting components, these props are no longer passed:
+
+*   `inline` on `code`
+    — create a plugin or use `pre` for the block
+*   `level` on `h1`, `h2`, `h3`, `h4`, `h5`, `h6`
+    — check `node.tagName` instead
+*   `checked` on `li`
+    — check `task-list-item` class or check `props.children`
+*   `index` on `li`
+    — create a plugin
+*   `ordered` on `li`
+    — create a plugin or check the parent
+*   `depth` on `ol`, `ul`
+    — create a plugin
+*   `ordered` on `ol`, `ul`
+    — check `node.tagName` instead
+*   `isHeader` on `td`, `th`
+    — check `node.tagName` instead
+*   `isHeader` on `tr`
+    — create a plugin or check children
+
 
 ## Markdown Features
 
