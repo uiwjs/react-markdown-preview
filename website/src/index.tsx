@@ -20,6 +20,14 @@ root.render(
           Markdown style."
     version={`v${pkg.version}`}
   >
+    <MarkdownPreviewExample.NavMenu
+      title="Markdown Preview"
+      menus={[
+        <a target="_blank" href="https://jaywcjlove.github.io/#/sponsor" rel="noopener noreferrer">
+          Sponsor
+        </a>,
+      ]}
+    />
     <MarkdownPreviewExample.Github href="https://github.com/uiwjs/react-markdown-preview" />
     <MarkdownPreviewExample.Example>
       <Example />
