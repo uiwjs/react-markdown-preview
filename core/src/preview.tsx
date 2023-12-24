@@ -1,11 +1,16 @@
 import React, { useImperativeHandle } from 'react';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { UrlTransform } from 'react-markdown';
 import { PluggableList } from 'unified';
 import gfm from 'remark-gfm';
 import raw from 'rehype-raw';
 import { useCopied } from './plugins/useCopied';
 import { type MarkdownPreviewProps, type MarkdownPreviewRef } from './Props';
 import './styles/markdown.less';
+
+/**
+ * https://github.com/uiwjs/react-md-editor/issues/607
+ */
+const defaultUrlTransform: UrlTransform = (url) => url;
 
 export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props, ref) => {
   const {
@@ -21,6 +26,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     rehypeRewrite: rewrite,
     wrapperElement = {},
     warpperElement = {},
+    urlTransform,
     ...other
   } = props;
   const mdp = React.useRef<HTMLDivElement>(null);
@@ -48,6 +54,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
         {...customProps}
         {...other}
         skipHtml={skipHtml}
+        urlTransform={urlTransform || defaultUrlTransform}
         rehypePlugins={pluginsFilter ? pluginsFilter('rehype', rehypePlugins) : rehypePlugins}
         remarkPlugins={pluginsFilter ? pluginsFilter('remark', remarkPlugins) : remarkPlugins}
         children={source || ''}

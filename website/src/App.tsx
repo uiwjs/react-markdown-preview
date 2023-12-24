@@ -46,13 +46,7 @@ export const Example = () => {
         spellCheck="false"
         onChange={(e) => setValue(e.target.value)}
       />
-      <MarkdownPreview
-        urlTransform={(url) => {
-          return url;
-        }}
-        className="editor-preview"
-        source={value}
-      />
+      <MarkdownPreview className="editor-preview" source={value} />
     </EditorWrapper>
   );
 };
