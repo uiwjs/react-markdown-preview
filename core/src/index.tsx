@@ -17,11 +17,11 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
     reservedMeta,
     rehypeRaw,
     retrieveMeta,
-    [rehypePrism, { ignoreMissing: true }],
     ...defaultRehypePlugins,
     [rehypeRewrite, { rewrite: rehypeRewriteHandle(props.disableCopy ?? false, props.rehypeRewrite) }],
     [rehypeAttrs, { properties: 'attr' }],
     ...(props.rehypePlugins || []),
+    [rehypePrism, { ignoreMissing: true }],
   ];
   return <MarkdownPreview {...props} rehypePlugins={rehypePlugins} ref={ref} />;
 });
