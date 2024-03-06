@@ -407,14 +407,7 @@ body[data-color-mode*='light'] {
   kbd {
     display: inline-block;
     padding: 3px 5px;
-    font:
-      11px ui-monospace,
-      SFMono-Regular,
-      SF Mono,
-      Menlo,
-      Consolas,
-      Liberation Mono,
-      monospace;
+    font: 11px ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
     line-height: 10px;
     color: var(--color-fg-default);
     vertical-align: middle;
@@ -453,14 +446,7 @@ body[data-color-mode*='light'] {
   kbd {
     display: inline-block;
     padding: 3px 5px;
-    font:
-      11px ui-monospace,
-      SFMono-Regular,
-      SF Mono,
-      Menlo,
-      Consolas,
-      Liberation Mono,
-      monospace;
+    font: 11px ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
     line-height: 10px;
     color: var(--color-fg-default);
     vertical-align: middle;
@@ -546,27 +532,13 @@ body[data-color-mode*='light'] {
 
   tt,
   code {
-    font-family:
-      ui-monospace,
-      SFMono-Regular,
-      SF Mono,
-      Menlo,
-      Consolas,
-      Liberation Mono,
-      monospace;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
     font-size: 12px;
   }
   pre {
     margin-top: 0;
     margin-bottom: 0;
-    font-family:
-      ui-monospace,
-      SFMono-Regular,
-      SF Mono,
-      Menlo,
-      Consolas,
-      Liberation Mono,
-      monospace;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
     font-size: 12px;
     word-wrap: normal;
   }
@@ -1081,96 +1053,98 @@ body[data-color-mode*='light'] {
   }
 }
 
-.highlight-line {
-  background-color: var(--color-neutral-muted);
-}
-.code-line.line-number::before {
-  display: inline-block;
-  width: 1rem;
-  text-align: right;
-  margin-right: 16px;
-  color: var(--color-fg-subtle);
-  content: attr(line);
-  white-space: nowrap;
-}
+.wmde-markdown {
+  .highlight-line {
+    background-color: var(--color-neutral-muted);
+  }
+  .code-line.line-number::before {
+    display: inline-block;
+    width: 1rem;
+    text-align: right;
+    margin-right: 16px;
+    color: var(--color-fg-subtle);
+    content: attr(line);
+    white-space: nowrap;
+  }
 
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: var(--color-prettylights-syntax-comment);
-}
-.token.namespace {
-  opacity: 0.7;
-}
-.token.property,
-.token.tag,
-.token.selector,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: var(--color-prettylights-syntax-entity-tag);
-}
-.token.maybe-class-name {
-  color: var(--color-prettylights-syntax-variable);
-}
-.token.property-access,
-.token.operator,
-.token.boolean,
-.token.number,
-.token.selector .token.class,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin {
-  color: var(--color-prettylights-syntax-constant);
-}
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: var(--color-prettylights-syntax-comment);
+  }
+  .token.namespace {
+    opacity: 0.7;
+  }
+  .token.property,
+  .token.tag,
+  .token.selector,
+  .token.constant,
+  .token.symbol,
+  .token.deleted {
+    color: var(--color-prettylights-syntax-entity-tag);
+  }
+  .token.maybe-class-name {
+    color: var(--color-prettylights-syntax-variable);
+  }
+  .token.property-access,
+  .token.operator,
+  .token.boolean,
+  .token.number,
+  .token.selector .token.class,
+  .token.attr-name,
+  .token.string,
+  .token.char,
+  .token.builtin {
+    color: var(--color-prettylights-syntax-constant);
+  }
 
-.token.deleted {
-  color: var(--color-prettylights-syntax-markup-deleted-text);
-}
-.code-line .token.deleted {
-  background-color: var(--color-prettylights-syntax-markup-deleted-bg);
-}
-.token.inserted {
-  color: var(--color-prettylights-syntax-markup-inserted-text);
-}
-.code-line .token.inserted {
-  background-color: var(--color-prettylights-syntax-markup-inserted-bg);
-}
+  .token.deleted {
+    color: var(--color-prettylights-syntax-markup-deleted-text);
+  }
+  .code-line .token.deleted {
+    background-color: var(--color-prettylights-syntax-markup-deleted-bg);
+  }
+  .token.inserted {
+    color: var(--color-prettylights-syntax-markup-inserted-text);
+  }
+  .code-line .token.inserted {
+    background-color: var(--color-prettylights-syntax-markup-inserted-bg);
+  }
 
-.token.variable {
-  color: var(--color-prettylights-syntax-constant);
-}
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  color: var(--color-prettylights-syntax-string);
-}
-.token.color,
-.token.atrule,
-.token.attr-value,
-.token.function,
-.token.class-name {
-  color: var(--color-prettylights-syntax-string);
-}
-.token.rule,
-.token.regex,
-.token.important,
-.token.keyword {
-  color: var(--color-prettylights-syntax-keyword);
-}
-.token.coord {
-  color: var(--color-prettylights-syntax-meta-diff-range);
-}
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-.token.italic {
-  font-style: italic;
-}
-.token.entity {
-  cursor: help;
+  .token.variable {
+    color: var(--color-prettylights-syntax-constant);
+  }
+  .token.entity,
+  .token.url,
+  .language-css .token.string,
+  .style .token.string {
+    color: var(--color-prettylights-syntax-string);
+  }
+  .token.color,
+  .token.atrule,
+  .token.attr-value,
+  .token.function,
+  .token.class-name {
+    color: var(--color-prettylights-syntax-string);
+  }
+  .token.rule,
+  .token.regex,
+  .token.important,
+  .token.keyword {
+    color: var(--color-prettylights-syntax-keyword);
+  }
+  .token.coord {
+    color: var(--color-prettylights-syntax-meta-diff-range);
+  }
+  .token.important,
+  .token.bold {
+    font-weight: bold;
+  }
+  .token.italic {
+    font-style: italic;
+  }
+  .token.entity {
+    cursor: help;
+  }
 }
