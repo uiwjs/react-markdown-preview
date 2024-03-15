@@ -45,7 +45,7 @@ const source = `
 
 export default function Demo() {
   return (
-    <MarkdownPreview source={source} />
+    <MarkdownPreview source={source} style={{ padding: 16 }} />
   )
 }
 ```
@@ -68,6 +68,7 @@ export default function Demo() {
   return (
     <MarkdownPreview
       source={source}
+      style={{ padding: 16 }}
       rehypeRewrite={(node, index, parent) => {
         if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
           parent.children = parent.children.slice(1)
@@ -103,6 +104,7 @@ export default function Demo() {
   return (
     <MarkdownPreview
       source={source}
+      style={{ padding: 16 }}
       rehypeRewrite={(node, index, parent) => {
         if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
           parent.children = parent.children.slice(1)
@@ -138,6 +140,7 @@ export default function Demo() {
   return (
     <MarkdownPreview
       source={source}
+      style={{ padding: 16 }}
       rehypeRewrite={(node, index, parent) => {
         if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
           parent.children = parent.children.slice(1)
@@ -169,7 +172,7 @@ function () {
 
 export default function Demo() {
   return (
-    <MarkdownPreview source={source} />
+    <MarkdownPreview source={source} style={{ padding: 16 }} />
   );
 }
 ```
@@ -199,6 +202,7 @@ export default function Demo() {
   return (
     <MarkdownPreview
       source={source}
+      style={{ padding: 16 }}
       rehypeRewrite={(node, index, parent) => {
         if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
           parent.children = parent.children.slice(1)
@@ -228,6 +232,7 @@ export default function Demo() {
   return (
     <MarkdownPreview
       source={source}
+      style={{ padding: 16 }}
       rehypeRewrite={(node, index, parent) => {
         if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
           parent.children = parent.children.slice(1)
@@ -271,6 +276,7 @@ export default function Demo() {
   return (
     <MarkdownPreview
       source={source}
+      style={{ padding: 16 }}
       components={{
         code: ({ children = [], className, ...props }) => {
           if (typeof children === 'string' && /^\$\$(.*)\$\$/.test(children)) {
@@ -384,6 +390,7 @@ export default function Demo() {
   return (
     <MarkdownPreview
       source={source}
+      style={{ padding: 16 }}
       components={{
         code: Code
       }}
@@ -414,7 +421,7 @@ const source = `
 const rehypePlugins = [rehypeSanitize];
 export default function Demo() {
   return (
-    <MarkdownPreview source={source} rehypePlugins={rehypePlugins} />
+    <MarkdownPreview source={source} rehypePlugins={rehypePlugins} style={{ padding: 16 }} />
   )
 }
 ```
@@ -638,7 +645,7 @@ const source = `>
 
 export default function Demo() {
   return (
-    <MarkdownPreview source={source} />
+    <MarkdownPreview source={source} style={{ padding: 16 }} />
   )
 }
 ```
