@@ -3,8 +3,8 @@ import ReactMarkdown, { type UrlTransform } from 'react-markdown';
 import { type PluggableList } from 'unified';
 import gfm from 'remark-gfm';
 import raw from 'rehype-raw';
+import { remarkAlert } from 'remark-github-blockquote-alert';
 import { useCopied } from './plugins/useCopied';
-import { remarkAlert } from './plugins/remarkAlert';
 import { type MarkdownPreviewProps, type MarkdownPreviewRef } from './Props';
 import './styles/markdown.less';
 
@@ -34,7 +34,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
   useImperativeHandle(ref, () => ({ ...props, mdp }), [mdp, props]);
   const cls = `${prefixCls || ''} ${className || ''}`;
   useCopied(mdp);
-  const rehypePlugins: PluggableList = [[remarkAlert], ...(other.rehypePlugins || [])];
+  const rehypePlugins: PluggableList = [...(other.rehypePlugins || [])];
   const customProps: MarkdownPreviewProps = {
     allowElement: (element, index, parent) => {
       if (other.allowElement) {
@@ -46,7 +46,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
   if (skipHtml) {
     rehypePlugins.push(raw);
   }
-  const remarkPlugins = [...(other.remarkPlugins || []), gfm];
+  const remarkPlugins = [remarkAlert, ...(other.remarkPlugins || []), gfm];
   const wrapperProps = { ...warpperElement, ...wrapperElement };
   return (
     <div ref={mdp} onScroll={onScroll} onMouseOver={onMouseOver} {...wrapperProps} className={cls} style={style}>
