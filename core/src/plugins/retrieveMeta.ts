@@ -1,5 +1,5 @@
-import { Plugin } from 'unified';
-import { Root, RootContent } from 'hast';
+import type { Plugin } from 'unified';
+import type { Root, RootContent } from 'hast';
 import { visit } from 'unist-util-visit';
 
 export interface RetrieveMetaOptions {}

@@ -1,11 +1,11 @@
 import React from 'react';
 import MarkdownPreview from './preview';
-import { PluggableList } from 'unified';
+import { type PluggableList } from 'unified';
 import rehypeRewrite from 'rehype-rewrite';
-import { reservedMeta } from './plugins/reservedMeta';
-import { retrieveMeta } from './plugins/retrieveMeta';
 import rehypeAttrs from 'rehype-attr';
 import rehypeRaw from 'rehype-raw';
+import { reservedMeta } from './plugins/reservedMeta';
+import { retrieveMeta } from './plugins/retrieveMeta';
 import { rehypeRewriteHandle, defaultRehypePlugins } from './rehypePlugins';
 import type { MarkdownPreviewProps, MarkdownPreviewRef } from './Props';
 

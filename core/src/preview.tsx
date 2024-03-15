@@ -1,9 +1,10 @@
 import React, { useImperativeHandle } from 'react';
-import ReactMarkdown, { UrlTransform } from 'react-markdown';
-import { PluggableList } from 'unified';
+import ReactMarkdown, { type UrlTransform } from 'react-markdown';
+import { type PluggableList } from 'unified';
 import gfm from 'remark-gfm';
 import raw from 'rehype-raw';
 import { useCopied } from './plugins/useCopied';
+import { remarkAlert } from './plugins/remarkAlert';
 import { type MarkdownPreviewProps, type MarkdownPreviewRef } from './Props';
 import './styles/markdown.less';
 
@@ -33,8 +34,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
   useImperativeHandle(ref, () => ({ ...props, mdp }), [mdp, props]);
   const cls = `${prefixCls || ''} ${className || ''}`;
   useCopied(mdp);
-
-  const rehypePlugins: PluggableList = [...(other.rehypePlugins || [])];
+  const rehypePlugins: PluggableList = [[remarkAlert], ...(other.rehypePlugins || [])];
   const customProps: MarkdownPreviewProps = {
     allowElement: (element, index, parent) => {
       if (other.allowElement) {

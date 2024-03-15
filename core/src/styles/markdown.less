@@ -44,6 +44,13 @@
     --color-accent-emphasis: #1f6feb;
     --color-attention-subtle: rgba(187, 128, 9, 0.15);
     --color-danger-fg: #f85149;
+    --color-danger-emphasis: #da3633;
+    --color-attention-fg: #d29922;
+    --color-attention-emphasis: #9e6a03;
+    --color-done-fg: #a371f7;
+    --color-done-emphasis: #8957e5;
+    --color-success-fg: #3fb950;
+    --color-success-emphasis: #238636;
     --color-copied-active-bg: #2e9b33;
   }
 }
@@ -93,7 +100,14 @@
     --color-accent-fg: #0969da;
     --color-accent-emphasis: #0969da;
     --color-attention-subtle: #fff8c5;
-    --color-danger-fg: #cf222e;
+    --color-danger-fg: #d1242f;
+    --color-danger-emphasis: #cf222e;
+    --color-attention-fg: #9a6700;
+    --color-attention-emphasis: #9a6700;
+    --color-done-fg: #8250df;
+    --color-done-emphasis: #8250df;
+    --color-success-fg: #1a7f37;
+    --color-success-emphasis: #1f883d;
     --color-copied-active-bg: #2e9b33;
   }
 }
@@ -1048,6 +1062,56 @@ body[data-color-mode*='light'] {
 
       .octicon-check {
         display: block;
+      }
+    }
+  }
+}
+
+.wmde-markdown {
+  .markdown-alert {
+    padding: 0.5rem 1em;
+    color: inherit;
+    margin-bottom: 16px;
+    border-left: 0.25em solid var(--borderColor-default, var(--color-border-default));
+    > :last-child {
+      margin-bottom: 0 !important;
+    }
+    .markdown-alert-title {
+      display: flex;
+      align-items: center;
+      line-height: 1;
+      svg.octicon {
+        margin-right: var(--base-size-8, 8px) !important;
+      }
+    }
+    &.markdown-alert-note {
+      border-left-color: var(--borderColor-accent-emphasis, var(--color-accent-emphasis));
+      .markdown-alert-title {
+        color: var(--fgColor-accent, var(--color-accent-fg));
+      }
+    }
+    &.markdown-alert-tip {
+      border-left-color: var(--borderColor-success-emphasis, var(--color-success-emphasis));
+      .markdown-alert-title {
+        color: var(--fgColor-success, var(--color-success-fg));
+      }
+    }
+    &.markdown-alert-important {
+      border-left-color: var(--borderColor-done-emphasis, var(--color-done-emphasis));
+      .markdown-alert-title {
+        color: var(--fgColor-done, var(--color-done-fg));
+      }
+    }
+    &.markdown-alert-warning {
+      border-left-color: var(--borderColor-attention-emphasis, var(--color-attention-emphasis));
+      .markdown-alert-title {
+        color: var(--fgColor-attention, var(--color-attention-fg));
+      }
+    }
+    &.markdown-alert-caution {
+      border-left-color: var(--borderColor-danger-emphasis, var(--color-danger-emphasis));
+      .markdown-alert-title {
+        color: var(--fgColor-danger, var(--color-danger-fg));
       }
     }
   }

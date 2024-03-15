@@ -21,6 +21,7 @@ React component preview markdown text in web browser. The minimal amount of CSS 
 - 🍭 Support automatic code block highlight.
 - 🐝 Support for defining styles via comment.
 - ⛳️ Support for [GFM footnotes](https://github.blog/changelog/2021-09-30-footnotes-now-supported-in-markdown-fields/)
+- ⛳️ Support for [Github Alert](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
 
 ## Quick Start
 
@@ -607,6 +608,42 @@ Output:
 <h1>Hello World</h1>
 
 <p>Good!</p>
+```
+
+### Support for Github Alerts
+
+```jsx mdx:preview&checkered=0
+import React from 'react';
+import MarkdownPreview from '@uiw/react-markdown-preview';
+
+const source = `> 
+> 
+> Useful information that users should know, even when skimming content.
+
+> 
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+
+
+`;
+
+export default function Demo() {
+  return (
+    <MarkdownPreview source={source} />
+  )
+}
 ```
 
 ## Support dark-mode/night-mode

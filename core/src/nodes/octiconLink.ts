@@ -1,4 +1,4 @@
-import { Element } from 'hast';
+import type { Element } from 'hast';
 
 export const octiconLink: Element = {
   type: 'element',

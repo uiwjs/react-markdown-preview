@@ -1,6 +1,6 @@
 import { type Options } from 'react-markdown';
 import { type RehypeRewriteOptions } from 'rehype-rewrite';
-import { PluggableList } from 'unified';
+import { type PluggableList } from 'unified';
 
 export interface MarkdownPreviewProps extends Omit<Options, 'children'> {
   prefixCls?: string;

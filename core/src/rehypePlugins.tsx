@@ -1,11 +1,11 @@
-import { PluggableList } from 'unified';
+import type { PluggableList } from 'unified';
 import slug from 'rehype-slug';
 import headings from 'rehype-autolink-headings';
 import rehypeIgnore from 'rehype-ignore';
-import { getCodeString, RehypeRewriteOptions } from 'rehype-rewrite';
+import { getCodeString, type RehypeRewriteOptions } from 'rehype-rewrite';
+import type { Root, Element, RootContent } from 'hast';
 import { octiconLink } from './nodes/octiconLink';
 import { copyElement } from './nodes/copy';
-import { Root, Element, RootContent } from 'hast';
 
 export const rehypeRewriteHandle =
   (disableCopy: boolean, rewrite?: RehypeRewriteOptions['rewrite']) =>
