@@ -6,7 +6,7 @@
     "build:doc": "lerna exec --scope website -- npm run build",
     "doc": "lerna exec --scope website -- npm run start",
     "start": "lerna exec --scope @uiw/* -- npm run watch",
-    "prepare": "npm run build && husky install",
+    "prepare": "npm run build && husky",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "pretty-quick": "pretty-quick --staged",
     "version": "lerna version --no-changelog --no-git-tag-version --no-push",
