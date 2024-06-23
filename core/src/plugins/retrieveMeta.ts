@@ -11,7 +11,10 @@ export const retrieveMeta: Plugin<[RetrieveMetaOptions?], Root> = (options = {})
         if (!node.data) {
           node.data = {};
         }
-        node.data.meta = node.properties['dataMeta'];
+        let metaString = node.properties['dataMeta'] as string;
+        if (typeof metaString === 'string') {
+          node.data.meta = metaString;
+        }
         delete node.properties['dataMeta'];
       }
     });
