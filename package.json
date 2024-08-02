@@ -50,6 +50,7 @@
     "node": ">=16.0.0"
   },
   "workspaces": [
+    "examples/**",
     "core",
     "website"
   ]
