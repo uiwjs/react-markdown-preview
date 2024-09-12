@@ -422,7 +422,14 @@ body[data-color-mode*='light'] {
   kbd {
     display: inline-block;
     padding: 3px 5px;
-    font: 11px ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    font:
+      11px ui-monospace,
+      SFMono-Regular,
+      SF Mono,
+      Menlo,
+      Consolas,
+      Liberation Mono,
+      monospace;
     line-height: 10px;
     color: var(--color-fg-default);
     vertical-align: middle;
@@ -461,7 +468,14 @@ body[data-color-mode*='light'] {
   kbd {
     display: inline-block;
     padding: 3px 5px;
-    font: 11px ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    font:
+      11px ui-monospace,
+      SFMono-Regular,
+      SF Mono,
+      Menlo,
+      Consolas,
+      Liberation Mono,
+      monospace;
     line-height: 10px;
     color: var(--color-fg-default);
     vertical-align: middle;
@@ -547,13 +561,27 @@ body[data-color-mode*='light'] {
 
   tt,
   code {
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      SF Mono,
+      Menlo,
+      Consolas,
+      Liberation Mono,
+      monospace;
     font-size: 12px;
   }
   pre {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      SF Mono,
+      Menlo,
+      Consolas,
+      Liberation Mono,
+      monospace;
     font-size: 12px;
     word-wrap: normal;
   }
@@ -919,6 +947,15 @@ body[data-color-mode*='light'] {
     padding: 16px;
     overflow: auto;
     display: block;
+    &::-webkit-scrollbar {
+      background: transparent;
+      width: 8px;
+      height: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-fg-muted);
+      border-radius: 10px;
+    }
   }
 }
 
