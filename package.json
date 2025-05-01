@@ -9,7 +9,7 @@
     "prepare": "npm run build && husky",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "pretty-quick": "pretty-quick --staged",
-    "version": "lerna version --no-changelog --no-git-tag-version --no-push",
+    "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",
     "test": "tsbb test",
     "coverage": "tsbb test --coverage",
     "clean": "lerna clean --yes"
