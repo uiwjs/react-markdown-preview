@@ -57,7 +57,7 @@
   "dependencies": {
     "@babel/runtime": "^7.17.2",
     "@uiw/copy-to-clipboard": "~1.0.12",
-    "react-markdown": "~9.0.1",
+    "react-markdown": "~9.1.0",
     "rehype-attr": "~3.0.1",
     "rehype-autolink-headings": "~7.1.0",
     "rehype-ignore": "^2.0.0",
