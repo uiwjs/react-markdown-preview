@@ -1,6 +1,6 @@
 {
   "name": "@examples/269",
-  "version": "5.1.4",
+  "version": "5.1.5",
   "private": true,
   "scripts": {
     "build": "kkt build",
