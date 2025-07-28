@@ -9,7 +9,7 @@
     "prepare": "npm run build && husky",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "pretty-quick": "pretty-quick --staged",
-    "version": "lerna version --no-changelog --no-git-tag-version --no-push",
+    "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",
     "test": "tsbb test",
     "coverage": "tsbb test --coverage",
     "clean": "lerna clean --yes"
@@ -37,11 +37,11 @@
     "husky": "~9.0.0",
     "prettier": "^3.0.0",
     "pretty-quick": "~4.0.0",
-    "lerna": "^8.0.0",
+    "lerna": "8.0.0",
     "react": "~18.2.0",
     "react-dom": "~18.2.0",
     "react-test-renderer": "~18.2.0",
-    "tsbb": "^4.2.4"
+    "tsbb": "^4.5.1"
   },
   "eslintConfig": {
     "extends": "react-app"
