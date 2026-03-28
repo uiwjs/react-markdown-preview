@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import TestRenderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
 import MarkdownPreview, { MarkdownPreviewRef } from '../core/src';
+import CommonMarkdownPreview from '../core/src/common';
 
 it('Should output a TestRenderer', async () => {
   const component = TestRenderer.create(<MarkdownPreview source="## Hello World!" />);
@@ -60,4 +61,13 @@ it('MarkdownPreview Ref', async () => {
     );
   }
   render(<Demo />);
+});
+
+it('Common MarkdownPreview entrypoint', async () => {
+  const component = TestRenderer.create(<CommonMarkdownPreview source="```js\nconst a = 1;\n```" />);
+  const tree = component.toJSON();
+  if (tree && !Array.isArray(tree)) {
+    expect(tree.type).toEqual('div');
+    expect(tree.props.className).toEqual('wmde-markdown wmde-markdown-color ');
+  }
 });

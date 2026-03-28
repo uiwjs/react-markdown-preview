@@ -15,6 +15,11 @@
       "types": "./lib/index.d.ts",
       "require": "./lib/index.js"
     },
+    "./common": {
+      "import": "./esm/common.js",
+      "types": "./lib/common.d.ts",
+      "require": "./lib/common.js"
+    },
     "./nohighlight": {
       "import": "./esm/nohighlight.js",
       "types": "./lib/nohighlight.d.ts",
@@ -40,6 +45,7 @@
     "dist",
     "lib",
     "esm",
+    "common.d.ts",
     "nohighlight.d.ts",
     "markdown.css",
     "src/**/*.{ts,tsx,less}"

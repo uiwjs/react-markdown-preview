@@ -216,6 +216,29 @@ export default function Demo() {
 }
 ```
 
+## Common Code Highlight
+
+Use `@uiw/react-markdown-preview/common` to keep syntax highlighting enabled with the `rehype-prism-plus/common` language subset. This is a middle ground between the default all-language build and `nohighlight`.
+
+```jsx mdx:preview
+import React from 'react';
+import MarkdownPreview from '@uiw/react-markdown-preview/common';
+
+const source = `
+\`\`\`js
+function greet(name) {
+  console.log('hello', name);
+}
+\`\`\`
+`;
+
+export default function Demo() {
+  return (
+    <MarkdownPreview source={source} style={{ padding: 16 }} />
+  );
+}
+```
+
 ## Remove Code Highlight
 
 The following example can help you _exclude code highlighting code_<!--rehype:style=color: #333;background-color: rgb(196 255 122 / 86%);--> from being included in the bundle. `@uiw/react-markdown-preview/nohighlight`<!--rehype:style=color: #e24444;--> component does not contain the `rehype-prism-plus` code highlighting package, `showLineNumbers` and `highlight line` functions will no longer work. ([#586](https://github.com/uiwjs/react-md-editor/issues/586))
