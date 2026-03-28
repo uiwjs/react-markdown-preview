@@ -43,7 +43,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
       return /^[A-Za-z0-9]+$/.test(element.tagName);
     },
   };
-  if (skipHtml) {
+  if (!skipHtml) {
     rehypePlugins.push(raw);
   }
   const remarkPlugins = [remarkAlert, ...(other.remarkPlugins || []), gfm];
@@ -53,7 +53,7 @@ export default React.forwardRef<MarkdownPreviewRef, MarkdownPreviewProps>((props
       <ReactMarkdown
         {...customProps}
         {...other}
-        skipHtml={skipHtml}
+        skipHtml={!skipHtml}
         urlTransform={urlTransform || defaultUrlTransform}
         rehypePlugins={pluginsFilter ? pluginsFilter('rehype', rehypePlugins) : rehypePlugins}
         remarkPlugins={pluginsFilter ? pluginsFilter('remark', remarkPlugins) : remarkPlugins}
